@@ -7,6 +7,7 @@ Animals
     GET Animals
     PATCH Update Animal
     DELETE Animal
+    PUT AnimalPhoto
 Users
     GET user by Id
     GET users
