@@ -1,7 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
+import { Card } from "semantic-ui-react";
 
-export const AnimalCard = ({ animal }) => (
-  <div style={{ height: 80, backgroundColor: "blue", margin: 10 }}>
-    {animal}
-  </div>
-);
+class AnimalCard extends Component {
+  render() {
+    return (
+      <Card color="green" className="animalCard">
+        <Card.Content>
+          <Card.Header>Doggie's Name</Card.Header>
+          <Card.Meta>DOB</Card.Meta>
+          <Card.Description>Breed, Age, ???</Card.Description>
+        </Card.Content>
+      </Card>
+    );
+  }
+}
+
+export { AnimalCard };
