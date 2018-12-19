@@ -5,11 +5,11 @@ export let animals = [
     dob: "2015-03-21",
     hostId: "1",
     status: "adoptable",
-    species: dog,
-    sex: male,
+    species: 'dog',
+    sex: 'male',
     breed: "lab mix",
     specialNeeds: false,
-    pregnant: this.species === "male" ? "NA" : "",
+    pregnant: false,
     fixed: true,
     animalFriendly: true,
     peopleFriendly: true,
@@ -18,7 +18,7 @@ export let animals = [
       "https://www.k9ofmine.com/wp-content/uploads/2017/05/lab-border-collie-mix.jpg"
     ],
     specialDiet: false,
-    dietNotes: this.specialDiet ? "" : "NA"
+    dietNotes: ""
   }
 ];
 
