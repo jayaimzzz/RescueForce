@@ -22,19 +22,10 @@ export let animals = [
   }
 ];
 
-export let users = [
-  {
-    id: 1,
-    type: "shelter",
-    name: 'HAND',
-    address: "123 Main Street",
-    phoneNumber: 8881234321,
-    photos: ["https://i.pinimg.com/originals/97/19/9c/97199cdda2fec20471eb88c8da150220.jpg"],
-    capacity: {cats: 100, dogs: 50}
-  },
+export let hosts = [
+  
   {
       id: 2,
-      type: "host",
       name: 'Kathy',
       address: "459 Roundabout way",
       phoneNumber: 5555551234,
@@ -44,7 +35,14 @@ export let users = [
 ];
 
 export let shelters = [
-    
+    {
+        id: 1,
+        name: 'HAND',
+        address: "123 Main Street",
+        phoneNumber: 8881234321,
+        photos: ["https://i.pinimg.com/originals/97/19/9c/97199cdda2fec20471eb88c8da150220.jpg"],
+        capacity: {cats: 100, dogs: 50}
+      }
 ]
 
 
