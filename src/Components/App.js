@@ -1,14 +1,12 @@
-import React, { Component } from "react";
 import React, { Component, Fragment } from "react";
 import { AnimalListView } from "./index";
-import { AnimalCard } from "./index";
 
-class App extends React {
+class App extends Component {
   render() {
     return (
       <Fragment>
+        <div>Rescue Force</div>
         <AnimalListView />
-        <AnimalCard />
       </Fragment>
     );
   }
