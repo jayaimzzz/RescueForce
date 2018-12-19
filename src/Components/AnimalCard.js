@@ -1,20 +1,18 @@
-import React from "react";
-import "../styles/ImageDisplayer.css";
-import stockIcon from "../styles/photos/stockIcon.gif";
+import React, { Component } from "react";
 import { Card } from "semantic-ui-react";
 
-class AnimalCard extends React.Component {
+class AnimalCard extends Component {
   render() {
     return (
       <Card color="green" className="animalCard">
-        <ImageDisplayer />
-        <Card.Header>Doggie's Name</Card.Header>
-        <Card.Meta>DOB</Card.Meta>
-        <Card.Description>Breed, Age, ???</Card.Description>
-        <Card.Footer>Host</Card.Footer>
+        <Card.Content>
+          <Card.Header>Doggie's Name</Card.Header>
+          <Card.Meta>DOB</Card.Meta>
+          <Card.Description>Breed, Age, ???</Card.Description>
+        </Card.Content>
       </Card>
     );
   }
 }
 
-export default AnimalCard;
+export { AnimalCard };
