@@ -1,4 +1,4 @@
-let animals = [
+export let animals = [
   {
     id: 1,
     name: "Toby",
@@ -22,7 +22,7 @@ let animals = [
   }
 ];
 
-let users = [
+export let users = [
   {
     id: 1,
     type: "shelter",
@@ -42,5 +42,9 @@ let users = [
       capacity: {cats: 0, dogs: 2}
   }
 ];
+
+export let shelters = [
+    
+]
 
 
