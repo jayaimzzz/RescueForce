@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
+
 // import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 // import thunk from "redux-thunk";
@@ -26,9 +27,20 @@ const Index = ({ store }) => (
   </Provider>
 );
 
-ReactDOM.render(<Index store={store} />, document.getElementById("root"));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  connectRouter(browserHistory)(rootReducer),
+  composeEnhancers(applyMiddleware(routerMiddleware(browserHistory), thunk))
+);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <ConnectedRouter basename={process.env.PUBLIC_URL} history={browserHistory}> 
+      <App />
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById("root")
+);
+// serviceWorker();
