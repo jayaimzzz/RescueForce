@@ -45,7 +45,6 @@ class App extends Component {
           <Route exact path="/admin" component={ShelterAdminPortal} />
           <Route exact path="/" render={this.renderMain} />
         </Switch>
-        <AnimalListView />
       </Fragment>
     );
   }
