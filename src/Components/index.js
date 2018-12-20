@@ -1,3 +1,5 @@
-import { AnimalListView } from './AnimalListView';
+import { AnimalListView } from "./AnimalListView";
+import { AnimalProfileView } from "./AnimalProfileView";
+import { FosterFamilyView } from "./FosterFamilyView";
 
-export { AnimalListView };
+export { AnimalListView, AnimalProfileView, FosterFamilyView };
