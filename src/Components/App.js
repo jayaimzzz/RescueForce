@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Route, Switch } from "react-router";
-import { AnimalListView, AnimalProfileView, FosterFamilyView } from "./index";
+import { AnimalListView, AnimalProfileView, HostView } from "./index";
 
 class App extends Component {
   render() {
@@ -8,7 +8,7 @@ class App extends Component {
       <Fragment>
         <div>Rescue Force</div>
         <Switch>
-          <Route exact path="/foster/:id" component={FosterFamilyView} />
+          <Route exact path="/host/:id" component={HostView} />
           <Route exact path="/animal/:id" component={AnimalProfileView} />
         </Switch>
         <AnimalListView />
