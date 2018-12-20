@@ -3,6 +3,8 @@ import { Card } from "semantic-ui-react";
 
 class AnimalCard extends Component {
   render() {
+    let animal = this.props.animal
+    console.log(animal)
     return (
       <Card color="green" className="animalCard">
         <Card.Content>
