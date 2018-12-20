@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { HostProfile } from "./HostProfile";
-import AnimalList from "../AnimalListView/AnimalList";
+import AnimalList from "../AnimalList";
 
 class HostProfileView extends Component {
   render() {
