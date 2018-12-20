@@ -8,9 +8,17 @@ import {
   PublicView,
   ShelterAdminPortal
 } from "./index";
+import { DevNav } from "./DevNav";
 import { CAT, DOG, EXOTIC } from "../Constants";
 
 class App extends Component {
+  renderMain = () => (
+    <Fragment>
+      <DevNav />
+      <PublicView />
+    </Fragment>
+  );
+
   render() {
     return (
       <Fragment>
@@ -35,7 +43,7 @@ class App extends Component {
             render={() => <AnimalListView type={EXOTIC} />}
           />
           <Route exact path="/admin" component={ShelterAdminPortal} />
-          <Route exact path="/" component={PublicView} />
+          <Route exact path="/" render={this.renderMain} />
         </Switch>
         <AnimalListView />
       </Fragment>
