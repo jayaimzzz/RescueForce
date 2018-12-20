@@ -1,5 +1,5 @@
 import { AnimalListView } from "./AnimalListView";
 import { AnimalProfileView } from "./AnimalProfileView";
-import { FosterFamilyView } from "./FosterFamilyView";
+import { HostView } from "./HostView";
 
-export { AnimalListView, AnimalProfileView, FosterFamilyView };
+export { AnimalListView, AnimalProfileView, HostView };
