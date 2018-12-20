@@ -1,11 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import { Header } from "./Header";
 
 class PublicView extends Component {
   render() {
     return (
-      <div style={{ height: 200, backgroundColor: "blueviolet" }}>
-        Public View
-      </div>
+      <Fragment>
+        <Header />
+        <div style={{ height: 200, backgroundColor: "blueviolet" }}>
+          Public View
+        </div>
+      </Fragment>
     );
   }
 }
