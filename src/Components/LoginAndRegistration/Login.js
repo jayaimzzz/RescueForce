@@ -20,10 +20,11 @@ class Login extends Component {
   };
 
   handleLogin = event => {
-    this.props.login({
-      username: this.state.username,
-      password: this.state.password
-    });
+    console.log("Login Button Clicked");
+    // this.props.login({
+    //   username: this.state.username,
+    //   password: this.state.password
+    // });
   };
 
   render() {
