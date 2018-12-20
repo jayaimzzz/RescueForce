@@ -5,6 +5,7 @@ import {
   AnimalProfileView,
   HostListView,
   HostProfileView,
+  PublicView,
   ShelterAdminPortal
 } from "./index";
 import { CAT, DOG, EXOTIC } from "../Constants";
@@ -34,6 +35,7 @@ class App extends Component {
             render={() => <AnimalListView type={EXOTIC} />}
           />
           <Route exact path="/admin" component={ShelterAdminPortal} />
+          <Route exact path="/" component={PublicView} />
         </Switch>
         <AnimalListView />
       </Fragment>
