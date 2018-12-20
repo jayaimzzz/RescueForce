@@ -27,5 +27,11 @@ export const DevNav = () => (
     <li>
       <Link to="/admin">Admin</Link>
     </li>
+    <li>
+      <Link to="/login">Log In</Link>
+    </li>
+    <li>
+      <Link to="/register">Register</Link>
+    </li>
   </ul>
 );

@@ -5,7 +5,9 @@ import {
   AnimalProfileView,
   HostListView,
   HostProfileView,
+  Login,
   PublicView,
+  Register,
   ShelterAdminPortal
 } from "./index";
 import { DevNav } from "./DevNav";
@@ -44,6 +46,8 @@ class App extends Component {
           />
           <Route exact path="/admin" component={ShelterAdminPortal} />
           <Route exact path="/" render={this.renderMain} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
         </Switch>
       </Fragment>
     );
