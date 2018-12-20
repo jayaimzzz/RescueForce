@@ -5,6 +5,7 @@ import {
   connectRouter,
   routerMiddleware
 } from "connected-react-router";
+import "semantic-ui-css/semantic.min.css";
 import App from "./Components/App";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";

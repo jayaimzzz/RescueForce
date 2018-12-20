@@ -2,7 +2,7 @@ import { AnimalListView } from "./AnimalListView";
 import { AnimalProfileView } from "./AnimalProfileView";
 import { HostListView } from "./HostListView";
 import { HostProfileView } from "./HostProfileView";
-import { Login } from "./LoginAndRegistration/Login";
+import Login from "./LoginAndRegistration/Login";
 import { Nav } from './Nav';
 import { PublicView } from "./PublicView";
 import { Register } from "./LoginAndRegistration/Register";
