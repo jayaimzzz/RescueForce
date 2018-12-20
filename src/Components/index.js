@@ -1,7 +1,7 @@
 import { AnimalListView } from "./AnimalListView";
 import { AnimalProfileView } from "./AnimalProfileView";
 import { HostListView } from "./HostListView";
-import { HostProfileView } from "./HostView";
+import { HostProfileView } from "./HostProfileView";
 import { PublicView } from "./PublicView";
 import { ShelterAdminPortal } from "./ShelterAdminPortal";
 
