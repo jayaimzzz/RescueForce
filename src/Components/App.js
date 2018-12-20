@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Route, Switch } from "react-router";
-import { AnimalListView, AnimalProfileView, HostView } from "./index";
+import { AnimalListView, AnimalProfileView, HostProfileView } from "./index";
 import { CAT, DOG, EXOTIC } from '../Constants';
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
       <Fragment>
         <div>Rescue Force</div>
         <Switch>
-          <Route exact path="/host/:id" component={HostView} />
+          <Route exact path="/host/:id" component={HostProfileView} />
           <Route exact path="/animal/:id" component={AnimalProfileView} />
           <Route exact path="/cats" render={() => <AnimalListView type={CAT}/>} />
           <Route exact path="/dogs" render={() => <AnimalListView type={DOG}/>} />
