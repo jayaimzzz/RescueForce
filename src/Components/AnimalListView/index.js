@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-import { AnimalList } from "./AnimalList";
+import AnimalList from "./AnimalList";
 import { AnimalFilter } from "./AnimalFilter";
 
 import { CAT, DOG, EXOTIC } from '../../Constants';
