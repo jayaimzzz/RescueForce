@@ -6,6 +6,7 @@ import {
   HostListView,
   HostProfileView,
   Login,
+  Nav,
   PublicView,
   Register,
   ShelterAdminPortal
@@ -25,6 +26,7 @@ class App extends Component {
     return (
       <Fragment>
         <div>Rescue Force</div>
+        <Nav />
         <Switch>
           <Route exact path="/host/:id" component={HostProfileView} />
           <Route exact path="/hosts" component={HostListView} />

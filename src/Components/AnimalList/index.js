@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { AnimalCard } from "../AnimalCard";
+import { AnimalCard } from "./AnimalCard";
 import { connectRouter } from "connected-react-router";
 import { connect } from "react-redux";
 
