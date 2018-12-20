@@ -46,4 +46,9 @@ export let shelters = [
       }
 ]
 
+export let loggedInUser = {
+  type: "host",
+  id: 1,
+  token: "AAAAAABBBB"
+}
 
