@@ -20,13 +20,13 @@ class ImageScroll extends Component {
     const images = this.props.images;
     return (
       <div className="ui segment" style={styles.segment}>
-        {images.map(image => (
+        {images.map((image, index) => (
           <Image
             style={styles.img}
             size="medium"
             bordered
             src={image}
-            key={image}
+            key={`${this.props.animalId}imgNum${index}`}
           />
         ))}
       </div>
