@@ -1,7 +1,48 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Image } from "semantic-ui-react";
 
-export const ImageScroll = () => (
-  <div style={{ height: 80, backgroundColor: "darkcyan" }}>
-    Images of The Animal
-  </div>
-);
+const styles = {
+  img: {
+    display: "inline-block",
+    borderRadius: "5px",
+    transition: "transform .2s"
+  },
+  segment: {
+    overflowX: "scroll",
+    whiteSpace: "nowrap",
+    borderRadius: "5px"
+  }
+};
+
+class ImageScroll extends Component {
+  render() {
+    const images = this.props.images;
+    return (
+      <div className="ui segment" style={styles.segment}>
+        {images.map((image, index) => (
+          <Image
+            style={styles.img}
+            size="medium"
+            bordered
+            src={image}
+            key={`${this.props.animalId}imgNum${index}`}
+          />
+        ))}
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state, props) => {
+  return {
+    images: state.animals.find(animal => animal.id === props.animalId).pictures
+  };
+};
+
+const mapDispatchToProps = null;
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ImageScroll);

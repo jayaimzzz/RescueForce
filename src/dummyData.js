@@ -15,8 +15,11 @@ export let animals = [
     animalFriendly: true,
     peopleFriendly: true,
     pictures: [
-      "https://www.k9ofmine.com/wp-content/uploads/2017/05/borador-dog.jpg",
-      "https://www.k9ofmine.com/wp-content/uploads/2017/05/lab-border-collie-mix.jpg"
+      "https://imgix.ranker.com/user_node_img/50022/1000436794/original/i-m-hungry-photo-u1?w=650&q=60&fm=jpg&fit=crop&crop=faces%22",
+      "https://www.k9ofmine.com/wp-content/uploads/2017/05/lab-border-collie-mix.jpg",
+      "https://imgix.ranker.com/user_node_img/50026/1000503480/original/awkward-turtle-photo-u2?w=650&q=50&fm=jpg&fit=crop&crop=faces",
+      "https://imgix.ranker.com/user_node_img/50022/1000436792/original/can-i-jump-in-can-i-can-i-photo-u1?w=650&q=60&fm=jpg&fit=crop&crop=faces%22",
+      "https://imgix.ranker.com/user_node_img/50022/1000436787/original/i-ll-be-your-best-friend-forever-photo-u1?w=650&q=60&fm=jpg&fit=crop&crop=faces%22",
     ],
     specialDiet: false,
     dietNotes: ""
