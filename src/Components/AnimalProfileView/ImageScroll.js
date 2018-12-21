@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Image } from "semantic-ui-react";
 
 const styles = {
   img: {
@@ -11,7 +12,7 @@ const styles = {
     overflowX: "scroll",
     whiteSpace: "nowrap",
     borderRadius: "5px"
-  },
+  }
 };
 
 class ImageScroll extends Component {
@@ -21,7 +22,12 @@ class ImageScroll extends Component {
     return (
       <div class="ui segment" style={styles.segment}>
         {images.map(image => (
-          <img style={styles.img} class="ui medium image bordered" src={image}/>
+          <Image
+            style={styles.img}
+            size="medium"
+            bordered
+            src={image}
+          />
         ))}
       </div>
     );
