@@ -17,16 +17,16 @@ const styles = {
 
 class ImageScroll extends Component {
   render() {
-    console.log(this.props);
     const images = this.props.images;
     return (
-      <div class="ui segment" style={styles.segment}>
+      <div className="ui segment" style={styles.segment}>
         {images.map(image => (
           <Image
             style={styles.img}
             size="medium"
             bordered
             src={image}
+            key={image}
           />
         ))}
       </div>
@@ -36,7 +36,7 @@ class ImageScroll extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    images: state.animals.find(animal => animal.id == props.animalId).pictures
+    images: state.animals.find(animal => animal.id === props.animalId).pictures
   };
 };
 
