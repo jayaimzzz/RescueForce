@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { HostProfile } from "./HostProfile";
+import HostProfile from "./HostProfile";
 import AnimalList from "../AnimalList";
 
 class HostProfileView extends Component {
@@ -10,7 +10,7 @@ class HostProfileView extends Component {
           Host Profile View
         </div>
         <div style={{ float: "left", width: "fit-content" }}>
-          <HostProfile />
+          <HostProfile hostId="1"/>
         </div>
         <div style={{ float: "left" }}>
           <AnimalList host="hostId" />

@@ -31,12 +31,13 @@ export let hosts = [
   {
       id: "1",
       name: 'Kathy',
-      shelterID: "1",
+      shelterId: "1",
       approved: true,
       address: "459 Roundabout way",
       phoneNumber: "5555551234",
-      photos: ["https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwiZjPLErazfAhUq7IMKHXUdBAwQjRx6BAgBEAU&url=http%3A%2F%2Fwww.arottalove.net%2Fblog%2F2008%2F08%2Fcrazy-dog-lady%2F&psig=AOvVaw2zQhYuLmZBFpHsh7mGnArI&ust=1545324769681218"],
-      capacity: {cats: 0, dogs: 2}
+      photos: ["https://barkpost.com/wp-content/uploads/2015/12/crazy-dog-lady-5.jpg"],
+      capacity: {cats: 0, dogs: 2},
+      healthEmergency: false
   }
 ];
 
