@@ -4,14 +4,6 @@ import { Image, Button, Card, Icon } from "semantic-ui-react";
 
 class HostProfile extends Component {
   render() {
-    // const styles = {
-    //   container: {
-    //     display: "inline-block",
-    //     backgroundColor: "BurlyWood",
-    //     height: 200,
-    //     width: "40vw"
-    //   }
-    // };
     const host = this.props.host;
     const hostProfilePic = host.photos[0];
     const shelter = this.props.shelter;
