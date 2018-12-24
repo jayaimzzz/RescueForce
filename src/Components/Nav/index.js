@@ -16,15 +16,14 @@ class Nav extends Component {
             width: "100%",
             backgroundColor: "#ebebeb",
             position: "fixed",
-            top: "10%",
-            left: "0"
+            height: "8%"
           }}
         >
           <ul
-            className="ui header"
+            className="ui section"
             style={{ listStyleType: "none", display: "flex" }}
           >
-            <li style={{ width: "100%" }}>
+            <li className="ui breadcome" style={{ width: "100%" }}>
               <a
                 href="#top"
                 style={{
@@ -35,7 +34,7 @@ class Nav extends Component {
                 Top
               </a>
             </li>
-            <li style={{ width: "100%" }}>
+            <li className="ui breadcome" style={{ width: "100%" }}>
               <a
                 href="#section-one"
                 style={{ padding: "0.6em 10%", width: "80%" }}
@@ -43,7 +42,7 @@ class Nav extends Component {
                 One
               </a>
             </li>
-            <li style={{ width: "100%" }}>
+            <li className="ui breadcome" style={{ width: "100%" }}>
               <a
                 href="#section-two"
                 style={{ padding: "0.6em 10%", width: "80%" }}
@@ -51,7 +50,7 @@ class Nav extends Component {
                 Two
               </a>
             </li>
-            <li style={{ width: "100%" }}>
+            <li className="ui breadcome" style={{ width: "100%" }}>
               <a
                 href="#section-three"
                 style={{ padding: "0.6em 10%", width: "80%" }}
@@ -59,7 +58,7 @@ class Nav extends Component {
                 Three
               </a>
             </li>
-            <li style={{ width: "100%" }}>
+            <li className="ui breadcome" style={{ width: "100%" }}>
               <a
                 href="#section-four"
                 style={{ padding: "0.6em 10%", width: "80%" }}
@@ -67,7 +66,7 @@ class Nav extends Component {
                 Four
               </a>
             </li>
-            <li style={{ width: "100%" }}>
+            <li className="ui breadcome" style={{ width: "100%" }}>
               <a
                 href="#section-five"
                 style={{ padding: "0.6em 10%", width: "80%" }}
