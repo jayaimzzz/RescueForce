@@ -12,13 +12,15 @@ const styles = {
     backgroundPosition: "50% 50%",
     backgroundRepeat: "no repeat",
     backgroundSize: "cover",
-    padding: "10px"
+    padding: "5px",
+    backgroundColor: "#dadee5",
+    margin: "2px"
   },
   segment: {
     overflowX: "scroll",
     whiteSpace: "nowrap",
     borderRadius: "5px",
-    backgroundColor: "darkgrey"
+    backgroundColor: "#b3c1d6"
   }
 };
 
