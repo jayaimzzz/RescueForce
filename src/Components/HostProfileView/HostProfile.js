@@ -30,9 +30,11 @@ class HostProfile extends Component {
               Fostering for {shelter.name}
             </Card.Content>
           )}
+          {this.props.canEdit && (
           <Card.Content extra>
           <Button onClick={()=>console.log('edit profile button clicked')}><Icon name='edit'/>Edit Profile</Button>
           </Card.Content>
+          )}
         </Card.Content>
       </Card>
     );
