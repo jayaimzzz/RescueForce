@@ -1,5 +1,13 @@
-import React from 'react';
+import React, { Component, Fragment } from "react";
 
-export const Nav = () => (
-    <div style={{height: 40, backgroundColor: 'chartreuse'}} >Navigate</div>
-);
+class Nav extends Component {
+  render() {
+    return (
+      <Fragment>
+        <div> Navigation BAr</div>
+      </Fragment>
+    );
+  }
+}
+
+export { Nav };
