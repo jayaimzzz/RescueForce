@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom"
 import MiniListOfAnimals from "./MiniListOfAnimals"
 import {
   Image,
@@ -29,11 +30,9 @@ class HostCard extends Component {
     return (
         <Card raised={true} fluid={true}>
           <Card.Content>
-            <Image floated="left" size="tiny" src={hostProfilePic} />
+            <Image as={Link} to={"/host/" + host.id} floated="left" size="tiny" src={hostProfilePic} />
             <Card.Header>{host.name}</Card.Header>
-            <div className={styles.imageContainer}>
-                {this.props.animals.map(animal => <MiniListOfAnimals hostId={host.id}/>)}
-            </div>
+                <MiniListOfAnimals hostId={host.id}/>
           </Card.Content>
         </Card>
     );
