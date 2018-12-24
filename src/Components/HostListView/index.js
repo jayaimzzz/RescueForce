@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import HostCard from "./HostCard";
 import { HostFilter } from "./HostFilter";
 
-const tempDevelopmentHosts = ["one", "two", "three", "four"];
+// const tempDevelopmentHosts = ["one", "two", "three", "four"];
 
 class HostListView extends Component {
   render() {
@@ -11,8 +11,8 @@ class HostListView extends Component {
       <div style={{ height: 1000, backgroundColor: "orange", margin: 10 }}>
         Host List View
         <HostFilter />
-        {tempDevelopmentHosts.map(host => (
-          <HostCard key={host} host={host} />
+        {this.props.hosts.map(host => (
+          <HostCard key={"hostId" + host.id } host={host} />
         ))}
       </div>
     );
@@ -20,9 +20,14 @@ class HostListView extends Component {
 }
 
 const mapStateToProps = state => {
-  const hosts = state.hosts
-}
+  return {
+    hosts: state.hosts
+  };
+};
 
 const mapDispatchToProps = null;
 
-export default connect(mapStateToProps, mapDispatchToProps)(HostListView);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HostListView);
