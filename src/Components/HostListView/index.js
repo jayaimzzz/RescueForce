@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { HostCard } from "./HostCard";
+import { connect } from "react-redux";
+import HostCard from "./HostCard";
 import { HostFilter } from "./HostFilter";
 
 const tempDevelopmentHosts = ["one", "two", "three", "four"];
@@ -18,4 +19,10 @@ class HostListView extends Component {
   }
 }
 
-export { HostListView };
+const mapStateToProps = state => {
+  const hosts = state.hosts
+}
+
+const mapDispatchToProps = null;
+
+export default connect(mapStateToProps, mapDispatchToProps)(HostListView);
