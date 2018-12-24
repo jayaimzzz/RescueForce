@@ -17,10 +17,16 @@ class AnimalList extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    animals: state.animals
-  };
+const mapStateToProps = (state, props) => {
+  if (props.hostId){
+    return {
+      animals: state.animals.filter(animal => animal.hostId === props.hostId)
+    };
+  } else {
+    return {
+      animals: state.animals
+    }
+  }
 };
 
 const maptDispatchToProps = null;

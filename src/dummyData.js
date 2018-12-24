@@ -23,6 +23,31 @@ export let animals = [
     ],
     specialDiet: false,
     dietNotes: ""
+  },
+  {
+    id: "2",
+    name: "Toby2",
+    dob: "2015-03-21",
+    shelterId: "1",
+    hostId: "2",
+    status: "adoptable",
+    species: 'dog',
+    sex: 'male',
+    breed: "lab mix",
+    specialNeeds: false,
+    pregnant: false,
+    fixed: true,
+    animalFriendly: true,
+    peopleFriendly: true,
+    pictures: [
+      "https://imgix.ranker.com/user_node_img/50022/1000436794/original/i-m-hungry-photo-u1?w=650&q=60&fm=jpg&fit=crop&crop=faces%22",
+      "https://www.k9ofmine.com/wp-content/uploads/2017/05/lab-border-collie-mix.jpg",
+      "https://imgix.ranker.com/user_node_img/50026/1000503480/original/awkward-turtle-photo-u2?w=650&q=50&fm=jpg&fit=crop&crop=faces",
+      "https://imgix.ranker.com/user_node_img/50022/1000436792/original/can-i-jump-in-can-i-can-i-photo-u1?w=650&q=60&fm=jpg&fit=crop&crop=faces%22",
+      "https://imgix.ranker.com/user_node_img/50022/1000436787/original/i-ll-be-your-best-friend-forever-photo-u1?w=650&q=60&fm=jpg&fit=crop&crop=faces%22",
+    ],
+    specialDiet: false,
+    dietNotes: ""
   }
 ];
 
@@ -31,12 +56,13 @@ export let hosts = [
   {
       id: "1",
       name: 'Kathy',
-      shelterID: "1",
+      shelterId: "1",
       approved: true,
       address: "459 Roundabout way",
       phoneNumber: "5555551234",
-      photos: ["https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwiZjPLErazfAhUq7IMKHXUdBAwQjRx6BAgBEAU&url=http%3A%2F%2Fwww.arottalove.net%2Fblog%2F2008%2F08%2Fcrazy-dog-lady%2F&psig=AOvVaw2zQhYuLmZBFpHsh7mGnArI&ust=1545324769681218"],
-      capacity: {cats: 0, dogs: 2}
+      photos: ["https://barkpost.com/wp-content/uploads/2015/12/crazy-dog-lady-5.jpg"],
+      capacity: {cats: 0, dogs: 2},
+      healthEmergency: false
   }
 ];
 
