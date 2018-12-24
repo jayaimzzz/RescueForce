@@ -6,7 +6,13 @@ const styles = {
   img: {
     display: "inline-block",
     borderRadius: "5px",
-    transition: "transform .2s"
+    transition: "transform .2s",
+    width: "120px",
+    height: "100px",
+    backgroundPosition: "50% 50%",
+    backgroundRepeat: "no repeat",
+    backgroundSize: "cover",
+    padding: "10px"
   },
   segment: {
     overflowX: "scroll",
