@@ -142,8 +142,8 @@ export let animals = [
     dietNotes: ""
   },
   {
-    id: "Socks",
-    name: "Chance",
+    id: "7",
+    name: "Socks",
     dob: "2015-03-21",
     shelterId: "1",
     hostId: "4",
@@ -165,7 +165,7 @@ export let animals = [
     dietNotes: ""
   },
   {
-    id: "9",
+    id: "8",
     name: "Martha",
     dob: "2015-03-21",
     shelterId: "1",
@@ -181,6 +181,100 @@ export let animals = [
     peopleFriendly: true,
     pictures: [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Greyhound_smiling.JPG/220px-Greyhound_smiling.JPG",
+    ],
+    specialDiet: false,
+    dietNotes: ""
+  },
+  {
+    id: "9",
+    name: "Gus",
+    dob: "2015-03-21",
+    shelterId: "1",
+    hostId: "1",
+    status: "foster",
+    species: "dog",
+    sex: "male",
+    breed: "German Shepherd",
+    specialNeeds: false,
+    pregnant: false,
+    fixed: true,
+    animalFriendly: true,
+    peopleFriendly: true,
+    pictures: [
+      "https://www.dogbreedinfo.com/images32/GermanShepherdGSDDogCrixus7MonthsOld85Pounds.jpg",
+      "https://vetstreet.brightspotcdn.com/dims4/default/daea1bb/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2F98%2F5c%2Fa89605db40e5bfd72ff6d0e41ae2%2Fgerman-shepherd-ap-aozjlq-645.jpg",
+      "https://vetstreet.brightspotcdn.com/dims4/default/1020ad3/2147483647/crop/696x410%2B0%2B29/resize/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2Fc6%2Fd9%2F5a1117354115962444019a2a10c1%2Fgerman-shepherd-ap-lkwegz.jpg"
+    ],
+    specialDiet: false,
+    dietNotes: ""
+  },
+  {
+    id: "10",
+    name: "Keith",
+    dob: "2015-03-21",
+    shelterId: "1",
+    hostId: "1",
+    status: "foster",
+    species: "dog",
+    sex: "male",
+    breed: "White German Sheperd",
+    specialNeeds: false,
+    pregnant: false,
+    fixed: true,
+    animalFriendly: true,
+    peopleFriendly: true,
+    pictures: [
+      "https://animalso.com/wp-content/uploads/2016/12/white-shepherd_3.jpg",
+      "https://animalso.com/wp-content/uploads/2016/12/white-german-shepherd_2.jpg",
+      "https://animalso.com/wp-content/uploads/2016/12/white-german-shepherd_4.jpg",
+      "https://animalso.com/wp-content/uploads/2016/12/white-german-shepherd_5.jpg",
+      "https://animalso.com/wp-content/uploads/2016/12/white-german-shepherd_5.jpg",
+      "https://animalso.com/wp-content/uploads/2016/12/white-shepherd_5.jpg"
+    ],
+    specialDiet: false,
+    dietNotes: ""
+  },
+  {
+    id: "11",
+    name: "Martha",
+    dob: "2015-03-21",
+    shelterId: "1",
+    hostId: "1",
+    status: "foster",
+    species: "dog",
+    sex: "female",
+    breed: "Yellow Lab",
+    specialNeeds: false,
+    pregnant: false,
+    fixed: true,
+    animalFriendly: true,
+    peopleFriendly: true,
+    pictures: [
+      "https://ybxzcgnc7b-flywheel.netdna-ssl.com/wp-content/uploads/2011/12/yellow-lab.jpg"
+    ],
+    specialDiet: false,
+    dietNotes: ""
+  },
+  {
+    id: "12",
+    name: "Mittens",
+    dob: "2015-03-21",
+    shelterId: "1",
+    hostId: "5",
+    status: "adoptable",
+    species: "cat",
+    sex: "female",
+    breed: "",
+    specialNeeds: false,
+    pregnant: false,
+    fixed: true,
+    animalFriendly: true,
+    peopleFriendly: true,
+    pictures: [
+      "https://2dbdd5116ffa30a49aa8-c03f075f8191fb4e60e74b907071aee8.ssl.cf1.rackcdn.com/10949529_1461710566.1341_funddescription.jpg",
+      "https://2dbdd5116ffa30a49aa8-c03f075f8191fb4e60e74b907071aee8.ssl.cf1.rackcdn.com/10949529_1461705882.52_funddescription.jpg",
+      "https://2dbdd5116ffa30a49aa8-c03f075f8191fb4e60e74b907071aee8.ssl.cf1.rackcdn.com/10949529_1461710288.5379_funddescription.jpg",
+      "https://2dbdd5116ffa30a49aa8-c03f075f8191fb4e60e74b907071aee8.ssl.cf1.rackcdn.com/10949529_1461710313.2473_funddescription.jpg"
     ],
     specialDiet: false,
     dietNotes: ""
@@ -251,7 +345,7 @@ export let hosts = [
       "http://magdalenabibikwesterlund.com/wp-content/uploads/2018/11/CDL-BANNER-1.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Retired_Racing_Greyhound_Relaxes.png/220px-Retired_Racing_Greyhound_Relaxes.png"
     ],
-    capacity: { cats: 0, dogs: 5 },
+    capacity: { cats: 2, dogs: 5 },
     healthEmergency: false
   }
 ];
