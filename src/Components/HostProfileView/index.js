@@ -4,7 +4,7 @@ import AnimalList from "../AnimalList";
 
 class HostProfileView extends Component {
   render() {
-    const hostId = "1"
+    const hostId = this.props.match.params.id
     return (
       <Fragment>
         <div style={{ height: 200, backgroundColor: "red", margin: 10 }}>

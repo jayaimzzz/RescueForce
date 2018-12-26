@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Image, Button, Card, Icon } from "semantic-ui-react";
+import HostVacancies from "./HostVacancies";
 
 class HostProfile extends Component {
   render() {
@@ -16,6 +17,7 @@ class HostProfile extends Component {
           <Card.Description>Address: {host.address}</Card.Description>
           <Card.Description>Phone Number: {host.phoneNumber}</Card.Description>
           <Card.Description>Capacity: Cats:{host.capacity.cats}, Dogs:{host.capacity.dogs}</Card.Description>
+          <HostVacancies host={host}/>
           {host.approved && (
             <Card.Content>
               <Image src={shelterProfilePic} avatar={true} size="massive" />

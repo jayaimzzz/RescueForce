@@ -4,10 +4,11 @@ import { AnimalProfile } from "./AnimalProfile";
 
 class AnimalProfileView extends Component {
   render() {
+    const animalId = this.props.match.params.id 
     return (
       <div style={{ height: 350, backgroundColor: "yellow", margin: 10 }}>
         Animal Profile View
-        <ImageScroll animalId="1"/>
+        <ImageScroll animalId={animalId}/>
         <AnimalProfile />
       </div>
     );

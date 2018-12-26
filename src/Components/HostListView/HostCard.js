@@ -1,5 +1,56 @@
-import React from 'react';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import MiniListOfAnimals from "./AnimalImgScroll";
+import HostVacancies from "../HostProfileView/HostVacancies"
+import {
+  Image,
+  Grid,
+  Container,
+  Segment
+} from "semantic-ui-react";
 
-export const HostCard = () => (
-    <div style={{height: 80, backgroundColor: "cornsilk"}}>Foster Home Card</div>
-);
+class HostCard extends Component {
+  render() {
+    const styles = {
+    };
+    const host = this.props.host;
+    const hostProfilePic = host.photos[0];
+    return (
+      <Segment>
+        <Grid>
+          <Grid.Column width={2}>
+            <Image
+              as={Link}
+              to={"/host/" + host.id}
+              floated="left"
+              size="tiny"
+              src={hostProfilePic}
+            />
+          </Grid.Column>
+          <Grid.Column width={4}>
+            <Container>
+              <h4>{host.name}</h4>
+              <span>{host.address}</span>
+            </Container>
+          </Grid.Column>
+          <Grid.Column width={3}>
+            <HostVacancies host={host}/>
+          </Grid.Column>
+          <Grid.Column width={7}>
+            <MiniListOfAnimals hostId={host.id} />
+          </Grid.Column>
+        </Grid>
+      </Segment>
+    );
+  }
+}
+
+const mapStateToProps = null;
+
+const mapDispatchToProps = null;
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HostCard);
