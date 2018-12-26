@@ -27,7 +27,6 @@ class HostCard extends Component {
     };
     const host = this.props.host;
     const hostProfilePic = host.photos[0];
-    console.log(this.props.animals);
     return (
       <Segment>
         <Grid columns={3}>
