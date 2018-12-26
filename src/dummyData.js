@@ -287,7 +287,7 @@ export let hosts = [
     name: "Kathy",
     shelterId: "1",
     approved: true,
-    address: "459 Roundabout way",
+    address: "346 Roundabout way",
     phoneNumber: "5555551234",
     photos: [
       "https://barkpost.com/wp-content/uploads/2015/12/crazy-dog-lady-5.jpg"
@@ -300,7 +300,7 @@ export let hosts = [
     name: "Eleanor",
     shelterId: "1",
     approved: true,
-    address: "459 Roundabout way",
+    address: "1239 Roundabout way",
     phoneNumber: "5555551234",
     photos: [
       "https://vignette.wikia.nocookie.net/simpsons/images/b/b5/230px-Eleanor_Abernathy.png"

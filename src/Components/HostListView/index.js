@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import HostCard from "./HostCard";
 import { HostFilter } from "./HostFilter";
 
-// const tempDevelopmentHosts = ["one", "two", "three", "four"];
-
 class HostListView extends Component {
   render() {
     return (
