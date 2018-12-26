@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import MiniListOfAnimals from "./AnimalImgScroll";
+import HostVacancies from "../HostProfileView/HostVacancies"
 import {
   Image,
   Grid,
@@ -12,15 +13,7 @@ import {
 class HostCard extends Component {
   render() {
     const styles = {
-      vacancies: {
-        color: "green"
-      },
-      noVacancies: {
-        color: "red"
-      }
     };
-    const catVacancies = this.props.vacancies.cat;
-    const dogVacancies = this.props.vacancies.dog;
     const host = this.props.host;
     const hostProfilePic = host.photos[0];
     return (
@@ -42,28 +35,7 @@ class HostCard extends Component {
             </Container>
           </Grid.Column>
           <Grid.Column width={3}>
-            <Segment>
-              <h5>Vacancies</h5>
-              {catVacancies !== 0 && (
-                <p
-                  style={
-                    catVacancies > 0 ? styles.vacancies : styles.noVacancies
-                  }
-                >
-                  Cat: {catVacancies}
-                </p>
-              )}
-              {dogVacancies !== 0 && (
-                <p
-                  style={
-                    dogVacancies > 0 ? styles.vacancies : styles.noVacancies
-                  }
-                >
-                  Dog: {dogVacancies}
-                </p>
-              )}
-              {catVacancies === 0 && dogVacancies === 0 && <p>none</p>}
-            </Segment>
+            <HostVacancies host={host}/>
           </Grid.Column>
           <Grid.Column width={7}>
             <MiniListOfAnimals hostId={host.id} />
@@ -74,23 +46,7 @@ class HostCard extends Component {
   }
 }
 
-const mapStateToProps = (state, props) => {
-  const animalsAtHost = state.animals.filter(
-    animal => animal.hostId === props.host.id
-  );
-  const qtyCatsAtHost = animalsAtHost.filter(animal => animal.species === "cat")
-    .length;
-  const qtyDogsAtHost = animalsAtHost.filter(animal => animal.species === "dog")
-    .length;
-  const catVacancies = parseInt(props.host.capacity.cats) - qtyCatsAtHost;
-  const dogVacancies = parseInt(props.host.capacity.dogs) - qtyDogsAtHost;
-  return {
-    vacancies: {
-      cat: catVacancies,
-      dog: dogVacancies
-    }
-  };
-};
+const mapStateToProps = null;
 
 const mapDispatchToProps = null;
 
