@@ -1,5 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
+import "./Header.css";
 
-export const Header = () => (
-  <div style={{ height: 100, backgroundColor: "coral" }}>Rotating Header</div>
-);
+class Header extends Component {
+  render() {
+    return <div className="container">Hello There</div>;
+  }
+}
+
+export { Header };
