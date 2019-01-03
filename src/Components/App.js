@@ -14,8 +14,7 @@ import {
 } from "./index";
 import { DevNav } from "./DevNav";
 import { CAT, DOG, EXOTIC } from "../Constants";
-import { getShelterById } from "../ActionCreators"
-
+import { getShelterById } from "../ActionCreators";
 
 class App extends Component {
   renderMain = () => (
@@ -26,9 +25,9 @@ class App extends Component {
   );
 
   componentDidMount = () => {
-    this.props.getShelterById("5c2511cafd2a4e05c5db0a60")
-  }
-  
+    this.props.getShelterById("5c2511cafd2a4e05c5db0a60");
+  };
+
   render() {
     return (
       <Fragment>
@@ -41,17 +40,17 @@ class App extends Component {
           <Route
             exact
             path="/cats"
-            render={() => <AnimalListView type={CAT} />}
+            render={() => <AnimalListView animalType={CAT} />}
           />
           <Route
             exact
             path="/dogs"
-            render={() => <AnimalListView type={DOG} />}
+            render={() => <AnimalListView animalType={DOG} />}
           />
           <Route
             exact
             path="/exotics"
-            render={() => <AnimalListView type={EXOTIC} />}
+            render={() => <AnimalListView animalType={EXOTIC} />}
           />
           <Route exact path="/admin" component={ShelterAdminPortal} />
           <Route exact path="/" render={this.renderMain} />
@@ -68,8 +67,13 @@ const mapStateToProps = null;
 const mapDispatchToProps = dispatch => {
   return {
     getShelterById: shelterId => dispatch(getShelterById(shelterId))
-  }
-}
+  };
+};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);
 // export default App;

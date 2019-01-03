@@ -1,9 +1,13 @@
-import { animals } from '../dummyData'
+import { animals } from "../dummyData";
+import { GET_ANIMALS_LIST } from "../ActionCreators/animalListActionCreators";
 
-const initState = animals
+const initState = animals;
 
 export const AnimalsReducer = (state = initState, action) => {
-    switch(action.type){
-        default: return state
-    }
-}
+  switch (action.type) {
+    case GET_ANIMALS_LIST:
+      return action.payload;
+    default:
+      return state;
+  }
+};

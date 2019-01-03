@@ -1,17 +1,19 @@
-import React, { Fragment } from "react";
+import React, { Component, Fragment } from "react";
 
 import AnimalList from "../AnimalList";
 import { AnimalFilter } from "./AnimalFilter";
 
-import { CAT, DOG, EXOTIC } from '../../Constants';
+class AnimalListView extends Component {
+  render() {
+    const { animalType } = this.props;
+    console.log(animalType);
+    return (
+      <Fragment>
+        <AnimalFilter />
+        <AnimalList filter={{ species: animalType }} />
+      </Fragment>
+    );
+  }
+}
 
-export const AnimalListView = (props) => {
-  const type = props.type;
-
-  return (
-    <Fragment>
-      <AnimalFilter />
-      <AnimalList />
-    </Fragment>
-  );
-};
+export default AnimalListView;

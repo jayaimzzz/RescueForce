@@ -366,5 +366,6 @@ export let shelters = [
 export let loggedInUser = {
   type: "host",
   id: "1",
-  token: "AAAAAABBBB"
+  token: ''
+  // token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjMmU2MmI4OTM3NmI0MTY2YWE5MDdmNSIsInR5cGUiOiJob3N0IiwiaWF0IjoxNTQ2NTQ4ODQ0LCJleHAiOjE1NDY1NjMyNDR9.7bf2C2em_erM7DarNlgut5cdVDpXbmNE9u_Hox3fcJ0",
 };
