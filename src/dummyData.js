@@ -282,72 +282,72 @@ export let animals = [
 ];
 
 export let hosts = [
-  {
-    id: "1",
-    name: "Kathy",
-    shelterId: "5c2511cafd2a4e05c5db0a60",
-    approved: true,
-    address: "346 Roundabout way",
-    phoneNumber: "5555551234",
-    photos: [
-      "https://barkpost.com/wp-content/uploads/2015/12/crazy-dog-lady-5.jpg"
-    ],
-    capacity: { cats: 0, dogs: 2 },
-    healthEmergency: false
-  },
-  {
-    id: "2",
-    name: "Eleanor",
-    shelterId: "5c2511cafd2a4e05c5db0a60",
-    approved: true,
-    address: "1239 Roundabout way",
-    phoneNumber: "5555551234",
-    photos: [
-      "https://vignette.wikia.nocookie.net/simpsons/images/b/b5/230px-Eleanor_Abernathy.png"
-    ],
-    capacity: { cats: 11, dogs: 0 },
-    healthEmergency: false
-  },
-  {
-    id: "3",
-    name: "Dan",
-    shelterId: "5c2511cafd2a4e05c5db0a60",
-    approved: true,
-    address: "459 Roundabout way",
-    phoneNumber: "5555551234",
-    photos: [
-      "http://cdn.lifebuzz.com/images/228720/lifebuzz-fc0aeeaa36ba8877d195e0be9f180690-limit_2000.jpg"
-    ],
-    capacity: { cats: 0, dogs: 1 },
-    healthEmergency: false
-  },
-  {
-    id: "4",
-    name: "Frank",
-    shelterId: "5c2511cafd2a4e05c5db0a60",
-    approved: true,
-    address: "459 Roundabout way",
-    phoneNumber: "5555551234",
-    photos: [
-      "https://cdn.fstoppers.com/wp-content/uploads/2013/06/1.jpg"
-    ],
-    capacity: { cats: 2, dogs: 1 },
-    healthEmergency: false
-  },
-  {
-    id: "5",
-    name: "Maggie",
-    shelterId: "5c2511cafd2a4e05c5db0a60",
-    approved: true,
-    address: "459 Roundabout way",
-    phoneNumber: "5555551234",
-    photos: [
-      "http://magdalenabibikwesterlund.com/wp-content/uploads/2018/11/CDL-BANNER-1.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Retired_Racing_Greyhound_Relaxes.png/220px-Retired_Racing_Greyhound_Relaxes.png"
-    ],
-    capacity: { cats: 2, dogs: 5 },
-    healthEmergency: false
-  }
+  // {
+  //   id: "1",
+  //   name: "Kathy",
+  //   shelterId: "5c2511cafd2a4e05c5db0a60",
+  //   approved: true,
+  //   address: "346 Roundabout way",
+  //   phoneNumber: "5555551234",
+  //   photos: [
+  //     "https://barkpost.com/wp-content/uploads/2015/12/crazy-dog-lady-5.jpg"
+  //   ],
+  //   capacity: { cats: 0, dogs: 2 },
+  //   healthEmergency: false
+  // },
+  // {
+  //   id: "2",
+  //   name: "Eleanor",
+  //   shelterId: "5c2511cafd2a4e05c5db0a60",
+  //   approved: true,
+  //   address: "1239 Roundabout way",
+  //   phoneNumber: "5555551234",
+  //   photos: [
+  //     "https://vignette.wikia.nocookie.net/simpsons/images/b/b5/230px-Eleanor_Abernathy.png"
+  //   ],
+  //   capacity: { cats: 11, dogs: 0 },
+  //   healthEmergency: false
+  // },
+  // {
+  //   id: "3",
+  //   name: "Dan",
+  //   shelterId: "5c2511cafd2a4e05c5db0a60",
+  //   approved: true,
+  //   address: "459 Roundabout way",
+  //   phoneNumber: "5555551234",
+  //   photos: [
+  //     "http://cdn.lifebuzz.com/images/228720/lifebuzz-fc0aeeaa36ba8877d195e0be9f180690-limit_2000.jpg"
+  //   ],
+  //   capacity: { cats: 0, dogs: 1 },
+  //   healthEmergency: false
+  // },
+  // {
+  //   id: "4",
+  //   name: "Frank",
+  //   shelterId: "5c2511cafd2a4e05c5db0a60",
+  //   approved: true,
+  //   address: "459 Roundabout way",
+  //   phoneNumber: "5555551234",
+  //   photos: [
+  //     "https://cdn.fstoppers.com/wp-content/uploads/2013/06/1.jpg"
+  //   ],
+  //   capacity: { cats: 2, dogs: 1 },
+  //   healthEmergency: false
+  // },
+  // {
+  //   id: "5",
+  //   name: "Maggie",
+  //   shelterId: "5c2511cafd2a4e05c5db0a60",
+  //   approved: true,
+  //   address: "459 Roundabout way",
+  //   phoneNumber: "5555551234",
+  //   photos: [
+  //     "http://magdalenabibikwesterlund.com/wp-content/uploads/2018/11/CDL-BANNER-1.jpg",
+  //     "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Retired_Racing_Greyhound_Relaxes.png/220px-Retired_Racing_Greyhound_Relaxes.png"
+  //   ],
+  //   capacity: { cats: 2, dogs: 5 },
+  //   healthEmergency: false
+  // }
 ];
 
 export let shelters = [
@@ -366,5 +366,5 @@ export let shelters = [
 export let loggedInUser = {
   type: "host",
   id: "1",
-  token: "AAAAAABBBB"
+  token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjMmU4NjZjYzc2NTNhODZjZDkzYmVhNCIsInR5cGUiOiJob3N0IiwiaWF0IjoxNTQ2NTUzMDA3LCJleHAiOjE1NDkxNDUwMDd9.sMKIrcx4Fn_c_pB4XNvGErztls85PCHwq3f6PKfl66Q"
 };

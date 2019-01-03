@@ -22,7 +22,7 @@ class HostCard extends Component {
           <Grid.Column width={2}>
             <Image
               as={Link}
-              to={"/host/" + host.id}
+              to={"/host/" + host._id}
               floated="left"
               size="tiny"
               src={hostProfilePic}
@@ -38,7 +38,7 @@ class HostCard extends Component {
             <HostVacancies host={host}/>
           </Grid.Column>
           <Grid.Column width={7}>
-            <MiniListOfAnimals hostId={host.id} />
+            <MiniListOfAnimals hostId={host._id} />
           </Grid.Column>
         </Grid>
       </Segment>

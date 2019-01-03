@@ -10,7 +10,7 @@ class HostListView extends Component {
         Host List View
         <HostFilter />
         {this.props.hosts.map(host => (
-          <HostCard key={"hostId" + host.id } host={host} />
+          <HostCard key={"hostId" + host._id } host={host} />
         ))}
       </div>
     );

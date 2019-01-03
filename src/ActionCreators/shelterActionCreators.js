@@ -6,7 +6,7 @@ export const GET_SHELTER_BY_ID = "GET_SHELTER_BY_ID"
 export const getShelterById = shelterId => {
     return function(dispatch) {
         axios
-            .get(API_DOMAIN + "/shelters/" + shelterId)
+            .get(API_DOMAIN + "/api/shelters/" + shelterId)
             .then(res =>  {
                 if (res.status === 200) {
                     dispatch({
