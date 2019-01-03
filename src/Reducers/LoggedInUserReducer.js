@@ -1,9 +1,14 @@
-import { loggedInUser } from '../dummyData';
+// import { loggedInUser } from '../dummyData';
+import { INITIAL_STATE } from '../Constants';
+import { LOGIN } from '../ActionCreators';
 
-const initState = loggedInUser
+// const initState = loggedInUser
 
-export const LoggedInUserReducer = (state = initState, action) => {
+
+export const LoggedInUserReducer = (state = INITIAL_STATE.user, action) => {
     switch(action.type){
+        case LOGIN: 
+            return action.payload
         default: return state
     }
 }
