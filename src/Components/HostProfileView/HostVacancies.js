@@ -43,6 +43,7 @@ class HostVacancies extends Component {
 }
 
 const mapStateToProps = (state, props) => {
+
   const animalsAtHost = state.animals.filter(
     animal => animal.hostId === props.host.id
   );
@@ -50,8 +51,9 @@ const mapStateToProps = (state, props) => {
     .length;
   const qtyDogsAtHost = animalsAtHost.filter(animal => animal.species === "dog")
     .length;
-  const catVacancies = parseInt(props.host.capacity.cats) - qtyCatsAtHost;
-  const dogVacancies = parseInt(props.host.capacity.dogs) - qtyDogsAtHost;
+    
+  const catVacancies = typeof props.host.capacity !== "undefined" ? parseInt(props.host.capacity.cats) - qtyCatsAtHost: 0 - qtyCatsAtHost;
+  const dogVacancies = typeof props.host.capacity !== "undefined" ? parseInt(props.host.capacity.dogs) - qtyDogsAtHost: 0 - qtyDogsAtHost;
   return {
     vacancies: {
       cat: catVacancies,
