@@ -38,7 +38,7 @@ class HostProfile extends Component {
 const mapStateToProps = (state, props) => {
   const host = state.hosts.find(host => host.id === props.hostId);
   const canEdit = state.loggedInUser.id === host.id
-  const shelter = state.shelters.find(shelter => shelter.id === host.shelterId);
+  const shelter = state.shelters.find(shelter => shelter._id === host.shelterId);
   return {
     host: host,
     shelter: shelter,
