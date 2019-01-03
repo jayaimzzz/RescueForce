@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 import { Form, Grid, Segment } from "semantic-ui-react";
+import { connect } from 'react-redux';
+import { login } from '../../ActionCreators';
+
+import { Link } from "react-router-dom";
 
 class Login extends Component {
   state = {
-    username: "",
+    email: "",
     password: ""
   };
 
   handleCheckUserName = event => {
     this.setState({
-      username: event.target.value
+      email: event.target.value
     });
   };
 
@@ -21,10 +25,10 @@ class Login extends Component {
 
   handleLogin = event => {
     console.log("Login Button Clicked");
-    // this.props.login({
-    //   username: this.state.username,
-    //   password: this.state.password
-    // });
+    this.props.login({
+      email: this.state.email,
+      password: this.state.password
+    });
   };
 
   render() {
@@ -58,9 +62,16 @@ class Login extends Component {
             </div>
           </Segment>
         </Form>
+        <Link to="/">Home</Link>
       </Grid>
     );
   }
 }
 
-export default Login;
+const mapDispatchToProps = dispatch => {
+  return {
+    login: emailAndPassword => dispatch(login(emailAndPassword))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Login);
