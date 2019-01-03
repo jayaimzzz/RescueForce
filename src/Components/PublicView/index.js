@@ -16,7 +16,7 @@ class PublicView extends Component {
           }}
         >
           Rescue Force - Public View
-          <HeaderImageScroll animalId="1" />
+          {/* <HeaderImageScroll animalId="1" /> */}
         </div>
       </Fragment>
     );
