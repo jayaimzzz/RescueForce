@@ -9,7 +9,6 @@ export const getShelterById = shelterId => {
             .get(API_DOMAIN + "/shelters/" + shelterId)
             .then(res =>  {
                 if (res.status === 200) {
-                    console.log(res.data.data)
                     dispatch({
                         type: GET_SHELTER_BY_ID,
                         payload: res.data.data

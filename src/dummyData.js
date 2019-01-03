@@ -7,7 +7,7 @@ export let animals = [
     id: "1",
     name: "Toby",
     dob: "2015-03-21",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     hostId: "1",
     status: "adoptable",
     species: "dog",
@@ -32,7 +32,7 @@ export let animals = [
     id: "2",
     name: "Kevin",
     dob: "2016-05-26",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     hostId: "2",
     status: "adoptable",
     species: "cat",
@@ -54,7 +54,7 @@ export let animals = [
     id: "3",
     name: "Loco",
     dob: "2015-03-21",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     hostId: "2",
     status: "adoptable",
     species: "cat",
@@ -76,7 +76,7 @@ export let animals = [
     id: "4",
     name: "Todd",
     dob: "2015-03-21",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     hostId: "3",
     status: "adoptable",
     species: "dog",
@@ -100,7 +100,7 @@ export let animals = [
     id: "5",
     name: "Chance",
     dob: "2015-03-21",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     hostId: "4",
     status: "adoptable",
     species: "cat",
@@ -123,7 +123,7 @@ export let animals = [
     id: "6",
     name: "Chance",
     dob: "2015-03-21",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     hostId: "4",
     status: "adoptable",
     species: "cat",
@@ -145,7 +145,7 @@ export let animals = [
     id: "7",
     name: "Socks",
     dob: "2015-03-21",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     hostId: "4",
     status: "adoptable",
     species: "cat",
@@ -168,7 +168,7 @@ export let animals = [
     id: "8",
     name: "Martha",
     dob: "2015-03-21",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     hostId: "5",
     status: "foster",
     species: "dog",
@@ -189,7 +189,7 @@ export let animals = [
     id: "9",
     name: "Gus",
     dob: "2015-03-21",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     hostId: "1",
     status: "foster",
     species: "dog",
@@ -212,7 +212,7 @@ export let animals = [
     id: "10",
     name: "Keith",
     dob: "2015-03-21",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     hostId: "1",
     status: "foster",
     species: "dog",
@@ -238,7 +238,7 @@ export let animals = [
     id: "11",
     name: "Martha",
     dob: "2015-03-21",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     hostId: "1",
     status: "foster",
     species: "dog",
@@ -259,7 +259,7 @@ export let animals = [
     id: "12",
     name: "Mittens",
     dob: "2015-03-21",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     hostId: "5",
     status: "adoptable",
     species: "cat",
@@ -285,7 +285,7 @@ export let hosts = [
   {
     id: "1",
     name: "Kathy",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     approved: true,
     address: "346 Roundabout way",
     phoneNumber: "5555551234",
@@ -298,7 +298,7 @@ export let hosts = [
   {
     id: "2",
     name: "Eleanor",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     approved: true,
     address: "1239 Roundabout way",
     phoneNumber: "5555551234",
@@ -311,7 +311,7 @@ export let hosts = [
   {
     id: "3",
     name: "Dan",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     approved: true,
     address: "459 Roundabout way",
     phoneNumber: "5555551234",
@@ -324,7 +324,7 @@ export let hosts = [
   {
     id: "4",
     name: "Frank",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     approved: true,
     address: "459 Roundabout way",
     phoneNumber: "5555551234",
@@ -337,7 +337,7 @@ export let hosts = [
   {
     id: "5",
     name: "Maggie",
-    shelterId: "1",
+    shelterId: "5c2511cafd2a4e05c5db0a60",
     approved: true,
     address: "459 Roundabout way",
     phoneNumber: "5555551234",
@@ -351,16 +351,16 @@ export let hosts = [
 ];
 
 export let shelters = [
-  {
-    id: "1",
-    name: "HAND",
-    address: "123 Main Street",
-    phoneNumber: "8881234321",
-    photos: [
-      "https://i.pinimg.com/originals/97/19/9c/97199cdda2fec20471eb88c8da150220.jpg"
-    ],
-    capacity: { cats: 100, dogs: 50 }
-  }
+  // {
+  //   id: "1",
+  //   name: "HAND",
+  //   address: "123 Main Street",
+  //   phoneNumber: "8881234321",
+  //   photos: [
+  //     "https://i.pinimg.com/originals/97/19/9c/97199cdda2fec20471eb88c8da150220.jpg"
+  //   ],
+  //   capacity: { cats: 100, dogs: 50 }
+  // }
 ];
 
 export let loggedInUser = {

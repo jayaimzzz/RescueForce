@@ -26,12 +26,10 @@ class App extends Component {
   );
 
   componentDidMount = () => {
-    
-    console.log("hellow")
+    this.props.getShelterById("5c2511cafd2a4e05c5db0a60")
   }
   
   render() {
-    this.props.getShelterById("5c2511cafd2a4e05c5db0a60")
     return (
       <Fragment>
         <div>Rescue Force</div>
