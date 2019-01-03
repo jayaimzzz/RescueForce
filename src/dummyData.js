@@ -16,7 +16,7 @@ export let animals = [
     specialNeeds: false,
     pregnant: false,
     fixed: true,
-    animalFriendly: true,
+    animalFriendly: false,
     peopleFriendly: true,
     pictures: [
       "https://imgix.ranker.com/user_node_img/50022/1000436794/original/i-m-hungry-photo-u1?w=650&q=60&fm=jpg&fit=crop&crop=faces%22",
