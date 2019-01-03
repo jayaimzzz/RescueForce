@@ -8,7 +8,7 @@ class AnimalCard extends Component {
     return (
       <Card color="green" className="animalCard">
         <Card.Content>
-          <Card.Header>Doggie's Name</Card.Header>
+          <Card.Header>Animal's Name</Card.Header>
           <Card.Meta>DOB</Card.Meta>
           <Card.Description>Breed, Age, ???</Card.Description>
         </Card.Content>
