@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
-import { Route, Switch } from "react-router";
+import { Route, Switch, withRouter } from "react-router";
+import { connect } from "react-redux";
 import {
   AnimalListView,
   AnimalProfileView,
@@ -13,6 +14,8 @@ import {
 } from "./index";
 import { DevNav } from "./DevNav";
 import { CAT, DOG, EXOTIC } from "../Constants";
+import { getShelterById } from "../ActionCreators"
+
 
 class App extends Component {
   renderMain = () => (
@@ -22,6 +25,10 @@ class App extends Component {
     </Fragment>
   );
 
+  componentDidMount = () => {
+    this.props.getShelterById("5c2511cafd2a4e05c5db0a60")
+  }
+  
   render() {
     return (
       <Fragment>
@@ -56,4 +63,13 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = null;
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getShelterById: shelterId => dispatch(getShelterById(shelterId))
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+// export default App;
