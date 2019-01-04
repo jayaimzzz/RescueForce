@@ -28,7 +28,7 @@ class App extends Component {
   componentDidMount = () => {
     this.props.getShelterById("5c2511cafd2a4e05c5db0a60");
     this.props.getAllHosts();
-  }
+  };
   
   render() {
     return (
@@ -42,17 +42,17 @@ class App extends Component {
           <Route
             exact
             path="/cats"
-            render={() => <AnimalListView type={CAT} />}
+            render={() => <AnimalListView animalType={CAT} />}
           />
           <Route
             exact
             path="/dogs"
-            render={() => <AnimalListView type={DOG} />}
+            render={() => <AnimalListView animalType={DOG} />}
           />
           <Route
             exact
             path="/exotics"
-            render={() => <AnimalListView type={EXOTIC} />}
+            render={() => <AnimalListView animalType={EXOTIC} />}
           />
           <Route exact path="/admin" component={ShelterAdminPortal} />
           <Route exact path="/" render={this.renderMain} />
@@ -70,8 +70,12 @@ const mapDispatchToProps = dispatch => {
   return {
     getShelterById: shelterId => dispatch(getShelterById(shelterId)),
     getAllHosts: () => dispatch(getAllHosts())
-  }
-}
+  };
+};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
-// export default App;
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);

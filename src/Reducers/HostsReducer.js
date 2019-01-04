@@ -6,7 +6,7 @@ const initState = hosts;
 export const HostsReducer = (state = initState, action) => {
     switch(action.type){
         case GET_ALL_HOSTS:
-        return action.payload;
-        default: return state
+          return action.payload;
+        default: return state;
     }
-}
+};
