@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const DevNav = () => (
-  <ul>
+  <ul style={{marginTop: 80}}>
     <li>
       <Link to="/">Home</Link>
     </li>
@@ -20,9 +20,6 @@ export const DevNav = () => (
     </li>
     <li>
       <Link to="/dogs">Dogs</Link>
-    </li>
-    <li>
-      <Link to="/exotics">Exotics</Link>
     </li>
     <li>
       <Link to="/admin">Admin</Link>
