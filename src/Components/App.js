@@ -14,7 +14,8 @@ import {
 } from "./index";
 import { DevNav } from "./DevNav";
 import { CAT, DOG, EXOTIC } from "../Constants";
-import { getShelterById } from "../ActionCreators";
+import { getShelterById, getAllHosts } from "../ActionCreators"
+
 
 class App extends Component {
   renderMain = () => (
@@ -26,8 +27,9 @@ class App extends Component {
 
   componentDidMount = () => {
     this.props.getShelterById("5c2511cafd2a4e05c5db0a60");
+    this.props.getAllHosts();
   };
-
+  
   render() {
     return (
       <Fragment>
@@ -66,7 +68,8 @@ const mapStateToProps = null;
 
 const mapDispatchToProps = dispatch => {
   return {
-    getShelterById: shelterId => dispatch(getShelterById(shelterId))
+    getShelterById: shelterId => dispatch(getShelterById(shelterId)),
+    getAllHosts: () => dispatch(getAllHosts())
   };
 };
 
@@ -76,4 +79,3 @@ export default withRouter(
     mapDispatchToProps
   )(App)
 );
-// export default App;

@@ -1,10 +1,12 @@
-import { hosts } from "../dummyData";
+import { hosts } from '../dummyData';
+import { GET_ALL_HOSTS } from '../ActionCreators'
 
 const initState = hosts;
 
 export const HostsReducer = (state = initState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
+    switch(action.type){
+        case GET_ALL_HOSTS:
+          return action.payload;
+        default: return state;
+    }
 };

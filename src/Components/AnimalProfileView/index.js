@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ImageScroll from "./ImageScroll";
-import { AnimalProfile } from "./AnimalProfile";
+import AnimalProfile from "./AnimalProfile";
 
 class AnimalProfileView extends Component {
   render() {
@@ -9,7 +9,7 @@ class AnimalProfileView extends Component {
       <div style={{ height: 350, backgroundColor: "yellow", margin: 10 }}>
         Animal Profile View
         <ImageScroll animalId={animalId}/>
-        <AnimalProfile />
+        <AnimalProfile animalId = {animalId}/>
       </div>
     );
   }
