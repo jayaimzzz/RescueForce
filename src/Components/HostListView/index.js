@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import HostCard from "./HostCard";
 import { HostFilter } from "./HostFilter";
-import { getAllHosts } from "../../ActionCreators"
+import { getAllHosts, getAnimals } from "../../ActionCreators"
 
 class HostListView extends Component {
   componentDidMount = () => {
     this.props.getAllHosts();
+    this.props.getAnimals();
   }
 
   render() {
@@ -30,7 +31,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getAllHosts: () => dispatch(getAllHosts())
+    getAllHosts: () => dispatch(getAllHosts()),
+    getAnimals: (filter) => dispatch(getAnimals(filter))
   }
 }
 

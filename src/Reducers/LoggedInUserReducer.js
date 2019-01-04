@@ -6,7 +6,6 @@ import { LOGIN } from '../ActionCreators';
 
 
 export const LoggedInUserReducer = (state = INITIAL_STATE.user, action) => {
-    console.log(action.payload)
     switch(action.type){
         case LOGIN: 
             return action.payload

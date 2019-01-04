@@ -52,7 +52,7 @@ class AnimalProfile extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    animal: state.animals.find(animal => animal.id === props.animalId)
+    animal: state.animals.find(animal => animal._id === props.animalId)
   };
 };
 

@@ -36,7 +36,7 @@ class ImageScroll extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    images: state.animals.find(animal => animal.id === props.animalId).pictures
+    images: state.animals.find(animal => animal._id === props.animalId).photos
   };
 };
 

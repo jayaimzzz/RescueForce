@@ -26,10 +26,10 @@ const styles = {
               style={styles.img}
               size="tiny"
               as={Link}
-              to={`/animal/${animal.id}`}
+              to={`/animal/${animal._id}`}
               circular
               spaced="right"
-              src={animal.pictures[0]}
+              src={animal.photos[0]}
               key={`${this.props.animalId}imgNum${index}`}
               verticalAlign="bottom"
               >
