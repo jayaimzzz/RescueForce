@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Form, Grid, Segment, Icon } from "semantic-ui-react";
+import { Form, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
+import EmailValidator from "email-validator";
 import { login } from "../../ActionCreators";
 
 import { Link } from "react-router-dom";
@@ -8,18 +9,22 @@ import { Link } from "react-router-dom";
 class Login extends Component {
   state = {
     email: "",
-    password: ""
+    validEmail: false,
+    password: "",
+    validPassword: false
   };
 
   handleChangeEmail = event => {
     this.setState({
-      email: event.target.value
+      email: event.target.value,
+      validEmail: EmailValidator.validate(event.target.value)
     });
   };
 
   handleChangePassword = event => {
     this.setState({
-      password: event.target.value
+      password: event.target.value,
+      validPassword: event.target.value.length > 6
     });
   };
 
@@ -31,28 +36,36 @@ class Login extends Component {
   };
 
   render() {
+    const emailColor = this.state.validEmail
+      ? { color: "green" }
+      : { color: "red" };
+    const passwordColor = this.state.validPassword
+      ? { color: "green" }
+      : { color: "red" };
     return (
-      <Segment>
+      <Segment style={{ maxWidth: 500, margin: "auto", marginTop: "30vh" }}>
         <Form onSubmit={this.handleLogin}>
-          <Form.Field>
-            <label>email address</label>
-            <input
-              type="text"
-              onChange={this.handleChangeEmail}
-              required
-              placeholder="Enter Email Address"
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>password</label>
-            <input
-              type="password"
-              onChange={this.handleChangePassword}
-              required
-              placeholder="Enter Password"
-            />
-          </Form.Field>
-          <button type="submit">Login</button>
+          <Form.Input
+            type="email"
+            icon="user"
+            iconPosition="left"
+            onChange={this.handleChangeEmail}
+            placeholder="Enter Email Address"
+            style={emailColor}
+            required
+            label="Email Address"
+          />
+          <Form.Input
+            type="password"
+            icon="lock"
+            iconPosition="left"
+            label="Password"
+            style={passwordColor}
+            onChange={this.handleChangePassword}
+            required
+            placeholder="Enter Password"
+          />
+          <button type="submit" disabled={!(this.state.validEmail && this.state.validPassword)}>Login</button>
         </Form>
         <Link to="/">Home</Link>
       </Segment>
