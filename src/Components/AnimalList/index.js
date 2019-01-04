@@ -5,11 +5,12 @@ import { connect } from "react-redux";
 import { getAnimals } from "../../ActionCreators";
 
 class AnimalList extends Component {
-  componentDidMount() {
-    this.props.getAnimals(this.props.filter);
-  }
+  // componentDidMount() {
+  //   this.props.getAnimals(this.props.filter);
+  // }
 
   render() {
+    this.props.getAnimals(this.props.filter);
     return (
       <Fragment>
         {this.props.animals.map(animal => (

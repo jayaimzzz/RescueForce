@@ -1,7 +1,6 @@
-import { animals } from "../dummyData";
 import { GET_ANIMALS_LIST } from "../ActionCreators/animalListActionCreators";
 
-const initState = animals;
+const initState = [];
 
 export const AnimalsReducer = (state = initState, action) => {
   switch (action.type) {
