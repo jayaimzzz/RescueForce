@@ -17,7 +17,6 @@ export const getAnimals = filter => (dispatch, getState) => {
     })
     .then(res => {
       if (res.status === 200) {
-        console.log("res.status 200 => ", res.data);
         dispatch({
           type: GET_ANIMALS_LIST,
           payload: res.data.data
