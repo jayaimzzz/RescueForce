@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Form, Grid, Segment } from "semantic-ui-react";
-import { connect } from 'react-redux';
-import { login } from '../../ActionCreators';
+import { Form, Grid, Segment, Icon } from "semantic-ui-react";
+import { connect } from "react-redux";
+import { login } from "../../ActionCreators";
 
 import { Link } from "react-router-dom";
 
@@ -11,13 +11,13 @@ class Login extends Component {
     password: ""
   };
 
-  handleCheckUserName = event => {
+  handleChangeEmail = event => {
     this.setState({
       email: event.target.value
     });
   };
 
-  handleCheckPassword = event => {
+  handleChangePassword = event => {
     this.setState({
       password: event.target.value
     });
@@ -32,37 +32,30 @@ class Login extends Component {
 
   render() {
     return (
-      <Grid>
-        <Form method="get" className="ui large form">
-          <Segment>
-            <div className="field">
-              <input
-                // style={inputStyle}
-                type="text"
-                onChange={this.handleCheckUserName}
-                required
-                placeholder="Enter Username"
-              />
-            </div>
-            <div className="field">
-              <div className="ui left icon input">
-                <i className="lock icon" />
-                <input
-                  //   style={inputStyle}
-                  type="password"
-                  onChange={this.handleCheckPassword}
-                  required
-                  placeholder="Enter Password"
-                />
-              </div>
-              <button>
-                <div onClick={this.handleLogin}>Login</div>
-              </button>
-            </div>
-          </Segment>
+      <Segment>
+        <Form onSubmit={this.handleLogin}>
+          <Form.Field>
+            <label>email address</label>
+            <input
+              type="text"
+              onChange={this.handleChangeEmail}
+              required
+              placeholder="Enter Email Address"
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>password</label>
+            <input
+              type="password"
+              onChange={this.handleChangePassword}
+              required
+              placeholder="Enter Password"
+            />
+          </Form.Field>
+          <button type="submit">Login</button>
         </Form>
         <Link to="/">Home</Link>
-      </Grid>
+      </Segment>
     );
   }
 }
@@ -73,4 +66,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(
+  null,
+  mapDispatchToProps
+)(Login);
