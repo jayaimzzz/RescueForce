@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Image, Modal, Segment } from "semantic-ui-react";
-import { ImageEdit } from "./ImageEdit";
+import ImageEdit from "./ImageEdit";
 
 const styles = {
   img: {
@@ -32,7 +32,7 @@ class ImageScroll extends Component {
             />
           ))}
         </div>
-        < ImageEdit />
+        <ImageEdit images={images}/>
       </Segment>
     );
   }
