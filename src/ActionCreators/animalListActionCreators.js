@@ -4,7 +4,7 @@ import { API_DOMAIN } from "../Constants";
 export const GET_ANIMALS_LIST = "get_animals_list";
 
 export const getAnimals = filter => (dispatch, getState) => {
-  const token = getState().loggedInUser.token;
+  const token = getState().auth.user.token;
   const filterString = JSON.stringify(filter);
   axios
     .get(API_DOMAIN + "/api/animals", {

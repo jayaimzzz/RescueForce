@@ -22,6 +22,10 @@ const store = createStore(
   composeEnhancers(applyMiddleware(routerMiddleware(browserHistory), thunk))
 );
 
+store.subscribe(() => {
+  localStorage.setItem('token', store.getState().auth.user.token);
+});
+
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter basename={process.env.PUBLIC_URL} history={browserHistory}>

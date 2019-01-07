@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { Form, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import EmailValidator from "email-validator";
-import { login } from "../../ActionCreators";
-
-import { Link } from "react-router-dom";
+import { login, logout } from "../../ActionCreators";
 
 class Login extends Component {
   state = {
@@ -65,21 +63,34 @@ class Login extends Component {
             required
             placeholder="Enter Password"
           />
-          <button type="submit" disabled={!(this.state.validEmail && this.state.validPassword)}>Login</button>
+          <button
+            type="submit"
+            disabled={
+              this.props.auth_in_progress ||
+              !(this.state.validEmail && this.state.validPassword)
+            }
+            style={{ padding: 10 }}
+          >
+            Login
+          </button>
         </Form>
-        <Link to="/">Home</Link>
       </Segment>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  auth_in_progress: state.auth.auth_in_progress
+});
+
 const mapDispatchToProps = dispatch => {
   return {
-    login: emailAndPassword => dispatch(login(emailAndPassword))
+    login: emailAndPassword => dispatch(login(emailAndPassword)),
+    logout: () => dispatch(logout())
   };
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Login);
