@@ -1,7 +1,6 @@
-import { hosts } from '../dummyData';
 import { GET_ALL_HOSTS } from '../ActionCreators'
 
-const initState = hosts;
+const initState = [];
 
 export const HostsReducer = (state = initState, action) => {
     switch(action.type){

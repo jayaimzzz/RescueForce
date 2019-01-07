@@ -6,7 +6,6 @@ import { AnimalFilter } from "./AnimalFilter";
 class AnimalListView extends Component {
   render() {
     const { animalType } = this.props;
-    console.log(animalType);
     return (
       <Fragment>
         <AnimalFilter />
