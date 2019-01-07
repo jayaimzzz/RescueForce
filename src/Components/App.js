@@ -14,8 +14,7 @@ import {
 } from "./index";
 import { DevNav } from "./DevNav";
 import { CAT, DOG, EXOTIC } from "../Constants";
-import { getShelterById, getAllHosts } from "../ActionCreators"
-
+import { getShelterById, getAllHosts } from "../ActionCreators";
 
 class App extends Component {
   renderMain = () => (
@@ -29,7 +28,7 @@ class App extends Component {
     this.props.getShelterById("5c2511cafd2a4e05c5db0a60");
     this.props.getAllHosts();
   };
-  
+
   render() {
     return (
       <Fragment>
