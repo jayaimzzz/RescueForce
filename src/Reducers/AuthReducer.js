@@ -6,7 +6,8 @@ import {
   LOGOUT
 } from "../ActionCreators";
 
-INITIAL_STATE.auth.user.token = localStorage.getItem("token") || "";
+INITIAL_STATE.auth =
+  JSON.parse(localStorage.getItem("auth")) || INITIAL_STATE.auth;
 
 export const AuthReducer = (state = INITIAL_STATE.auth, action) => {
   switch (action.type) {

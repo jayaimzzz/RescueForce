@@ -75,7 +75,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  isLoggedIn: Boolean(state.auth.user.token)
+  isLoggedIn: state.auth.user ? Boolean(state.auth.user.token) : false
 });
 
 const mapDispatchToProps = dispatch => {

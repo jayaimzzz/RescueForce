@@ -23,7 +23,7 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-  localStorage.setItem('token', store.getState().auth.user.token);
+  localStorage.setItem("auth", JSON.stringify(store.getState().auth));
 });
 
 ReactDOM.render(
