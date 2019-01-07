@@ -5,7 +5,7 @@ export const GET_ALL_HOSTS = "GET_ALL_HOSTS";
 
 export const getAllHosts = () => {
   return function(dispatch, getState) {
-    let token = getState().loggedInUser.token;
+    let token = getState().auth.user.token;
     axios({
       method: "GET",
       url: API_DOMAIN + "/api/hosts/",

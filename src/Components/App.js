@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Route, Switch, withRouter } from "react-router";
+import { push } from "connected-react-router";
 import { connect } from "react-redux";
+import { Button } from "semantic-ui-react";
 import {
   AnimalListView,
   AnimalProfileView,
@@ -12,10 +14,10 @@ import {
   Register,
   ShelterAdminPortal
 } from "./index";
+import { logout } from "../ActionCreators/index";
 import { DevNav } from "./DevNav";
 import { CAT, DOG, EXOTIC } from "../Constants";
-import { getShelterById } from "../ActionCreators"
-
+import { getShelterById } from "../ActionCreators";
 
 class App extends Component {
   renderMain = () => (
@@ -28,11 +30,20 @@ class App extends Component {
   componentDidMount = () => {
     this.props.getShelterById("5c2511cafd2a4e05c5db0a60");
   };
-  
+
   render() {
     return (
       <Fragment>
         <div>Rescue Force</div>
+        {this.props.isLoggedIn ? (
+          <Button primary onClick={() => this.props.logout()}>
+            Logout
+          </Button>
+        ) : (
+          <Button primary onClick={() => this.props.navToLogin()}>
+            Login
+          </Button>
+        )}
         <Nav />
         <Switch>
           <Route exact path="/host/:id" component={HostProfileView} />
@@ -63,11 +74,15 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = null;
+const mapStateToProps = state => ({
+  isLoggedIn: state.auth.user ? Boolean(state.auth.user.token) : false
+});
 
 const mapDispatchToProps = dispatch => {
   return {
-    getShelterById: shelterId => dispatch(getShelterById(shelterId))
+    getShelterById: shelterId => dispatch(getShelterById(shelterId)),
+    logout: () => dispatch(logout()),
+    navToLogin: () => dispatch(push("/login"))
   };
 };
 
