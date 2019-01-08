@@ -18,6 +18,7 @@ import { logout } from "../ActionCreators/index";
 import { DevNav } from "./DevNav";
 import { CAT, DOG, EXOTIC } from "../Constants";
 import { getShelterById } from "../ActionCreators";
+import HostHomepage from "./HostHomepage";
 
 class App extends Component {
   renderMain = () => (
@@ -68,6 +69,7 @@ class App extends Component {
           <Route exact path="/" render={this.renderMain} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/hosthomepage" component={HostHomepage} />
         </Switch>
       </Fragment>
     );

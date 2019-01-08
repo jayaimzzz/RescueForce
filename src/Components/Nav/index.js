@@ -11,7 +11,7 @@ class Nav extends Component {
             style={{
               width: "100%",
               backgroundColor: "#ebebeb",
-              position: "fixed",
+              // position: "fixed",
               height: "8%"
             }}
           >

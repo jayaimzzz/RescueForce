@@ -30,5 +30,8 @@ export const DevNav = () => (
     <li>
       <Link to="/register">Register</Link>
     </li>
+    <li>
+      <Link to="/hosthomepage">Host Homepage</Link>
+    </li>
   </ul>
 );

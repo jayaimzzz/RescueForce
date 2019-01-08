@@ -7,6 +7,7 @@ import { Nav } from './Nav';
 import { PublicView } from "./PublicView";
 import { Register } from "./LoginAndRegistration/Register";
 import { ShelterAdminPortal } from "./ShelterAdminPortal";
+import HostHomepage from "./HostHomepage";
 
 export {
   AnimalListView,
@@ -17,5 +18,6 @@ export {
   Nav,
   PublicView,
   Register,
-  ShelterAdminPortal
+  ShelterAdminPortal,
+  HostHomepage
 };

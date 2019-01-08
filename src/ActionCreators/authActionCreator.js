@@ -20,7 +20,7 @@ export const login = loginData => {
         if (response.status === 200 || response.status === 201) {
           dispatch({ type: LOGIN_SUCCESSFUL, payload: response.data });
           if (response.data.type === HOST) {
-            dispatch(push(`/host/${response.data._id}`));
+            dispatch(push(`/hosts/${response.data.data._id}`));
           } else if (response.data.type === SHELTER) {
             dispatch(push("/admin"));
           }
