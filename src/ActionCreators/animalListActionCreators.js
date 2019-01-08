@@ -2,10 +2,12 @@ import axios from "axios";
 import { API_DOMAIN } from "../Constants";
 
 export const GET_ANIMALS_LIST = "get_animals_list";
+
 // update animal actions
 export const UPDATE_ANIMAL = "UPDATE_USER";
 export const UPDATE_ANIMAL_SUCCESS = "UPDATE_USER_SUCCESS";
 export const UPDATE_ANIMAL_FAILURE = "UPDATE_USER_FAILURE";
+
 
 export const getAnimals = filter => (dispatch, getState) => {
   const token = getState().auth.user.token;

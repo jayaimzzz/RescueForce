@@ -6,16 +6,25 @@ const styles = {
   img: {
     display: "inline-block",
     borderRadius: "5px",
-    transition: "transform .2s"
+    transition: "transform .2s",
+    width: "120px",
+    height: "100px",
+    backgroundPosition: "50% 50%",
+    backgroundRepeat: "no repeat",
+    backgroundSize: "cover",
+    padding: "5px",
+    backgroundColor: "#dadee5",
+    margin: "2px"
   },
   segment: {
     overflowX: "scroll",
     whiteSpace: "nowrap",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    backgroundColor: "#b3c1d6"
   }
 };
 
-class ImageScroll extends Component {
+class HeaderImageScroll extends Component {
   render() {
     const images = this.props.images;
     return (
@@ -23,10 +32,10 @@ class ImageScroll extends Component {
         {images.map((image, index) => (
           <Image
             style={styles.img}
-            size="medium"
+            size="small"
             bordered
             src={image}
-            key={`${this.props.animalId}imgNum${index}`}
+            key={`${this.props.animalId}ImgNum${index}`}
           />
         ))}
       </div>
@@ -36,7 +45,7 @@ class ImageScroll extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    images: state.animals.find(animal => animal._id === props.animalId).photos
+    images: state.animals.find(animal => animal.id === props.animalId).pictures
   };
 };
 
@@ -45,4 +54,4 @@ const mapDispatchToProps = null;
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ImageScroll);
+)(HeaderImageScroll);

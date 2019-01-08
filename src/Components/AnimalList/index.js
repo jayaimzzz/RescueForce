@@ -1,16 +1,18 @@
 import React, { Component, Fragment } from "react";
 import { AnimalCard } from "./AnimalCard";
-import { connectRouter } from "connected-react-router";
 import { connect } from "react-redux";
-
-// const tempDevelopementData = ["one", "two", "three", "four"];
+import { getAnimals } from "../../ActionCreators";
 
 class AnimalList extends Component {
+  componentDidMount() {
+    this.props.getAnimals(this.props.filter);
+  }
+  
   render() {
     return (
       <Fragment>
         {this.props.animals.map(animal => (
-          <AnimalCard animal={animal} />
+          <AnimalCard key={animal._id} animal={animal} />
         ))}
       </Fragment>
     );
@@ -18,20 +20,18 @@ class AnimalList extends Component {
 }
 
 const mapStateToProps = (state, props) => {
-  if (props.hostId){
-    return {
-      animals: state.animals.filter(animal => animal.hostId === props.hostId)
-    };
-  } else {
-    return {
-      animals: state.animals
-    }
+  const filter = props.filter;
+  const filterKey = Object.keys(filter)[0];
+  return {
+    animals: state.animals.filter(animal => animal[filterKey] === filter[filterKey])
   }
 };
 
-const maptDispatchToProps = null;
+const mapDispatchToProps = dispatch => ({
+  getAnimals: filter => dispatch(getAnimals(filter))
+});
 
 export default connect(
   mapStateToProps,
-  maptDispatchToProps
+  mapDispatchToProps
 )(AnimalList);

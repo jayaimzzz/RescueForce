@@ -14,7 +14,7 @@ class HostProfileView extends Component {
           <HostProfile hostId={hostId}/>
         </div>
         <div style={{ float: "left" }}>
-          <AnimalList hostId={hostId}/>
+          <AnimalList filter={{hostId}}/>
         </div>
       </Fragment>
     );

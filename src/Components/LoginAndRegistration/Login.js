@@ -1,66 +1,96 @@
 import React, { Component } from "react";
-import { Form, Grid, Segment } from "semantic-ui-react";
+import { Form, Segment } from "semantic-ui-react";
+import { connect } from "react-redux";
+import EmailValidator from "email-validator";
+import { login, logout } from "../../ActionCreators";
 
 class Login extends Component {
   state = {
-    username: "",
-    password: ""
+    email: "",
+    validEmail: false,
+    password: "",
+    validPassword: false
   };
 
-  handleCheckUserName = event => {
+  handleChangeEmail = event => {
     this.setState({
-      username: event.target.value
+      email: event.target.value,
+      validEmail: EmailValidator.validate(event.target.value)
     });
   };
 
-  handleCheckPassword = event => {
+  handleChangePassword = event => {
     this.setState({
-      password: event.target.value
+      password: event.target.value,
+      validPassword: event.target.value.length > 6
     });
   };
 
   handleLogin = event => {
-    console.log("Login Button Clicked");
-    // this.props.login({
-    //   username: this.state.username,
-    //   password: this.state.password
-    // });
+    this.props.login({
+      email: this.state.email,
+      password: this.state.password
+    });
   };
 
   render() {
+    const emailColor = this.state.validEmail
+      ? { color: "green" }
+      : { color: "red" };
+    const passwordColor = this.state.validPassword
+      ? { color: "green" }
+      : { color: "red" };
     return (
-      <Grid>
-        <Form method="get" className="ui large form">
-          <Segment>
-            <div className="field">
-              <input
-                // style={inputStyle}
-                type="text"
-                onChange={this.handleCheckUserName}
-                required
-                placeholder="Enter Username"
-              />
-            </div>
-            <div className="field">
-              <div className="ui left icon input">
-                <i className="lock icon" />
-                <input
-                  //   style={inputStyle}
-                  type="password"
-                  onChange={this.handleCheckPassword}
-                  required
-                  placeholder="Enter Password"
-                />
-              </div>
-              <button>
-                <div onClick={this.handleLogin}>Login</div>
-              </button>
-            </div>
-          </Segment>
+      <Segment style={{ maxWidth: 500, margin: "auto", marginTop: "30vh" }}>
+        <Form onSubmit={this.handleLogin}>
+          <Form.Input
+            type="email"
+            icon="user"
+            iconPosition="left"
+            onChange={this.handleChangeEmail}
+            placeholder="Enter Email Address"
+            style={emailColor}
+            required
+            label="Email Address"
+          />
+          <Form.Input
+            type="password"
+            icon="lock"
+            iconPosition="left"
+            label="Password"
+            style={passwordColor}
+            onChange={this.handleChangePassword}
+            required
+            placeholder="Enter Password"
+          />
+          <button
+            type="submit"
+            disabled={
+              this.props.auth_in_progress ||
+              !(this.state.validEmail && this.state.validPassword)
+            }
+            style={{ padding: 10 }}
+          >
+            Login
+          </button>
         </Form>
-      </Grid>
+      </Segment>
     );
   }
 }
 
-export default Login;
+const mapStateToProps = state => ({
+  auth_in_progress: state.auth.auth_in_progress
+});
+
+const mapDispatchToProps = dispatch => {
+  return {
+    login: emailAndPassword => dispatch(login(emailAndPassword)),
+    logout: () => dispatch(logout())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
