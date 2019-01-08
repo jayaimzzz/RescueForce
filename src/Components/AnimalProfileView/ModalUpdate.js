@@ -107,7 +107,6 @@ class ModalUpdate extends React.Component {
   };
 
   render() {
-    console.log(this.state)
     return (
       <Modal
         trigger={
@@ -120,7 +119,7 @@ class ModalUpdate extends React.Component {
         onClose={this.handleClose}
         size="tiny"
       >
-        <Header textAlign="center" verticalAlign="middle" as="h1">
+        <Header textAlign="center" verticalalign="middle" as="h1">
           Update Me!
         </Header>
 
@@ -135,9 +134,10 @@ class ModalUpdate extends React.Component {
               />
 
               <Form.Input
+                type="date"
                 fluid
                 label="Date of Birth"
-                onChange={moment(this.handleChangeUpdateDOB)}
+                onChange={this.handleChangeUpdateDOB}
                 placeholder="Date of Birth"
               />
               <Form.Input

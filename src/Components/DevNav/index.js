@@ -6,15 +6,15 @@ export const DevNav = () => (
     <li>
       <Link to="/">Home</Link>
     </li>
-    <li>
+    {/* <li>
       <Link to="/host/1">Sample Host</Link>
-    </li>
+    </li> */}
     <li>
       <Link to="/hosts">Hosts</Link>
     </li>
-    <li>
+    {/* <li>
       <Link to="/animal/1">Sample Animal</Link>
-    </li>
+    </li> */}
     <li>
       <Link to="/cats">Cats</Link>
     </li>

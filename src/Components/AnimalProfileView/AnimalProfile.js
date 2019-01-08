@@ -12,7 +12,6 @@ class AnimalProfile extends Component {
 
   render() {
     const animal = this.props.animal;
-    console.log(animal)
     const shelter = this.props.shelter;
     const host = this.props.host;
     // const ButtonExampleShorthand = () => <Button content='Click Here' />
