@@ -9,7 +9,7 @@ import {
   Radio
 } from "semantic-ui-react";
 import moment from "moment";
-import { updateAnimal } from "../../ActionCreators/animalListActionCreators";
+import { updateAnimal, getAnimals } from "../../ActionCreators/animalListActionCreators";
 import { connect } from "react-redux";
 
 const options = [
@@ -101,8 +101,9 @@ class ModalUpdate extends React.Component {
   };
 
   handleSubmit = event => {
-    this.props.updateAnimal(this.state);
-    this.handleClose();
+    this.props.updateAnimal(this.state)
+    .then(() => this.props.getAnimals())
+    .then(() => this.handleClose());
   };
 
   render() {
@@ -350,7 +351,7 @@ const mapStateToProps = state =>{
   // the second role is wherever in state "role" is located...
 };
 
-const mapDispatchToProps = { updateAnimal,  };
+const mapDispatchToProps = { updateAnimal, getAnimals };
 // this is a shortcut for writing a function that uses the action creator....
 
 export default connect(
