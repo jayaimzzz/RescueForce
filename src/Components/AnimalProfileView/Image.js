@@ -1,5 +1,4 @@
 import React from "react";
-import { Image } from "semantic-ui-react";
 
 const imgWithClick = { cursor: "pointer" };
 
@@ -20,7 +19,7 @@ export const GalleryImage = ({
   }
 
   const handleClick = event => {
-      onClick(event, { photo, index });
+    onClick(event, { photo, index });
   };
 
   return (

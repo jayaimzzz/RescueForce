@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Image, Modal, Segment } from "semantic-ui-react";
+import { Image, Segment } from "semantic-ui-react";
 import ImageEdit from "./ImageEdit";
 
 const styles = {
@@ -32,7 +32,7 @@ class ImageScroll extends Component {
             />
           ))}
         </div>
-        <ImageEdit images={images}/>
+        <ImageEdit images={images} animalId={this.props.animalId} />
       </Segment>
     );
   }
@@ -44,9 +44,4 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-const mapDispatchToProps = null;
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ImageScroll);
+export default connect(mapStateToProps)(ImageScroll);
