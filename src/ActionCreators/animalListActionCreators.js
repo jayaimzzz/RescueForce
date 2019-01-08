@@ -1,14 +1,21 @@
 import axios from "axios";
+import { push } from "connected-react-router";
 import { API_DOMAIN } from "../Constants";
 
 export const GET_ANIMALS_LIST = "get_animals_list";
 export const UPDATE_ANIMAL_PHOTOS = "update_animal_photos";
 export const UPDATE_ANIMAL = "update_animal";
 
+// update animal actions
+export const UPDATE_ANIMAL = "UPDATE_ANIMAL";
+export const UPDATE_ANIMAL_SUCCESS = "UPDATE_USER_SUCCESS";
+export const UPDATE_ANIMAL_FAILURE = "UPDATE_USER_FAILURE";
+
+
 export const getAnimals = filter => (dispatch, getState) => {
   const token = getState().auth.user.token;
   const filterString = JSON.stringify(filter);
-  axios
+  return axios
     .get(API_DOMAIN + "/api/animals", {
       headers: {
         Authorization: "Bearer " + token
@@ -85,3 +92,44 @@ export const uploadAnimalPhotos = (animalId, photos) => (
     })
     .catch(err => console.error(err));
 };
+
+export const updateAnimal = updateAnimalData => (dispatch, getState) => {
+  const token = getState().auth.user.token;
+    dispatch({
+      type: UPDATE_ANIMAL
+    });
+  
+    return fetch(`${API_DOMAIN}/api/animals/${updateAnimalData.id}`, {
+    //  should thie be fetch(`${API_DOMAIN}/api/animals`, { instead?  See James' reference in axios above.
+      method: "PATCH",
+      headers: {
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(updateAnimalData)
+    })
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(err => {
+            throw err;
+          });
+        }
+        return res.json();
+      })
+      .then(data => {
+        // dispatch here on success -- data is everything server sent back in its response
+        dispatch({
+          type: UPDATE_ANIMAL_SUCCESS,
+          animalData: data
+          // 'animalData' is the name we're going to call it in the redux state?
+        });
+        dispatch(push(`/animal/${updateAnimalData.id}`));
+      })
+      .catch(err => {
+        // dispatch here on fail --
+        dispatch({
+          type: UPDATE_ANIMAL_FAILURE,
+          updateResult: "sorry, no can do."
+        });
+      });
+  };
