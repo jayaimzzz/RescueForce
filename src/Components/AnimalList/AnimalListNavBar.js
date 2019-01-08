@@ -1,6 +1,5 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, Nav } from "react";
 import { Link } from "react-router-dom";
-
 
 class AnimalListNavBar extends Component {
   render() {
@@ -33,8 +32,13 @@ class AnimalListNavBar extends Component {
                   ShelterAdminPortal
                 </Link>
               </li>
-              <li className="ui section" style={{ width: 100%}}>
-                <Link to="/HostProfileView" style={{padding: "0.6em 10%", width: "80%" }}>HostProfileView</Link>
+              <li className="ui section" style={{ width: "100%" }}>
+                <Link
+                  to="/HostProfileView"
+                  style={{ padding: "0.6em 10%", width: "80%" }}
+                >
+                  HostProfileView
+                </Link>
               </li>
             </ul>
           </Nav>
