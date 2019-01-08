@@ -1,5 +1,4 @@
-import { GET_ANIMALS_LIST } from "../ActionCreators/animalListActionCreators";
-import { UPDATE_ANIMAL, UPDATE_ANIMAL_FAILURE, UPDATE_ANIMAL_SUCCESS } from "../ActionCreators/animalListActionCreators"
+import { GET_ANIMALS_LIST, UPDATE_ANIMAL, UPDATE_ANIMAL_FAILURE, UPDATE_ANIMAL_SUCCESS } from "../ActionCreators/animalListActionCreators"
 import { ADD_ANIMAL, ADD_ANIMAL_FAILURE, ADD_ANIMAL_SUCCESS } from "../ActionCreators/animalListActionCreators"
 
 const initState = [];
@@ -9,8 +8,8 @@ export const AnimalsReducer = (state = initState, action) => {
     case GET_ANIMALS_LIST:
       return action.payload;
     
-    case UPDATE_ANIMAL:
-      return [...state];
+//     case UPDATE_ANIMAL:
+//       return [...state];
 
     case UPDATE_ANIMAL_SUCCESS:
       const index = state.findIndex((animal) =>{
@@ -37,6 +36,10 @@ export const AnimalsReducer = (state = initState, action) => {
     // case ADD_ANIMAL_FAILURE:
     //   return [...state];
     
+    case UPDATE_ANIMAL:
+      const { id, data } = action.payload;
+      return state.map(animal => (animal._id === id ? data : animal));
+
     default:
       return state;
   }
