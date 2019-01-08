@@ -1,5 +1,12 @@
 import { GET_SHELTER_BY_ID, getShelterById } from "./shelterActionCreators";
-import { getAnimals, GET_ANIMALS_LIST } from "./animalListActionCreators";
+import {
+  getAnimals,
+  GET_ANIMALS_LIST,
+  UPDATE_ANIMAL,
+  UPDATE_ANIMAL_PHOTOS,
+  updateAnimalPhotos,
+  uploadAnimalPhotos
+} from "./animalListActionCreators";
 import { GET_ALL_HOSTS, getAllHosts } from "./hostActionCreators";
 import {
   login,
@@ -22,5 +29,9 @@ export {
   LOGIN_STARTED,
   LOGIN_SUCCESSFUL,
   LOGIN_UNSUCCESSFUL,
-  LOGOUT
+  LOGOUT,
+  updateAnimalPhotos,
+  UPDATE_ANIMAL,
+  UPDATE_ANIMAL_PHOTOS,
+  uploadAnimalPhotos
 };

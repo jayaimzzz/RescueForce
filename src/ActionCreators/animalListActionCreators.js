@@ -3,6 +3,8 @@ import { push } from "connected-react-router";
 import { API_DOMAIN } from "../Constants";
 
 export const GET_ANIMALS_LIST = "get_animals_list";
+export const UPDATE_ANIMAL_PHOTOS = "update_animal_photos";
+// export const UPDATE_ANIMAL = "update_animal";
 
 // update animal actions
 export const UPDATE_ANIMAL = "UPDATE_ANIMAL";
@@ -35,6 +37,60 @@ export const getAnimals = filter => (dispatch, getState) => {
     .catch(error => {
       console.log(error);
     });
+};
+
+export const updateAnimalPhotos = (animalId, photos) => (
+  dispatch,
+  getState
+) => {
+  axios
+    .patch(
+      `${API_DOMAIN}/api/animals/${animalId}`,
+      { photos },
+      { headers: { Authorization: `Bearer ${getState().auth.user.token}` } }
+    )
+    .then(res => {
+      if (res.status === 200) {
+        dispatch({
+          type: UPDATE_ANIMAL,
+          payload: {
+            id: animalId,
+            data: res.data.data
+          }
+        });
+      }
+    })
+    .catch(err => console.err(err));
+};
+
+export const uploadAnimalPhotos = (animalId, photos) => (
+  dispatch,
+  getState
+) => {
+  const formData = new FormData();
+  for (let photo of photos) {
+    formData.append("images", photo);
+  }
+
+  axios
+    .patch(`${API_DOMAIN}/api/animals/${animalId}/photos`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: "Bearer " + getState().auth.user.token
+      }
+    })
+    .then(res => {
+      if (res.status === 200) {
+        dispatch({
+          type: UPDATE_ANIMAL,
+          payload: {
+            id: animalId,
+            data: res.data.data
+          }
+        });
+      }
+    })
+    .catch(err => console.error(err));
 };
 
 export const updateAnimal = updateAnimalData => (dispatch, getState) => {
