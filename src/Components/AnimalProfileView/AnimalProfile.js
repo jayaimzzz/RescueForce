@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Image, Button, Card, Icon, CardContent } from "semantic-ui-react";
+import ModalUpdate from './ModalUpdate'
+import moment from 'moment'
 
 class AnimalProfile extends Component {
 
@@ -38,9 +40,7 @@ class AnimalProfile extends Component {
          </Card.Content>
             <Card.Content extra>
                   
-                <Button basic color='red'>
-                  Update Animal Information 
-                </Button>
+                <ModalUpdate animal={animal}></ModalUpdate>
 
             </Card.Content>
       
