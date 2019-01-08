@@ -26,8 +26,16 @@ class AnimalProfile extends Component {
                <Card.Description>DOB: {animal.dob}</Card.Description>
                <Card.Description>Sex: {animal.sex}</Card.Description>
                <Card.Description>About: {animal.about}</Card.Description>
-               <Card.Description>Shelter Id: {animal.shelterId}</Card.Description>
-               <Card.Description>Host Id: {animal.hostId}</Card.Description>
+               <Card.Description>Shelter Name: {shelter.name}
+               </Card.Description>
+               <Card.Description>{shelter.image}
+               </Card.Description>
+               <Card.Description>Host Name: {host.name}
+               </Card.Description>
+               <Card.Description>{host.image}
+               </Card.Description>
+               {/* <Card.Description>Shelter Id: {animal.shelterId}</Card.Description>
+               <Card.Description>Host Id: {animal.hostId}</Card.Description> */}
                <Card.Description>Status: {animal.status}</Card.Description>
                {/* <Card.Description>{animal.name} {this.yesOrNo(animal.animalFriendly)} animal-friendly. </Card.Description> */}
                <Card.Description>{animal.name} {animal.animalFriendly ? "is" : "is not"} animal-friendly. </Card.Description>
