@@ -13,7 +13,7 @@ export const UPDATE_ANIMAL_FAILURE = "UPDATE_USER_FAILURE";
 export const getAnimals = filter => (dispatch, getState) => {
   const token = getState().auth.user.token;
   const filterString = JSON.stringify(filter);
-  axios
+  return axios
     .get(API_DOMAIN + "/api/animals", {
       headers: {
         Authorization: "Bearer " + token
@@ -44,7 +44,7 @@ export const updateAnimal = updateAnimalData => (dispatch, getState) => {
       type: UPDATE_ANIMAL
     });
   
-    fetch(`${API_DOMAIN}/api/animals/${updateAnimalData.id}`, {
+    return fetch(`${API_DOMAIN}/api/animals/${updateAnimalData.id}`, {
     //  should thie be fetch(`${API_DOMAIN}/api/animals`, { instead?  See James' reference in axios above.
       method: "PATCH",
       headers: {
