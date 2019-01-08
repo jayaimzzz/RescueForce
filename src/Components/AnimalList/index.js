@@ -3,6 +3,7 @@ import { AnimalCard } from "./AnimalCard";
 import { connectRouter } from "connected-react-router";
 import { connect } from "react-redux";
 import { getAnimals } from "../../ActionCreators";
+import { AnimalListNavBar } from "./AnimalListNavBar";
 
 class AnimalList extends Component {
   componentDidMount() {
@@ -11,11 +12,14 @@ class AnimalList extends Component {
 
   render() {
     return (
-      <Fragment>
-        {this.props.animals.map(animal => (
-          <AnimalCard key={animal._id} animal={animal} />
-        ))}
-      </Fragment>
+      <div>
+        <Fragment>
+          {this.props.animals.map(animal => (
+            <AnimalCard key={animal._id} animal={animal} />
+          ))}
+        </Fragment>
+        <AnimalListNavBar />
+      </div>
     );
   }
 }
