@@ -1,13 +1,30 @@
 import React, { Component, Fragment } from "react";
-
+import HeaderImageScroll from "../PublicView/HeaderImageScroll";
+import { timingSafeEqual } from "crypto";
 
 class Nav extends Component {
+  state = {
+    color: "pink",
+    backgroundColor: "blue"
+  };
+
+  // listenScrollEvent = e => {
+  //   if (window.scrollY > 400) {
+  //     this.setState({ color: "black" });
+  //   } else {
+  //     this.setState({ color: "yellow" });
+  //   }
+  // };
+
+  // componentDidMount() {
+  //   window.addEventListener("scroll", this.listenScrollEvent);
+  // }
   render() {
     return (
       <Fragment>
-        <div className="top">
+        <div className="site navigation page navigation">
           <nav
-            className="site-navigation page-navigation"
+            className="top"
             style={{
               width: "100%",
               backgroundColor: "#ebebeb",
@@ -35,7 +52,7 @@ class Nav extends Component {
                   href="#section-one"
                   style={{ padding: "0.6em 10%", width: "80%" }}
                 >
-                  Foster
+                  Scrolling Images
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
@@ -43,7 +60,7 @@ class Nav extends Component {
                   href="#section-two"
                   style={{ padding: "0.6em 10%", width: "80%" }}
                 >
-                  Sign In
+                  Mission Statement
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
@@ -51,7 +68,7 @@ class Nav extends Component {
                   href="#section-three"
                   style={{ padding: "0.6em 10%", width: "80%" }}
                 >
-                  Donate
+                  Services
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
@@ -67,17 +84,32 @@ class Nav extends Component {
                   href="#section-five"
                   style={{ padding: "0.6em 10%", width: "80%" }}
                 >
-                  Donate
+                  About
                 </a>
               </li>
             </ul>
           </nav>
         </div>
-        <div className="section-one" />
-        <div className="section-two" />
-        <div className="section-three" />
-        <div className="section-four" />
-        <div className="section-five" />
+
+        <div
+          id="section-one"
+          style={{
+            marginTop: "40px",
+            color: this.state.color,
+            height: "800px"
+          }}
+        >
+          Header Scroll
+        </div>
+        <div
+          id="section-two"
+          style={{ color: this.state.backgroundColor, height: "800px" }}
+        >
+          Mission Statment
+        </div>
+        <div id="section-three">Animal List Link</div>
+        <div id="section-four">Section Four</div>
+        <div id="section-five" />
       </Fragment>
     );
   }
