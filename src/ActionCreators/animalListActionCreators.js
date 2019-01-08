@@ -6,8 +6,13 @@ export const GET_ANIMALS_LIST = "get_animals_list";
 
 // update animal actions
 export const UPDATE_ANIMAL = "UPDATE_ANIMAL";
-export const UPDATE_ANIMAL_SUCCESS = "UPDATE_USER_SUCCESS";
+export const UPDATE_ANIMAL_SUCCESS = "UPDATE_ANIMAL_SUCCESS";
 export const UPDATE_ANIMAL_FAILURE = "UPDATE_USER_FAILURE";
+
+// ADD animal actions
+export const ADD_ANIMAL = "UPDATE_ANIMAL";
+export const ADD_ANIMAL_SUCCESS = "UPDATE_ANIMAL_SUCCESS";
+export const ADD_ANIMAL_FAILURE = "UPDATE_USER_FAILURE";
 
 
 export const getAnimals = filter => (dispatch, getState) => {
@@ -44,7 +49,6 @@ export const updateAnimal = updateAnimalData => (dispatch, getState) => {
     });
   
     return fetch(`${API_DOMAIN}/api/animals/${updateAnimalData.id}`, {
-    //  should thie be fetch(`${API_DOMAIN}/api/animals`, { instead?  See James' reference in axios above.
       method: "PATCH",
       headers: {
         Authorization: "Bearer " + token,
@@ -76,4 +80,42 @@ export const updateAnimal = updateAnimalData => (dispatch, getState) => {
           updateResult: "sorry, no can do."
         });
       });
+  };
+
+  // add animal action creator
+export const addAnimal = addAnimalData => (dispatch, getState) => {
+//   const token = getState().auth.user.token;
+//     dispatch({
+//       type: ADD_ANIMAL
+//     });
+  
+  //   return fetch(`${API_DOMAIN}/api/animals/${updateAnimalData.id}`, {
+  //     method: "POST",
+  //     headers: {
+  //       Authorization: "Bearer " + token,
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(addAnimalData)
+  //   })
+  //     .then(res => {
+  //       if (!res.ok) {
+  //         return res.json().then(err => {
+  //           throw err;
+  //         });
+  //       }
+  //       return res.json();
+  //     })
+  //     .then(data => {
+  //       dispatch({
+  //         type: ADD_ANIMAL_SUCCESS,
+  //         animalData: data
+  //       });
+  //       dispatch(push(`/animal/${addAnimalData.id}`));
+  //     })
+  //     .catch(err => {
+  //       dispatch({
+  //         type: ADD_ANIMAL_FAILURE,
+  //         updateResult: "FAILED TO ADD A NEW ANIMAL.  IN YOUR FACE."
+  //       });
+  //     });
   };
