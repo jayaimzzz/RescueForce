@@ -1,5 +1,15 @@
 import React from "react";
-import { Form, Button, Modal, Icon, Header, Segment, Radio } from "semantic-ui-react";
+import {
+  Form,
+  Button,
+  Modal,
+  Icon,
+  Header,
+  Segment,
+  Radio
+} from "semantic-ui-react";
+import { addAnimal, updateAnimal, getAnimals } from "../../ActionCreators/animalListActionCreators";
+import { connect } from "react-redux";
 
 const options = [
   { key: "1", text: "dog", value: "dog" },
@@ -11,97 +21,154 @@ const adoptionOptions = [
   { key: "4", text: "Adoptable", value: "adoptable:" }
 ];
 
-export default class ModalAddAnimal extends React.Component {
+class ModalAddAnimal extends React.Component {
   state = {
-    sexValue: "",
-    open: false,
-    specialNeeds: "" ,
-    specialDiet: "",
-    pregnantValue: "",
-    fixed: "",
-    animalFriendly: "",
-    peopleFriendly: ""
+    
   };
-
-  handleToggle = name => (event, {value}) => {
+ 
+  handleToggle = name => (event, { value }) => {
     this.setState({
       [name]: value
-    })
-  }
+    });
+  };
 
-  handleOpen =  event => {
-      this.setState({
-          open: true
-      })
-  }
+  handleOpen = event => {
+    this.setState({
+      open: true
+    });
+  };
 
   handleClose = event => {
-      this.setState({
-          open: false,
-      })
-  }
+    this.setState({
+      open: false
+    });
+  };
+
+  handleChangeAddName = event => {
+    this.setState({
+      name: event.target.value
+    });
+  };
+
+  handleChangeAddDOB = event => {
+    this.setState({
+      dob: event.target.value
+    });
+  };
+
+  handleChangeAddBreed = event => {
+    this.setState({
+      breed: event.target.value
+    });
+  };
+
+  handleChangeAddHostId = event => {
+    this.setState({
+      hostId: event.target.value
+    });
+  };
+
+  handleChangeAddShelterId = event => {
+    this.setState({
+      shelterId: event.target.value
+    });
+  };
+
+  handleChangeAddAnimalId = event => {
+    this.setState({
+      id: event.target.value
+    });
+  };
+
+  handleChangeAddDietNotes = event => {
+    this.setState({
+      dietNotes: event.target.value
+    });
+  };
+
+  handleChangeAddAboutMe = event => {
+    this.setState({
+      specialNeeds: event.target.value
+    });
+  };
+
+  handleSubmit = event => {
+    this.props.addAnimal(this.state)
+    .then(() => this.props.getAnimals())
+    // do i need the line above since i'm just adding animals-not pulling any?
+    .then(() => this.handleClose());
+  };
 
   render() {
     return (
       <Modal
         trigger={
           <Button className="submit-button" onClick={this.handleOpen}>
-            <Icon color="red" size = "large" name="paw" />
-            Add an Animal
+            <Icon color="red" size="large" name="paw" />
+            Add a new animal
           </Button>
         }
         open={this.state.open}
         onClose={this.handleClose}
         size="tiny"
       >
-        <Header
-          textAlign="center"
-          verticalAlign="middle"
-          as="h1"
-        >
-          Add an Animal
+        <Header textAlign="center" verticalalign="middle" as="h1">
+          Add an animal!
         </Header>
 
         <Form size="large">
           <Segment color="grey">
             <Form.Group widths="equal">
-              <Form.Input fluid label="Name" placeholder="First Name" />
               <Form.Input
                 fluid
+                label="Name"
+                onChange={this.handleChangeAddName}
+                placeholder="First Name"
+              />
+
+              <Form.Input
+                type="date"
+                fluid
                 label="Date of Birth"
+                onChange={this.handleChangeAddDOB}
                 placeholder="Date of Birth"
               />
-              <Form.Input fluid label="Breed" placeholder="Breed" />
+              <Form.Input
+                fluid
+                label="Breed"
+                onChange={this.handleChangeAddBreed}
+                placeholder="Breed"
+              />
+
               <Form.Select
                 fluid
                 label="Species"
                 options={options}
+                onChange={this.handleToggle("species")}
                 placeholder="Species"
               />
             </Form.Group>
 
             <Form.Group inline>
-
-              <label>Sex</label>
-            <Form.Field>
-
-              <Radio
-                label="Female"
-                value="female"
-                name="sexValue"
-                checked={this.state.sexValue === "female"}
-                onChange={this.handleToggle('sexValue')}
-              />
-            </Form.Field>
-              <Form.Field>  
-              <Radio
-                label="Male"
-                value="male"
-                name="sexValue"
-                checked={this.state.sexValue === "male"}
-                onChange={this.handleToggle('sexValue')}
-              />
-            </Form.Field>
+              <Form.Field>
+                <label>Sex</label>
+                <Radio
+                  label="Female"
+                  value="female"
+                  name="sexValue"
+                  checked={this.state.sexValue === "female"}
+                  onChange={this.handleToggle("sexValue")}
+                />
+              </Form.Field>
+              <Form.Field>
+                <Radio
+                  label="Male"
+                  value="male"
+                  name="sexValue"
+                  checked={this.state.sexValue === "male"}
+                  onChange={this.handleToggle("sexValue")}
+                />
+              </Form.Field>
             </Form.Group>
 
             <Form.Group inline>
@@ -116,7 +183,7 @@ export default class ModalAddAnimal extends React.Component {
                 label="no"
                 value="no"
                 checked={this.state.specialNeeds === "no"}
-                onChange={this.handleToggle('specialNeeds')}
+                onChange={this.handleToggle("specialNeeds")}
               />
             </Form.Group>
 
@@ -126,7 +193,7 @@ export default class ModalAddAnimal extends React.Component {
                 label="yes"
                 value="yes"
                 checked={this.state.specialDiet === "yes"}
-                onChange={this.handleToggle('specialDiet')}
+                onChange={this.handleToggle("specialDiet")}
               />
               <Form.Radio
                 label="no"
@@ -137,7 +204,12 @@ export default class ModalAddAnimal extends React.Component {
             </Form.Group>
 
             <Form.Group widths="equal">
-              <Form.Input fluid label="Diet Notes" placeholder="Diet Notes" />
+              <Form.Input
+                fluid
+                label="Diet Notes"
+                placeholder="Diet Notes"
+                onChange={this.handleChangeAddDietNotes}
+              />
             </Form.Group>
 
             <Form.Group inline>
@@ -146,13 +218,13 @@ export default class ModalAddAnimal extends React.Component {
                 label="yes"
                 value="yes"
                 checked={this.state.pregnantValue === "yes"}
-                onChange={this.handleToggle('pregnantValue')}
+                onChange={this.handleToggle("pregnantValue")}
               />
               <Form.Radio
                 label="no"
                 value="no"
                 checked={this.state.pregnantValue === "no"}
-                onChange={this.handleToggle('pregnantValue')}
+                onChange={this.handleToggle("pregnantValue")}
               />
             </Form.Group>
 
@@ -162,13 +234,13 @@ export default class ModalAddAnimal extends React.Component {
                 label="yes"
                 value="yes"
                 checked={this.state.fixed === "yes"}
-                onChange={this.handleToggle('fixed')}
+                onChange={this.handleToggle("fixed")}
               />
               <Form.Radio
                 label="no"
                 value="no"
                 checked={this.state.fixed === "no"}
-                onChange={this.handleToggle('fixed')}
+                onChange={this.handleToggle("fixed")}
               />
             </Form.Group>
 
@@ -178,13 +250,13 @@ export default class ModalAddAnimal extends React.Component {
                 label="yes"
                 value="yes"
                 checked={this.state.animalFriendly === "yes"}
-                onChange={this.handleToggle('animalFriendly')}
+                onChange={this.handleToggle("animalFriendly")}
               />
               <Form.Radio
                 label="no"
                 value="no"
                 checked={this.state.animalFriendly === "no"}
-                onChange={this.handleToggle('animalFriendly')}
+                onChange={this.handleToggle("animalFriendly")}
               />
             </Form.Group>
 
@@ -194,41 +266,56 @@ export default class ModalAddAnimal extends React.Component {
                 label="yes"
                 value="yes"
                 checked={this.state.peopleFriendly === "yes"}
-                onChange={this.handleToggle('peopleFriendly')}
+                onChange={this.handleToggle("peopleFriendly")}
               />
               <Form.Radio
                 label="no"
                 value="no"
                 checked={this.state.peopleFriendly === "no"}
-                onChange={this.handleToggle('peopleFriendly')}
+                onChange={this.handleToggle("peopleFriendly")}
               />
             </Form.Group>
 
             <Form.TextArea
-              // onChange={this.handleChangeComposeEntry}
               name="theDeets"
               label="Details"
               placeholder="About me!"
               autoHeight
               rows={5}
-              onChange={this.handleChange}
-            //   how to i change state for this property?  this.state.about??
+              onChange={this.handleChangeAddAboutMe}
             />
 
-            <Form.Group widths="equal">
-              {/* this should be greyedout unless the user is a shelter.  only shelters will be able to change these four. */}
-              <Form.Input fluid label="Shelter Id" placeholder="Shelter Id" />
-              <Form.Input fluid label="Host Id" placeholder="Host Id" />
-              <Form.Input
-                fluid
-                label="Status"
-                options={adoptionOptions}
-                placeholder="Status"
-              />
-              <Form.Input fluid label="Id" placeholder="Animal Id" />
-            </Form.Group>
+            {this.props.role === "shelter" && 
+              <Form.Group widths="equal">
+                <Form.Input
+                  fluid
+                  label="Shelter Id"
+                  onChange={this.handleChangeAddShelterId}
+                  placeholder="Shelter Id"
+                />
 
-            
+                <Form.Input
+                  fluid
+                  label="Host Id"
+                  onChange={this.handleChangeAddHostId}
+                  placeholder="Host Id"
+                />
+
+                <Form.Select
+                  fluid
+                  label="Status"
+                  options={adoptionOptions}
+                  onChange={this.handleToggle("status")}
+                  placeholder="Status"
+                />
+                <Form.Input
+                  fluid
+                  label="Id"
+                  onChange={this.handleChangeAddAnimalId}
+                  placeholder="Animal Id"
+                />
+              </Form.Group>
+            }
           </Segment>
         </Form>
 
@@ -244,10 +331,23 @@ export default class ModalAddAnimal extends React.Component {
               onClick={this.handleClose}
             >
               <Icon name="remove" /> Cancel
-            </Button> 
+            </Button>
           </Button.Group>
         </Modal.Actions>
       </Modal>
     );
   }
 }
+
+const mapStateToProps = state =>{
+  return {role: state.auth.user.type}
+};
+
+const mapDispatchToProps = { addAnimal, getAnimals };
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ModalAddAnimal);
+
+
