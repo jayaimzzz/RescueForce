@@ -58,7 +58,7 @@ class Nav extends Component {
                     width: "80%"
                   }}
                 >
-                  Home
+                  Top of Page
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
@@ -82,7 +82,7 @@ class Nav extends Component {
                   style={{ padding: "0.6em 10%", width: "80%" }}
                   onClick={this.handlePageScroll(this.sectionThree)}
                 >
-                  Services
+                  Animals to Adopt
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
@@ -98,34 +98,51 @@ class Nav extends Component {
                   style={{ padding: "0.6em 10%", width: "80%" }}
                   onClick={this.handlePageScroll(this.sectionFive)}
                 >
-                  About
+                  Donate
                 </a>
               </li>
             </ul>
           </nav>
         </div>
-
         <div
           id="section-one"
           style={{
-            marginTop: "40px",
-
-            height: "800px"
+            marginTop: "60px",
+            height: "500px",
+            backgroundColor: "darkgrey"
           }}
           ref={this.sectionOne}
         >
-          Header Scroll
+          Scrolling Images
         </div>
-        <div id="section-two" style={{ height: "800px" }} ref={this.sectionTwo}>
-          Mission Statment
+        <div
+          id="section-two"
+          style={{ height: "500px", backgroundColor: "red" }}
+          ref={this.sectionTwo}
+        >
+          Mission Statement
         </div>
-        <div id="section-three" ref={this.sectionThree}>
-          Animal List Link
+        <div
+          id="section-three"
+          style={{ height: "500px", backgroundColor: "blue" }}
+          ref={this.sectionThree}
+        >
+          Animals To Adopt
         </div>
-        <div id="section-four" ref={this.sectionFour}>
-          Section Four
+        <div
+          id="section-four"
+          style={{ height: "500px", backgroundColor: "yellow" }}
+          ref={this.sectionFour}
+        >
+          Apply
         </div>
-        <div id="section-five" ref={this.sectionFive} />
+        <div
+          id="section-five"
+          style={{ height: "500px", backgroundColor: "green" }}
+          ref={this.sectionFive}
+        >
+          Donate
+        </div>
       </Fragment>
     );
   }
