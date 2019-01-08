@@ -4,7 +4,7 @@ import { API_DOMAIN } from "../Constants";
 
 export const GET_ANIMALS_LIST = "get_animals_list";
 export const UPDATE_ANIMAL_PHOTOS = "update_animal_photos";
-export const UPDATE_ANIMAL = "update_animal";
+// export const UPDATE_ANIMAL = "update_animal";
 
 // update animal actions
 export const UPDATE_ANIMAL = "UPDATE_ANIMAL";
