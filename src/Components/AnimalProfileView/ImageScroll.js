@@ -32,7 +32,7 @@ class ImageScroll extends Component {
             />
           ))}
         </div>
-        <ImageEdit images={images} animalId={this.props.animalId} />
+        <ImageEdit animalId={this.props.animalId} />
       </Segment>
     );
   }

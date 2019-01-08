@@ -53,5 +53,35 @@ export const updateAnimalPhotos = (animalId, photos) => (
         });
       }
     })
-    .catch(err => console.log(err));
+    .catch(err => console.err(err));
+};
+
+export const uploadAnimalPhotos = (animalId, photos) => (
+  dispatch,
+  getState
+) => {
+  const formData = new FormData();
+  for (let photo of photos) {
+    formData.append("images", photo);
+  }
+
+  axios
+    .patch(`${API_DOMAIN}/api/animals/${animalId}/photos`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: "Bearer " + getState().auth.user.token
+      }
+    })
+    .then(res => {
+      if (res.status === 200) {
+        dispatch({
+          type: UPDATE_ANIMAL,
+          payload: {
+            id: animalId,
+            data: res.data.data
+          }
+        });
+      }
+    })
+    .catch(err => console.error(err));
 };

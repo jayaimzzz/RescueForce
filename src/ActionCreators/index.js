@@ -4,7 +4,8 @@ import {
   GET_ANIMALS_LIST,
   UPDATE_ANIMAL,
   UPDATE_ANIMAL_PHOTOS,
-  updateAnimalPhotos
+  updateAnimalPhotos,
+  uploadAnimalPhotos
 } from "./animalListActionCreators";
 import { GET_ALL_HOSTS, getAllHosts } from "./hostActionCreators";
 import {
@@ -31,5 +32,6 @@ export {
   LOGOUT,
   updateAnimalPhotos,
   UPDATE_ANIMAL,
-  UPDATE_ANIMAL_PHOTOS
+  UPDATE_ANIMAL_PHOTOS,
+  uploadAnimalPhotos
 };
