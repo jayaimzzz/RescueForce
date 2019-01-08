@@ -3,10 +3,24 @@ import HeaderImageScroll from "../PublicView/HeaderImageScroll";
 import { timingSafeEqual } from "crypto";
 
 class Nav extends Component {
-  state = {
-    color: "pink",
-    backgroundColor: "blue"
+  constructor(props) {
+    super(props);
+    this.sectionOne = React.createRef();
+    this.sectionTwo = React.createRef();
+    this.sectionThree = React.createRef();
+    this.sectionFour = React.createRef();
+    this.sectionFive = React.createRef();
+  }
+  handlePageScroll = ref => event => {
+    event.preventDefault();
+    // ref.current.scrollIntoView(true, { behavior: "smooth" });
+    // ref.current.scrollTo(0, 0);
+    window.scrollTo({ top: ref.current.offsetTop, behavior: "smooth" });
   };
+  // state = {
+  //   color: "pink",
+  //   backgroundColor: "blue"
+  // };
 
   // listenScrollEvent = e => {
   //   if (window.scrollY > 400) {
@@ -49,40 +63,40 @@ class Nav extends Component {
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
-                  href="#section-one"
                   style={{ padding: "0.6em 10%", width: "80%" }}
+                  onClick={this.handlePageScroll(this.sectionOne)}
                 >
                   Scrolling Images
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
-                  href="#section-two"
                   style={{ padding: "0.6em 10%", width: "80%" }}
+                  onClick={this.handlePageScroll(this.sectionTwo)}
                 >
                   Mission Statement
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
-                  href="#section-three"
                   style={{ padding: "0.6em 10%", width: "80%" }}
+                  onClick={this.handlePageScroll(this.sectionThree)}
                 >
                   Services
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
-                  href="#section-four"
                   style={{ padding: "0.6em 10%", width: "80%" }}
+                  onClick={this.handlePageScroll(this.sectionFour)}
                 >
                   Apply
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
-                  href="#section-five"
                   style={{ padding: "0.6em 10%", width: "80%" }}
+                  onClick={this.handlePageScroll(this.sectionFive)}
                 >
                   About
                 </a>
@@ -95,21 +109,23 @@ class Nav extends Component {
           id="section-one"
           style={{
             marginTop: "40px",
-            color: this.state.color,
+
             height: "800px"
           }}
+          ref={this.sectionOne}
         >
           Header Scroll
         </div>
-        <div
-          id="section-two"
-          style={{ color: this.state.backgroundColor, height: "800px" }}
-        >
+        <div id="section-two" style={{ height: "800px" }} ref={this.sectionTwo}>
           Mission Statment
         </div>
-        <div id="section-three">Animal List Link</div>
-        <div id="section-four">Section Four</div>
-        <div id="section-five" />
+        <div id="section-three" ref={this.sectionThree}>
+          Animal List Link
+        </div>
+        <div id="section-four" ref={this.sectionFour}>
+          Section Four
+        </div>
+        <div id="section-five" ref={this.sectionFive} />
       </Fragment>
     );
   }
