@@ -22,7 +22,8 @@ import { getShelterById } from "../ActionCreators";
 class App extends Component {
   renderMain = () => (
     <Fragment>
-      <DevNav />
+    <Nav />
+    <DevNav />
       <PublicView />
     </Fragment>
   );
@@ -44,7 +45,6 @@ class App extends Component {
             Login
           </Button>
         )}
-        <Nav />
         <Switch>
           <Route exact path="/host/:id" component={HostProfileView} />
           <Route exact path="/hosts" component={HostListView} />
