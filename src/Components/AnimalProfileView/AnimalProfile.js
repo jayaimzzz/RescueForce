@@ -40,7 +40,7 @@ class AnimalProfile extends Component {
          </Card.Content>
             <Card.Content extra>
                   
-                <ModalUpdate></ModalUpdate>
+                <ModalUpdate animal={animal}></ModalUpdate>
 
             </Card.Content>
       

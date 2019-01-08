@@ -24,24 +24,9 @@ const adoptionOptions = [
 
 class ModalUpdate extends React.Component {
   state = {
-    id: "",
-    name: "",
-    dob: "",
-    species: "",
-    sexValue: "",
-    breed: "",
-    specialNeeds: "",
-    pregnantValue: "",
-    fixed: "",
-    animalFriendly: "",
-    peopleFriendly: "",
-    specialDiet: "",
-    dietNotes: "",
-    shelterId: "",
-    hostId: "",
-    status: "",
-    open: false
+    id: this.props.animal._id,
   };
+ 
 
   // handleChange = (event, {value}) => {
   //   this.setState({
@@ -117,9 +102,11 @@ class ModalUpdate extends React.Component {
 
   handleSubmit = event => {
     this.props.updateAnimal(this.state);
+    this.handleClose();
   };
 
   render() {
+    console.log(this.state)
     return (
       <Modal
         trigger={
@@ -363,7 +350,7 @@ const mapStateToProps = state =>{
   // the second role is wherever in state "role" is located...
 };
 
-const mapDispatchToProps = { updateAnimal };
+const mapDispatchToProps = { updateAnimal,  };
 // this is a shortcut for writing a function that uses the action creator....
 
 export default connect(

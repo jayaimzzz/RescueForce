@@ -1,4 +1,5 @@
 import axios from "axios";
+import { push } from "connected-react-router";
 import { API_DOMAIN } from "../Constants";
 
 export const GET_ANIMALS_LIST = "get_animals_list";
@@ -38,12 +39,12 @@ export const getAnimals = filter => (dispatch, getState) => {
 
 export const updateAnimal = updateAnimalData => (dispatch, getState) => {
   const token = getState().auth.user.token;
-
+  console.log(updateAnimalData)
     dispatch({
       type: UPDATE_ANIMAL
     });
   
-    fetch(`${API_DOMAIN}/animals`, {
+    fetch(`${API_DOMAIN}/api/animals/${updateAnimalData.id}`, {
     //  should thie be fetch(`${API_DOMAIN}/api/animals`, { instead?  See James' reference in axios above.
       method: "PATCH",
       headers: {
@@ -67,6 +68,7 @@ export const updateAnimal = updateAnimalData => (dispatch, getState) => {
           animalData: data
           // 'animalData' is the name we're going to call it in the redux state?
         });
+        dispatch(push(`/animal/${updateAnimalData.id}`));
       })
       .catch(err => {
         // dispatch here on fail --
