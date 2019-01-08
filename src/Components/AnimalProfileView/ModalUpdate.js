@@ -120,6 +120,7 @@ class ModalUpdate extends React.Component {
   };
 
   render() {
+    console.log(this.props)
     return (
       <Modal
         trigger={
@@ -304,7 +305,7 @@ class ModalUpdate extends React.Component {
               onChange={this.handleChangeUpdateAboutMe}
             />
 
-            {this.state.auth.user.type === "shelter" ? (
+            {this.props.role === "shelter" && 
               <Form.Group widths="equal">
                 <Form.Input
                   fluid
@@ -334,7 +335,7 @@ class ModalUpdate extends React.Component {
                   placeholder="Animal Id"
                 />
               </Form.Group>
-            ) : null}
+            }
           </Segment>
         </Form>
 
@@ -359,7 +360,7 @@ class ModalUpdate extends React.Component {
 }
 
 const mapStateToProps = state =>{
-  return {role: state.role}
+  return {role: state.auth.user.type}
   // the second role is wherever in state "role" is located...
 };
 
