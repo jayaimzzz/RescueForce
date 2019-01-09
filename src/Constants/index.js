@@ -3,6 +3,9 @@ export const CAT = "cat";
 export const EXOTIC = "exotic";
 export const HOST = "host";
 export const SHELTER = "shelter";
+export const ADOPTABLE = "adoptable";
+export const FOSTER_ONLY = "foster-only";
+export const NEED_FOSTER = "need-foster";
 
 export const API_DOMAIN = "http://localhost:3000";
 

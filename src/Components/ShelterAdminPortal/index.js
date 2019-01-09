@@ -11,7 +11,7 @@ class ShelterAdminPortal extends Component {
       <br />
         Add a new animal here!
         <br />
-        <ModalAddAnimal animal={animal} />
+        <ModalAddAnimal  />
       </div>
     );
   }

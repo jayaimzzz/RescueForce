@@ -3,9 +3,16 @@ import {
   getAnimals,
   GET_ANIMALS_LIST,
   UPDATE_ANIMAL,
+  UPDATE_ANIMAL_SUCCESS,
+  UPDATE_ANIMAL_FAILURE,
   UPDATE_ANIMAL_PHOTOS,
+  ADD_ANIMAL_STARTED,
+  ADD_ANIMAL_SUCCESS,
+  ADD_ANIMAL_FAILURE,
   updateAnimalPhotos,
-  uploadAnimalPhotos
+  uploadAnimalPhotos,
+  updateAnimal,
+  addAnimal
 } from "./animalListActionCreators";
 import { GET_ALL_HOSTS, getAllHosts } from "./hostActionCreators";
 import {
@@ -33,5 +40,12 @@ export {
   updateAnimalPhotos,
   UPDATE_ANIMAL,
   UPDATE_ANIMAL_PHOTOS,
-  uploadAnimalPhotos
+  uploadAnimalPhotos,
+  UPDATE_ANIMAL_SUCCESS,
+  UPDATE_ANIMAL_FAILURE,
+  ADD_ANIMAL_STARTED,
+  ADD_ANIMAL_SUCCESS,
+  ADD_ANIMAL_FAILURE,
+  updateAnimal,
+  addAnimal
 };
