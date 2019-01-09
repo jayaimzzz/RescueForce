@@ -35,20 +35,4 @@ class HostProfile extends Component {
   }
 }
 
-// const mapStateToProps = (state, props) => {
-//   const host = state.hosts.find(host => host._id === props.hostId);
-//   const canEdit = state.auth.user._id === host._id
-//   return {
-//     host: host,
-//     canEdit: canEdit
-//   };
-// };
-
-// const mapDispatchToProps = null;
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(HostProfile);
-
 export default HostProfile
