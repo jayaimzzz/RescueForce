@@ -22,7 +22,7 @@ export const login = loginData => {
           if (response.data.type === HOST) {
             dispatch(push(`/host/${response.data.data._id}`));
           } else if (response.data.type === SHELTER) {
-            dispatch(push("/admin"));
+            dispatch(push("/"));
           }
         } else {
           dispatch({ type: LOGIN_UNSUCCESSFUL });

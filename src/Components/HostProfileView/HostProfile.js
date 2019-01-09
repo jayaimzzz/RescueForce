@@ -5,7 +5,6 @@ import HostVacancies from "./HostVacancies";
 
 class HostProfile extends Component {
   render() {
-    console.log(this.props)
     const host = this.props.host;
     const hostProfilePic = host.photos[0];
     const shelter = this.props.shelter;

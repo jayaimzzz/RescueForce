@@ -43,7 +43,10 @@ const styles = {
 
 const mapStateToProps = (state, props) => {
     return {
-        animals: state.animals.filter(animal => animal.hostId === props.hostId)
+        animals: state.animals.filter(animal => {
+          console.log(animal)
+          return animal.hostId? animal.hostId === props.hostId :null;
+        })
     }
 }
 
