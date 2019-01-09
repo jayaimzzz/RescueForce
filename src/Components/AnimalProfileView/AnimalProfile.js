@@ -19,7 +19,8 @@ class AnimalProfile extends Component {
     return (
 
       <Card>
-         <Card.Content>
+         <div class="ui raised card">
+         <Card.Content style={{backgroundColor: "gray"}}>
            <Card.Header>{animal.name}</Card.Header>
                <Card.Description>Species: {animal.species}</Card.Description>
                <Card.Description>Breed: {animal.breed}</Card.Description>
@@ -36,7 +37,8 @@ class AnimalProfile extends Component {
                <Card.Description>{animal.name} {animal.specialDiet ? "does" : "does not"} have a special diet. </Card.Description>
                <Card.Description>{animal.name} {animal.specialNeeds ? "does" : "does not"} have special needs. </Card.Description>
          </Card.Content>
-            <Card.Content extra>
+               </div>
+            <Card.Content style={{backgroundColor: "black"}} extra>
                   
                 <ModalUpdate animal={animal}></ModalUpdate>
 
