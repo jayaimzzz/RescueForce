@@ -20,7 +20,7 @@ class ImageScroll extends Component {
   render() {
     const images = this.props.images;
     return (
-      <Segment>
+      <Segment style={{backgroundColor: "black"}}>
         <div className="ui segment" style={styles.segment}>
           {images.map((image, index) => (
             <Image

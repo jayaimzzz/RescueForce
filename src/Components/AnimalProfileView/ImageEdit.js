@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Modal, Input, Form } from "semantic-ui-react";
+import { Button, Modal, Input, Form, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
 import Gallery from "react-photo-gallery";
 import {
@@ -44,7 +44,7 @@ class ImageEdit extends Component {
     return (
       <Modal
         style={{ width: "80vw" }}
-        trigger={<Button>Edit Images</Button>}
+        trigger={<Button><Icon color="teal" size="large" name="paw"/> Edit Images</Button>}
         onClose={this.handleClose}
       >
         <Modal.Header>Edit Images</Modal.Header>

@@ -108,7 +108,7 @@ class ModalUpdate extends React.Component {
 
   render() {
     return (
-      <Modal
+      <Modal 
         trigger={
           <Button className="submit-button" onClick={this.handleOpen}>
             <Icon color="teal" size="large" name="paw" />
@@ -119,12 +119,12 @@ class ModalUpdate extends React.Component {
         onClose={this.handleClose}
         size="tiny"
       >
-        <Header textAlign="center" verticalalign="middle" as="h1">
+        <Header style={{backgroundColor: "purple"}} textAlign="center" verticalalign="middle" as="h1">
           Update Me!
         </Header>
 
         <Form size="large">
-          <Segment color="grey">
+          <Segment style={{backgroundColor: "cyan"}} color="grey">
             <Form.Group widths="equal">
               <Form.Input
                 fluid
@@ -326,7 +326,7 @@ class ModalUpdate extends React.Component {
           </Segment>
         </Form>
 
-        <Modal.Actions>
+        <Modal.Actions style={{backgroundColor: "black"}}>
           <Button.Group fluid>
             <Button className="submit-button" onClick={this.handleSubmit}>
               <Icon name="sticky note outline" /> Update
