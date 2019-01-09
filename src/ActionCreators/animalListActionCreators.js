@@ -12,10 +12,9 @@ export const UPDATE_ANIMAL_SUCCESS = "UPDATE_ANIMAL_SUCCESS";
 export const UPDATE_ANIMAL_FAILURE = "UPDATE_USER_FAILURE";
 
 // ADD animal actions
-export const ADD_ANIMAL = "UPDATE_ANIMAL";
-export const ADD_ANIMAL_SUCCESS = "UPDATE_ANIMAL_SUCCESS";
-export const ADD_ANIMAL_FAILURE = "UPDATE_USER_FAILURE";
-
+export const ADD_ANIMAL_STARTED = "add_animal_started";
+export const ADD_ANIMAL_SUCCESS = "add_animal_success";
+export const ADD_ANIMAL_FAILURE = "add_animal_failure";
 
 export const getAnimals = filter => (dispatch, getState) => {
   const token = getState().auth.user.token;
@@ -57,7 +56,7 @@ export const updateAnimalPhotos = (animalId, photos) => (
     .then(res => {
       if (res.status === 200) {
         dispatch({
-          type: UPDATE_ANIMAL,
+          type: UPDATE_ANIMAL_PHOTOS,
           payload: {
             id: animalId,
             data: res.data.data
@@ -87,7 +86,7 @@ export const uploadAnimalPhotos = (animalId, photos) => (
     .then(res => {
       if (res.status === 200) {
         dispatch({
-          type: UPDATE_ANIMAL,
+          type: UPDATE_ANIMAL_PHOTOS,
           payload: {
             id: animalId,
             data: res.data.data
@@ -100,78 +99,62 @@ export const uploadAnimalPhotos = (animalId, photos) => (
 
 export const updateAnimal = updateAnimalData => (dispatch, getState) => {
   const token = getState().auth.user.token;
-    dispatch({
-      type: UPDATE_ANIMAL
+  dispatch({
+    type: UPDATE_ANIMAL,
+    payload: {}
+  });
+
+  return fetch(`${API_DOMAIN}/api/animals/${updateAnimalData.id}`, {
+    method: "PATCH",
+    headers: {
+      Authorization: "Bearer " + token,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(updateAnimalData)
+  })
+    .then(res => {
+      if (!res.ok) {
+        return res.json().then(err => {
+          throw err;
+        });
+      }
+      return res.json();
+    })
+    .then(data => {
+      // dispatch here on success -- data is everything server sent back in its response
+      dispatch({
+        type: UPDATE_ANIMAL_SUCCESS,
+        animalData: data
+        // 'animalData' is the name we're going to call it in the redux state?
+      });
+      dispatch(push(`/animal/${updateAnimalData.id}`));
+    })
+    .catch(err => {
+      // dispatch here on fail --
+      dispatch({
+        type: UPDATE_ANIMAL_FAILURE,
+        updateResult: "sorry, no can do."
+      });
     });
-  
-    return fetch(`${API_DOMAIN}/api/animals/${updateAnimalData.id}`, {
-      method: "PATCH",
+};
+
+// add animal action creator
+export const addAnimal = addAnimalData => (dispatch, getState) => {
+  const token = getState().auth.user.token;
+  axios
+    .post(API_DOMAIN + "/api/animals", addAnimalData, {
       headers: {
         Authorization: "Bearer " + token,
         "Content-Type": "application/json"
-      },
-      body: JSON.stringify(updateAnimalData)
+      }
     })
-      .then(res => {
-        if (!res.ok) {
-          return res.json().then(err => {
-            throw err;
-          });
-        }
-        return res.json();
-      })
-      .then(data => {
-        // dispatch here on success -- data is everything server sent back in its response
+    .then(res => {
+      if (res.status === 201) {
         dispatch({
-          type: UPDATE_ANIMAL_SUCCESS,
-          animalData: data
-          // 'animalData' is the name we're going to call it in the redux state?
+          type: ADD_ANIMAL_SUCCESS,
+          payload: res.data.data
         });
-        dispatch(push(`/animal/${updateAnimalData.id}`));
-      })
-      .catch(err => {
-        // dispatch here on fail --
-        dispatch({
-          type: UPDATE_ANIMAL_FAILURE,
-          updateResult: "sorry, no can do."
-        });
-      });
-  };
-
-  // add animal action creator
-export const addAnimal = addAnimalData => (dispatch, getState) => {
-//   const token = getState().auth.user.token;
-//     dispatch({
-//       type: ADD_ANIMAL
-//     });
-  
-  //   return fetch(`${API_DOMAIN}/api/animals/${updateAnimalData.id}`, {
-  //     method: "POST",
-  //     headers: {
-  //       Authorization: "Bearer " + token,
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify(addAnimalData)
-  //   })
-  //     .then(res => {
-  //       if (!res.ok) {
-  //         return res.json().then(err => {
-  //           throw err;
-  //         });
-  //       }
-  //       return res.json();
-  //     })
-  //     .then(data => {
-  //       dispatch({
-  //         type: ADD_ANIMAL_SUCCESS,
-  //         animalData: data
-  //       });
-  //       dispatch(push(`/animal/${addAnimalData.id}`));
-  //     })
-  //     .catch(err => {
-  //       dispatch({
-  //         type: ADD_ANIMAL_FAILURE,
-  //         updateResult: "FAILED TO ADD A NEW ANIMAL.  IN YOUR FACE."
-  //       });
-  //     });
-  };
+      }
+    })
+    .catch(err => console.error(err));
+};
