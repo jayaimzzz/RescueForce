@@ -25,6 +25,10 @@ class HostProfile extends Component {
               Fostering for {shelter.name}
             </Card.Content>
           )}
+          {this.props.canApproveNewHost && (
+
+            <Button color="red">Approve {host.name}</Button>
+          )}
           
           {this.props.canEdit && (
           <Card.Content extra>
