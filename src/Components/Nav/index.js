@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import HeaderImageScroll from "../PublicView/HeaderImageScroll";
 import { timingSafeEqual } from "crypto";
+import { Button } from "semantic-ui-react";
 
 class Nav extends Component {
   constructor(props) {
@@ -61,7 +62,7 @@ class Nav extends Component {
                     color: "black"
                   }}
                 >
-                  Top of Page
+                  Home
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
@@ -70,7 +71,7 @@ class Nav extends Component {
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionOne)}
                 >
-                  Scrolling Images
+                  Adorable Animals
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
@@ -79,7 +80,7 @@ class Nav extends Component {
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionTwo)}
                 >
-                  Mission Statement
+                  Our Mission
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
@@ -88,7 +89,7 @@ class Nav extends Component {
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionThree)}
                 >
-                  Animals to Adopt
+                  Animals
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
@@ -97,7 +98,7 @@ class Nav extends Component {
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionFour)}
                 >
-                  Apply
+                  Apply to Foster
                 </a>
               </li>
               <li
@@ -109,7 +110,7 @@ class Nav extends Component {
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionFive)}
                 >
-                  Donate
+                  Donations
                 </a>
               </li>
             </ul>
@@ -119,7 +120,7 @@ class Nav extends Component {
           id="section-one"
           style={{
             marginTop: "60px",
-            height: "300px",
+            height: "400px",
             backgroundColor: "white",
             borderBottomColor: "black",
             borderBottom: "3px solid",
@@ -132,7 +133,7 @@ class Nav extends Component {
         <div
           id="section-two"
           style={{
-            height: "500px",
+            height: "400px",
             backgroundColor: "#D8D8E4",
             borderBottomColor: "black",
             borderBottom: "3px solid",
@@ -140,12 +141,29 @@ class Nav extends Component {
           }}
           ref={this.sectionTwo}
         >
-          Mission Statement
+          <p
+            style={{
+              padding: "20px",
+              paddingTop: "30px",
+              textAlign: "center",
+              fontSize: "35px",
+              fontFamily: "fantasy"
+            }}
+          >
+            Second Chance Animal Services is a nationally recognized
+            organization that provides innovative programs and services to help
+            animals. Second Chance Animal Services has been helping animals
+            since 1999. We are a no-kill, non-profit charitable 501c3
+            organization. We help over 34,000 pets through adoption, low cost
+            spay/neuter, high quality veterinary care for all, subsidized rates
+            for those that qualify, community outreach, educational programs,
+            training, a pet food pantry, and other services.
+          </p>
         </div>
         <div
           id="section-three"
           style={{
-            height: "500px",
+            height: "400px",
             backgroundColor: "white",
             borderBottomColor: "black",
             borderBottom: "3px solid",
@@ -158,7 +176,7 @@ class Nav extends Component {
         <div
           id="section-four"
           style={{
-            height: "500px",
+            height: "400px",
             backgroundColor: "#D8D8E4",
             borderBottomColor: "black",
             borderBottom: "3px solid",
@@ -170,7 +188,7 @@ class Nav extends Component {
         </div>
         <div
           id="section-five"
-          style={{ height: "500px", backgroundColor: "white" }}
+          style={{ height: "400px", backgroundColor: "white" }}
           ref={this.sectionFive}
         >
           Donate
