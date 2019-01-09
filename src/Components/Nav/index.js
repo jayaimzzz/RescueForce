@@ -41,9 +41,11 @@ class Nav extends Component {
             className="top"
             style={{
               width: "100%",
-              backgroundColor: "#ebebeb",
+              backgroundColor: "white",
               position: "fixed",
-              height: "8%"
+              height: "8%",
+              fontSize: "20px",
+              fontFamily: "fantasy"
             }}
           >
             <ul
@@ -55,7 +57,8 @@ class Nav extends Component {
                   href="#top"
                   style={{
                     padding: "0.6em 10%",
-                    width: "80%"
+                    width: "80%",
+                    color: "black"
                   }}
                 >
                   Top of Page
@@ -64,7 +67,7 @@ class Nav extends Component {
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
                   href="#section-one"
-                  style={{ padding: "0.6em 10%", width: "80%" }}
+                  style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionOne)}
                 >
                   Scrolling Images
@@ -73,7 +76,7 @@ class Nav extends Component {
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
                   href="#section-two"
-                  style={{ padding: "0.6em 10%", width: "80%" }}
+                  style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionTwo)}
                 >
                   Mission Statement
@@ -82,7 +85,7 @@ class Nav extends Component {
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
                   href="#section-three"
-                  style={{ padding: "0.6em 10%", width: "80%" }}
+                  style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionThree)}
                 >
                   Animals to Adopt
@@ -91,16 +94,19 @@ class Nav extends Component {
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
                   href="#section-four"
-                  style={{ padding: "0.6em 10%", width: "80%" }}
+                  style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionFour)}
                 >
                   Apply
                 </a>
               </li>
-              <li className="ui breadcome" style={{ width: "100%" }}>
+              <li
+                className="ui breadcome"
+                style={{ width: "100%", color: "black" }}
+              >
                 <a
                   href="#section-five"
-                  style={{ padding: "0.6em 10%", width: "80%" }}
+                  style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionFive)}
                 >
                   Donate
@@ -113,8 +119,11 @@ class Nav extends Component {
           id="section-one"
           style={{
             marginTop: "60px",
-            height: "500px",
-            backgroundColor: "darkgrey"
+            height: "300px",
+            backgroundColor: "white",
+            borderBottomColor: "black",
+            borderBottom: "3px solid",
+            borderRadius: "2px"
           }}
           ref={this.sectionOne}
         >
@@ -122,28 +131,46 @@ class Nav extends Component {
         </div>
         <div
           id="section-two"
-          style={{ height: "500px", backgroundColor: "red" }}
+          style={{
+            height: "500px",
+            backgroundColor: "#D8D8E4",
+            borderBottomColor: "black",
+            borderBottom: "3px solid",
+            borderRadius: "2px"
+          }}
           ref={this.sectionTwo}
         >
           Mission Statement
         </div>
         <div
           id="section-three"
-          style={{ height: "500px", backgroundColor: "blue" }}
+          style={{
+            height: "500px",
+            backgroundColor: "white",
+            borderBottomColor: "black",
+            borderBottom: "3px solid",
+            borderRadius: "2px"
+          }}
           ref={this.sectionThree}
         >
           Animals To Adopt
         </div>
         <div
           id="section-four"
-          style={{ height: "500px", backgroundColor: "yellow" }}
+          style={{
+            height: "500px",
+            backgroundColor: "#D8D8E4",
+            borderBottomColor: "black",
+            borderBottom: "3px solid",
+            borderRadius: "2px"
+          }}
           ref={this.sectionFour}
         >
           Apply
         </div>
         <div
           id="section-five"
-          style={{ height: "500px", backgroundColor: "green" }}
+          style={{ height: "500px", backgroundColor: "white" }}
           ref={this.sectionFive}
         >
           Donate

@@ -22,8 +22,8 @@ import { getShelterById } from "../ActionCreators";
 class App extends Component {
   renderMain = () => (
     <Fragment>
-    <Nav />
-    <DevNav />
+      <Nav />
+      <DevNav />
       <PublicView />
     </Fragment>
   );
@@ -35,7 +35,7 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <div>Rescue Force</div>
+        <div />
         {this.props.isLoggedIn ? (
           <Button primary onClick={() => this.props.logout()}>
             Logout
