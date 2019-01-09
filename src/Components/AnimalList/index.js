@@ -5,7 +5,7 @@ import { getAnimals } from "../../ActionCreators";
 
 class AnimalList extends Component {
   componentDidMount() {
-    this.props.getAnimals(this.props.filter);
+    this.props.getAnimals();
   }
   
   render() {
