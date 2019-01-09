@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const DevNav = () => (
-  <ul style={{marginTop: 80}}>
+  <ul>
     <li>
       <Link to="/">Home</Link>
     </li>

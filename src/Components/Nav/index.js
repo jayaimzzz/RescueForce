@@ -24,6 +24,7 @@ class Nav extends Component {
           <nav
             className="top"
             style={{
+              marginTop: "20px",
               width: "100%",
               backgroundColor: "white",
               position: "fixed",
@@ -101,7 +102,6 @@ class Nav extends Component {
         <div
           id="section-one"
           style={{
-            marginTop: "60px",
             height: "400px",
             backgroundColor: "white",
             borderBottomColor: "black",
@@ -109,9 +109,7 @@ class Nav extends Component {
             borderRadius: "2px"
           }}
           ref={this.sectionOne}
-        >
-          Scrolling Images
-        </div>
+        />
         <div
           id="section-two"
           style={{

@@ -46,7 +46,7 @@ class App extends Component {
               className="ui right floated primary button"
               style={{
                 backgroundColor: "#000000",
-                marginRight: "20px"
+                marginRight: "14px"
               }}
               primary
               onClick={() => this.props.navToLogin()}
