@@ -7,7 +7,7 @@ class HostProfile extends Component {
   render() {
     const host = this.props.host;
     const hostProfilePic = host.photos[0];
-    const shelter = host.shelterId;
+    const shelter = this.props.shelter
     const shelterProfilePic = shelter.photos[0];
     return (
       <Card>
@@ -16,7 +16,7 @@ class HostProfile extends Component {
           <Card.Header>{host.name}</Card.Header>
           <Card.Description>Address: {host.address}</Card.Description>
           <Card.Description>Phone Number: {host.phoneNumber}</Card.Description>
-          <Card.Description>Capacity: Cats:{host.capacity.cats}, Dogs:{host.capacity.dogs}</Card.Description>
+          <Card.Description>Capacity: Cats:{host.capacity && host.capacity.cats}, Dogs:{host.capacity && host.capacity.dogs}</Card.Description>
           <HostVacancies host={host}/>
           {host.approved && (
             <Card.Content>
@@ -35,18 +35,4 @@ class HostProfile extends Component {
   }
 }
 
-const mapStateToProps = (state, props) => {
-  const host = state.hosts.find(host => host._id === props.hostId);
-  const canEdit = state.auth.user._id === host._id
-  return {
-    host: host,
-    canEdit: canEdit
-  };
-};
-
-const mapDispatchToProps = null;
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HostProfile);
+export default HostProfile

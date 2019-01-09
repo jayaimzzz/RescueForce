@@ -5,7 +5,7 @@ import { getAnimals } from "../../ActionCreators";
 
 class AnimalList extends Component {
   componentDidMount() {
-    this.props.getAnimals(this.props.filter);
+    this.props.getAnimals();
   }
   
   render() {
@@ -23,7 +23,14 @@ const mapStateToProps = (state, props) => {
   const filter = props.filter;
   const filterKey = Object.keys(filter)[0];
   return {
-    animals: state.animals.filter(animal => animal[filterKey] === filter[filterKey])
+    animals: state.animals.filter(animal => {
+      if (animal[filterKey]){
+        const animalKeyValue = animal[filterKey]._id || animal[filterKey]
+        return animalKeyValue === filter[filterKey]
+      } else {
+        return false
+      }
+    })
   }
 };
 
