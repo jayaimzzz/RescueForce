@@ -7,7 +7,7 @@ class HostProfile extends Component {
   render() {
     const host = this.props.host;
     const hostProfilePic = host.photos[0];
-    const shelter = this.props.shelter;
+    const shelter = host.shelterId;
     const shelterProfilePic = shelter.photos[0];
     return (
       <Card>
@@ -38,10 +38,8 @@ class HostProfile extends Component {
 const mapStateToProps = (state, props) => {
   const host = state.hosts.find(host => host._id === props.hostId);
   const canEdit = state.auth.user._id === host._id
-  const shelter = state.shelters.find(shelter => shelter._id === host.shelterId);
   return {
     host: host,
-    shelter: shelter,
     canEdit: canEdit
   };
 };

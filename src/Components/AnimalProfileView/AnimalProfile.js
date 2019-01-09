@@ -12,8 +12,8 @@ class AnimalProfile extends Component {
 
   render() {
     const animal = this.props.animal;
-    const shelter = this.props.shelter;
-    const host = this.props.host;
+    // const shelter = this.props.shelter;
+    // const host = this.props.host;
     // const ButtonExampleShorthand = () => <Button content='Click Here' />
 
     return (
@@ -26,8 +26,7 @@ class AnimalProfile extends Component {
                <Card.Description>DOB: {animal.dob}</Card.Description>
                <Card.Description>Sex: {animal.sex}</Card.Description>
                <Card.Description>About: {animal.about}</Card.Description>
-               <Card.Description>Shelter Id: {animal.shelterId}</Card.Description>
-               <Card.Description>Host Id: {animal.hostId}</Card.Description>
+               <Card.Description>Host Id: {animal.hostId ? animal.hostId._id : ''}</Card.Description>
                <Card.Description>Status: {animal.status}</Card.Description>
                {/* <Card.Description>{animal.name} {this.yesOrNo(animal.animalFriendly)} animal-friendly. </Card.Description> */}
                <Card.Description>{animal.name} {animal.animalFriendly ? "is" : "is not"} animal-friendly. </Card.Description>
