@@ -63,6 +63,7 @@ class Nav extends Component {
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
+                  href="#section-one"
                   style={{ padding: "0.6em 10%", width: "80%" }}
                   onClick={this.handlePageScroll(this.sectionOne)}
                 >
@@ -71,6 +72,7 @@ class Nav extends Component {
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
+                  href="#section-two"
                   style={{ padding: "0.6em 10%", width: "80%" }}
                   onClick={this.handlePageScroll(this.sectionTwo)}
                 >
@@ -79,6 +81,7 @@ class Nav extends Component {
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
+                  href="#section-three"
                   style={{ padding: "0.6em 10%", width: "80%" }}
                   onClick={this.handlePageScroll(this.sectionThree)}
                 >
@@ -87,6 +90,7 @@ class Nav extends Component {
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
+                  href="#section-four"
                   style={{ padding: "0.6em 10%", width: "80%" }}
                   onClick={this.handlePageScroll(this.sectionFour)}
                 >
@@ -95,6 +99,7 @@ class Nav extends Component {
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
+                  href="section-five"
                   style={{ padding: "0.6em 10%", width: "80%" }}
                   onClick={this.handlePageScroll(this.sectionFive)}
                 >
@@ -117,28 +122,41 @@ class Nav extends Component {
         </div>
         <div
           id="section-two"
-          style={{ height: "500px", backgroundColor: "red" }}
+          style={{
+            height: "500px",
+            backgroundColor: "red",
+            textAlign: "center"
+          }}
           ref={this.sectionTwo}
         >
-          Mission Statement
+          James needs to write a mission statement and it needs to go here.
         </div>
         <div
           id="section-three"
-          style={{ height: "500px", backgroundColor: "blue" }}
+          style={{
+            height: "500px",
+            backgroundColor: "blue"
+          }}
           ref={this.sectionThree}
         >
           Animals To Adopt
         </div>
         <div
           id="section-four"
-          style={{ height: "500px", backgroundColor: "yellow" }}
+          style={{
+            height: "500px",
+            backgroundColor: "yellow"
+          }}
           ref={this.sectionFour}
         >
           Apply
         </div>
         <div
           id="section-five"
-          style={{ height: "500px", backgroundColor: "green" }}
+          style={{
+            height: "500px",
+            backgroundColor: "green"
+          }}
           ref={this.sectionFive}
         >
           Donate
