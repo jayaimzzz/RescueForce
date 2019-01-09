@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import HeaderImageScroll from "../PublicView/HeaderImageScroll";
 import { timingSafeEqual } from "crypto";
-import { Button } from "semantic-ui-react";
+import { Icon } from "semantic-ui-react";
 
 class Nav extends Component {
   constructor(props) {
@@ -14,26 +14,9 @@ class Nav extends Component {
   }
   handlePageScroll = ref => event => {
     event.preventDefault();
-    // ref.current.scrollIntoView(true, { behavior: "smooth" });
-    // ref.current.scrollTo(0, 0);
     window.scrollTo({ top: ref.current.offsetTop, behavior: "smooth" });
   };
-  // state = {
-  //   color: "pink",
-  //   backgroundColor: "blue"
-  // };
 
-  // listenScrollEvent = e => {
-  //   if (window.scrollY > 400) {
-  //     this.setState({ color: "black" });
-  //   } else {
-  //     this.setState({ color: "yellow" });
-  //   }
-  // };
-
-  // componentDidMount() {
-  //   window.addEventListener("scroll", this.listenScrollEvent);
-  // }
   render() {
     return (
       <Fragment>
@@ -62,7 +45,7 @@ class Nav extends Component {
                     color: "black"
                   }}
                 >
-                  Home
+                  <Icon className="paw icon">Home</Icon>
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
@@ -70,9 +53,8 @@ class Nav extends Component {
                   href="#section-one"
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionOne)}
-                >
-                  Adorable Animals
-                </a>
+                />
+                <Icon className="paw icon">Scrolling</Icon>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
@@ -80,7 +62,7 @@ class Nav extends Component {
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionTwo)}
                 >
-                  Our Mission
+                  <Icon className="paw icon">Mission</Icon>
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
@@ -89,7 +71,7 @@ class Nav extends Component {
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionThree)}
                 >
-                  Animals
+                  <Icon className="paw icon">Animals</Icon>
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
@@ -98,7 +80,7 @@ class Nav extends Component {
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionFour)}
                 >
-                  Apply to Foster
+                  <Icon className="paw icon">Apply</Icon>
                 </a>
               </li>
               <li
@@ -110,7 +92,7 @@ class Nav extends Component {
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionFive)}
                 >
-                  Donations
+                  <Icon className="paw icon">Donations</Icon>
                 </a>
               </li>
             </ul>
@@ -141,13 +123,25 @@ class Nav extends Component {
           }}
           ref={this.sectionTwo}
         >
+          <h3
+            style={{
+              paddingTop: "30px",
+              textAlign: "center",
+              fontFamily: "fantasy",
+              fontStyle: "bold",
+              fontSize: "40px"
+            }}
+          >
+            Rescue Force
+          </h3>
           <p
             style={{
               padding: "20px",
               paddingTop: "30px",
               textAlign: "center",
-              fontSize: "35px",
-              fontFamily: "fantasy"
+              fontSize: "23px",
+              fontFamily: "fantasy",
+              fontStyle: "italic"
             }}
           >
             Second Chance Animal Services is a nationally recognized
