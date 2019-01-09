@@ -46,10 +46,9 @@ const mapStateToProps = (state, props) => {
       shelter = host.shelterId;
     };
   const canEdit = loggedInUser.data._id === hostId
-  console.log(host);
-  console.log(shelter);
-  console.log(loggedInUser);
-  console.log(hostId);
+  // const canApproveNewHost = !host.approved & loggedInUser.data_id === shelter._id
+  // console.log(canApproveNewHost)
+
   return {
     host: host,
     shelter: shelter,

@@ -9,6 +9,7 @@ class HostProfile extends Component {
     const hostProfilePic = host.photos[0];
     const shelter = this.props.shelter
     const shelterProfilePic = shelter.photos[0];
+     
     return (
       <Card>
         <Image src={hostProfilePic} size="medium" />
@@ -24,6 +25,7 @@ class HostProfile extends Component {
               Fostering for {shelter.name}
             </Card.Content>
           )}
+          
           {this.props.canEdit && (
           <Card.Content extra>
           <Button onClick={()=>console.log('edit profile button clicked')}><Icon name='edit'/>Edit Profile</Button>
