@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Route, Switch, withRouter } from "react-router";
 import { push } from "connected-react-router";
 import { connect } from "react-redux";
-import { Button } from "semantic-ui-react";
+import { Button, Sticky } from "semantic-ui-react";
 import {
   AnimalListView,
   AnimalProfileView,
@@ -41,9 +41,19 @@ class App extends Component {
             Logout
           </Button>
         ) : (
-          <Button primary onClick={() => this.props.navToLogin()}>
-            Login
-          </Button>
+          <Sticky>
+            <Button
+              className="ui right floated primary button"
+              style={{
+                backgroundColor: "#000000",
+                marginRight: "20px"
+              }}
+              primary
+              onClick={() => this.props.navToLogin()}
+            >
+              Login
+            </Button>
+          </Sticky>
         )}
         <Switch>
           <Route exact path="/host/:id" component={HostProfileView} />
