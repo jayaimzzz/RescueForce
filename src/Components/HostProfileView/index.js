@@ -42,9 +42,14 @@ const mapStateToProps = (state, props) => {
     };
   if(loggedInUser.type === "host"){
       host = loggedInUser.data;
-      shelter = state.shelters.find(shelter => shelter._id === host.shelterId);
+      // shelter = state.shelters.find(shelter => shelter._id === host.shelterId);
+      shelter = host.shelterId;
     };
   const canEdit = loggedInUser.data._id === hostId
+  console.log(host);
+  console.log(shelter);
+  console.log(loggedInUser);
+  console.log(hostId);
   return {
     host: host,
     shelter: shelter,

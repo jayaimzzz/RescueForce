@@ -16,7 +16,7 @@ class HostProfile extends Component {
           <Card.Header>{host.name}</Card.Header>
           <Card.Description>Address: {host.address}</Card.Description>
           <Card.Description>Phone Number: {host.phoneNumber}</Card.Description>
-          <Card.Description>Capacity: Cats:{host.capacity.cats}, Dogs:{host.capacity.dogs}</Card.Description>
+          <Card.Description>Capacity: Cats:{host.capacity && host.capacity.cats}, Dogs:{host.capacity && host.capacity.dogs}</Card.Description>
           <HostVacancies host={host}/>
           {host.approved && (
             <Card.Content>
