@@ -5,6 +5,7 @@ import HostVacancies from "./HostVacancies";
 
 class HostProfile extends Component {
   render() {
+    console.log(this.props)
     const host = this.props.host;
     const hostProfilePic = host.photos[0];
     const shelter = this.props.shelter;
@@ -26,7 +27,7 @@ class HostProfile extends Component {
           )}
           {this.props.canEdit && (
           <Card.Content extra>
-          <Button onClick={()=>console.log('edit profile button clicked')}><Icon name='edit'/>Edit Profile</Button>
+         <Button onClick={()=>console.log('edit profile button clicked')}><Icon name='edit'/>Edit Profile</Button>
           </Card.Content>
           )}
         </Card.Content>
@@ -35,20 +36,30 @@ class HostProfile extends Component {
   }
 }
 
-const mapStateToProps = (state, props) => {
-  const host = state.hosts.find(host => host._id === props.hostId);
-  const canEdit = state.auth.user._id === host._id
-  const shelter = state.shelters.find(shelter => shelter._id === host.shelterId);
-  return {
-    host: host,
-    shelter: shelter,
-    canEdit: canEdit
-  };
-};
+// const mapStateToProps = (state, props) => {
+//   const loggedInUser = state.auth.user
+  
+//   let host = {};
+//   if(loggedInUser.type === "shelter") {
+//       host = state.hosts.find(host => host._id === props.hostId);
+//     };
+//   if(loggedInUser.type === "host"){
+//       host = loggedInUser.data
+//     };
+//   const canEdit = host._id === props.hostId
+//   const shelter = state.shelters.find(shelter => shelter._id === host.shelterId);
+//   return {
+//     host: host,
+//     shelter: shelter,
+//     canEdit: canEdit
+//   };
+// };
 
-const mapDispatchToProps = null;
+// const mapDispatchToProps = null;
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HostProfile);
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(HostProfile);
+
+export default HostProfile
