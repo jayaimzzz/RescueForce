@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import HeaderImageScroll from "../PublicView/HeaderImageScroll";
 import { timingSafeEqual } from "crypto";
+import { Icon } from "semantic-ui-react";
 
 class Nav extends Component {
   constructor(props) {
@@ -13,26 +14,9 @@ class Nav extends Component {
   }
   handlePageScroll = ref => event => {
     event.preventDefault();
-    // ref.current.scrollIntoView(true, { behavior: "smooth" });
-    // ref.current.scrollTo(0, 0);
     window.scrollTo({ top: ref.current.offsetTop, behavior: "smooth" });
   };
-  // state = {
-  //   color: "pink",
-  //   backgroundColor: "blue"
-  // };
 
-  // listenScrollEvent = e => {
-  //   if (window.scrollY > 400) {
-  //     this.setState({ color: "black" });
-  //   } else {
-  //     this.setState({ color: "yellow" });
-  //   }
-  // };
-
-  // componentDidMount() {
-  //   window.addEventListener("scroll", this.listenScrollEvent);
-  // }
   render() {
     return (
       <Fragment>
@@ -40,10 +24,13 @@ class Nav extends Component {
           <nav
             className="top"
             style={{
+              marginTop: "20px",
               width: "100%",
-              backgroundColor: "#ebebeb",
+              backgroundColor: "white",
               position: "fixed",
-              height: "8%"
+              height: "8%",
+              fontSize: "20px",
+              fontFamily: "fantasy"
             }}
           >
             <ul
@@ -55,50 +42,59 @@ class Nav extends Component {
                   href="#top"
                   style={{
                     padding: "0.6em 10%",
-                    width: "80%"
+                    width: "80%",
+                    color: "black"
                   }}
                 >
-                  Top of Page
+                  <Icon className="paw icon">Home</Icon>
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
-                  style={{ padding: "0.6em 10%", width: "80%" }}
+                  href="#section-one"
+                  style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionOne)}
                 >
-                  Scrolling Images
+                  <Icon className="paw icon">Scrolling</Icon>
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
-                  style={{ padding: "0.6em 10%", width: "80%" }}
+                  href="#section-two"
+                  style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionTwo)}
                 >
-                  Mission Statement
+                  <Icon className="paw icon">Mission</Icon>
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
-                  style={{ padding: "0.6em 10%", width: "80%" }}
+                  href="#section-three"
+                  style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionThree)}
                 >
-                  Animals to Adopt
+                  <Icon className="paw icon">Animals</Icon>
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
-                  style={{ padding: "0.6em 10%", width: "80%" }}
+                  href="#section-four"
+                  style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionFour)}
                 >
-                  Apply
+                  <Icon className="paw icon">Apply</Icon>
                 </a>
               </li>
-              <li className="ui breadcome" style={{ width: "100%" }}>
+              <li
+                className="ui breadcome"
+                style={{ width: "100%", color: "black" }}
+              >
                 <a
-                  style={{ padding: "0.6em 10%", width: "80%" }}
+                  href="#section-five"
+                  style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionFive)}
                 >
-                  Donate
+                  <Icon className="paw icon">Donations</Icon>
                 </a>
               </li>
             </ul>
@@ -107,38 +103,85 @@ class Nav extends Component {
         <div
           id="section-one"
           style={{
-            marginTop: "60px",
-            height: "500px",
-            backgroundColor: "darkgrey"
+            height: "400px",
+            backgroundColor: "white",
+            borderBottomColor: "black",
+            borderBottom: "3px solid",
+            borderRadius: "2px"
           }}
           ref={this.sectionOne}
-        >
-          Scrolling Images
-        </div>
+        />
         <div
           id="section-two"
-          style={{ height: "500px", backgroundColor: "red" }}
+          style={{
+            height: "400px",
+            backgroundColor: "#D8D8E4",
+            borderBottomColor: "black",
+            borderBottom: "3px solid",
+            borderRadius: "2px"
+          }}
           ref={this.sectionTwo}
         >
-          Mission Statement
+          <h3
+            style={{
+              paddingTop: "30px",
+              textAlign: "center",
+              fontFamily: "fantasy",
+              fontStyle: "bold",
+              fontSize: "40px"
+            }}
+          >
+            Rescue Force
+          </h3>
+          <p
+            style={{
+              padding: "20px",
+              paddingTop: "30px",
+              textAlign: "center",
+              fontSize: "23px",
+              fontFamily: "fantasy",
+              fontStyle: "italic"
+            }}
+          >
+            Second Chance Animal Services is a nationally recognized
+            organization that provides innovative programs and services to help
+            animals. Second Chance Animal Services has been helping animals
+            since 1999. We are a no-kill, non-profit charitable 501c3
+            organization. We help over 34,000 pets through adoption, low cost
+            spay/neuter, high quality veterinary care for all, subsidized rates
+            for those that qualify, community outreach, educational programs,
+            training, a pet food pantry, and other services.
+          </p>
         </div>
         <div
           id="section-three"
-          style={{ height: "500px", backgroundColor: "blue" }}
+          style={{
+            height: "400px",
+            backgroundColor: "white",
+            borderBottomColor: "black",
+            borderBottom: "3px solid",
+            borderRadius: "2px"
+          }}
           ref={this.sectionThree}
         >
           Animals To Adopt
         </div>
         <div
           id="section-four"
-          style={{ height: "500px", backgroundColor: "yellow" }}
+          style={{
+            height: "400px",
+            backgroundColor: "#D8D8E4",
+            borderBottomColor: "black",
+            borderBottom: "3px solid",
+            borderRadius: "2px"
+          }}
           ref={this.sectionFour}
         >
           Apply
         </div>
         <div
           id="section-five"
-          style={{ height: "500px", backgroundColor: "green" }}
+          style={{ height: "400px", backgroundColor: "white" }}
           ref={this.sectionFive}
         >
           Donate
