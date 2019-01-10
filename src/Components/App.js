@@ -29,7 +29,7 @@ class App extends Component {
   );
 
   componentDidMount = () => {
-    this.props.getShelterById("5c2511cafd2a4e05c5db0a60");
+    this.props.getShelterById("5c2f6d0731cf9d0964b1626d");
   };
 
   render() {
