@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import HostProfile from "./HostProfile";
 import AnimalList from "../AnimalList";
 import { Header } from "semantic-ui-react";
+import { updateHost } from "../../ActionCreators"
 
 class HostProfileView extends Component {
   render() {
@@ -15,7 +16,7 @@ class HostProfileView extends Component {
           )}
         </div>
         <div style={{ float: "left", width: "fit-content" }}>
-        <HostProfile host={this.props.host} shelter={this.props.shelter} canEdit={this.props.canEdit} canApproveNewHost={this.props.canApproveNewHost}/>
+        <HostProfile host={this.props.host} shelter={this.props.shelter} canEdit={this.props.canEdit} canApproveNewHost={this.props.canApproveNewHost} updateHost={this.props.updateHost}/>
         </div>
         <div style={{ float: "left" }}>
           <Header>{this.props.host.name}'s current foster animals</Header>
@@ -38,7 +39,7 @@ const mapStateToProps = (state, props) => {
   let shelter = {};
   if(loggedInUser.type === "shelter") {
       host = state.hosts.find(host => host._id === hostId);
-      shelter = state.shelters.find(shelter => shelter._id === host.shelterId._id);
+      shelter = state.shelters.find(shelter => shelter._id === (host.shelterId && host.shelterId._id));
     };
   if(loggedInUser.type === "host"){
       host = loggedInUser.data;
@@ -46,7 +47,7 @@ const mapStateToProps = (state, props) => {
       shelter = host.shelterId;
     };
   const canEdit = loggedInUser.data._id === hostId
-  const canApproveNewHost = !host.approved & loggedInUser.data._id === shelter._id ? true : false;
+  const canApproveNewHost = !host.approved && shelter && loggedInUser.data._id === shelter._id ? true : false;
 
   return {
     host: host,
@@ -56,7 +57,11 @@ const mapStateToProps = (state, props) => {
   };
 };
 
- const mapDispatchToProps = null;
+ const mapDispatchToProps = dispatch => {
+   return{
+     updateHost: (hostData) => dispatch(updateHost(hostData))
+   }
+ }
 
  export default connect(
   mapStateToProps,

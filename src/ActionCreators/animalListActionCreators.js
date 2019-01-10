@@ -121,16 +121,12 @@ export const updateAnimal = updateAnimalData => (dispatch, getState) => {
       return res.json();
     })
     .then(data => {
-      // dispatch here on success -- data is everything server sent back in its response
       dispatch({
         type: UPDATE_ANIMAL_SUCCESS,
-        animalData: data
-        // 'animalData' is the name we're going to call it in the redux state?
-      });
-      dispatch(push(`/animal/${updateAnimalData.id}`));
+        payload: data
+      })
     })
     .catch(err => {
-      // dispatch here on fail --
       dispatch({
         type: UPDATE_ANIMAL_FAILURE,
         updateResult: "sorry, no can do."
@@ -138,7 +134,6 @@ export const updateAnimal = updateAnimalData => (dispatch, getState) => {
     });
 };
 
-// add animal action creator
 export const addAnimal = addAnimalData => (dispatch, getState) => {
   const token = getState().auth.user.token;
   axios
