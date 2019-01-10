@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Form,
-  Button,
-  Modal,
-  Icon,
-  Header,
-  Segment
-} from "semantic-ui-react";
+import { Form, Button, Modal, Icon, Header, Segment } from "semantic-ui-react";
 import {
   updateHost,
   getAllHosts
@@ -15,18 +8,8 @@ import { connect } from "react-redux";
 
 class HostModalUpdate extends React.Component {
   state = {
-    name: this.props.host.name,
-    address: this.props.host.address,
-    phoneNumber: this.props.host.phoneNumber,
-    // email: this.props.host.email,
-    capacity: this.props.capacity,
-    id: this.props.host._id
-  };
-
-  handleToggle = name => (event, { value }) => {
-    this.setState({
-      [name]: value
-    });
+    open: false,
+    host: this.props.host
   };
 
   handleOpen = event => {
@@ -41,45 +24,26 @@ class HostModalUpdate extends React.Component {
     });
   };
 
-  handleChangeUpdateName = event => {
+  handleChange = (event, { name, value }) => {
     this.setState({
-      name: event.target.value
+      host: { ...this.state.host, [name]: value }
     });
   };
 
-  handleChangeUpdateAddress = event => {
+  handleChangeCapacity = (event, { name, value }) => {
     this.setState({
-      address: event.target.value
-    });
-  };
-
-  handleChangeUpdatePhoneNumber = event => {
-    this.setState({
-      phoneNumber: event.target.value
-    });
-  };
-
-  handleChangeEmail = event => {
-    this.setState({
-      email: event.target.value
-    });
-  };
-
-  handleChangeDogsCapacity = event => {
-    this.setState({
-      capacity: {...this.state.capacity, dogs: event.target.value}
-    });
-  };
-
-  handleChangeCatsCapacity = event => {
-    this.setState({
-      capacity: {...this.state.capacity, cats: event.target.value}
+      host: {
+        ...this.state.host,
+        capacity: { ...this.state.host.capacity, [name]: Number(value) }
+      }
     });
   };
 
   handleSubmit = event => {
+    const {name, email, address, phoneNumber, capacity, _id} = this.state.host;
+    const host = {name, email, address, phoneNumber, capacity, _id};
     this.props
-      .updateHost(this.state)
+      .updateHost(host)
       .then(() => this.props.getAllHosts())
       .then(() => this.handleClose());
   };
@@ -107,48 +71,62 @@ class HostModalUpdate extends React.Component {
               <Form.Input
                 fluid
                 label="Name"
-                onChange={this.handleChangeUpdateName}
+                name="name"
+                onChange={this.handleChange}
+                value={this.state.host.name}
                 placeholder="First Name"
               />
 
               <Form.Input
                 fluid
                 label="Address"
-                onChange={this.handleChangeUpdateAddress}
+                name="address"
+                onChange={this.handleChange}
+                value={this.state.host.address}
                 placeholder="Address"
               />
               <Form.Input
                 type="tel"
                 fluid
                 label="Phone Number"
-                onChange={this.handleChangeUpdatePhoneNumber}
+                name="phoneNumber"
+                onChange={this.handleChange}
+                value={this.state.host.phoneNumber}
                 placeholder="Phone Number"
               />
             </Form.Group>
             <Form.Group widths="equal">
               <Form.Input
-              type="email"
-              fluid
-              label="Email"
-              onChange={this.handleChangeEmail}
-              placeholder="E-Mail"
+                type="email"
+                fluid
+                label="Email"
+                name="email"
+                value={this.state.host.email}
+                onChange={this.handleChange}
+                placeholder="E-Mail"
               />
             </Form.Group>
             <Form.Group>
-            <Form.Input
+              <Form.Input
                 fluid
+                type="number"
                 label="Capacity Cats"
-                onChange={this.handleChangeCatsCapacity}
+                name="cats"
+                value={this.state.host.capacity && this.state.host.capacity.cats}
+                onChange={this.handleChangeCapacity}
                 placeholder="Amount"
               />
 
               <Form.Input
                 fluid
+                type="number"
                 label="Capacity Dogs"
-                onChange={this.handleChangeDogsCapacity}
+                name="dogs"
+                value={this.state.host.capacity && this.state.host.capacity.dogs}
+                onChange={this.handleChangeCapacity}
                 placeholder="Amount"
               />
-              </Form.Group>
+            </Form.Group>
           </Segment>
         </Form>
 

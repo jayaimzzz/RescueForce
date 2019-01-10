@@ -38,11 +38,10 @@ export const getAllHosts = () => {
 export const updateHost = updateHostData => (dispatch, getState) => {
   const token = getState().auth.user.token;
   dispatch({
-    type: UPDATE_HOST,
-    payload: {}
+    type: UPDATE_HOST
   });
 
-  return fetch(`${API_DOMAIN}/api/hosts/${updateHostData.id}`, {
+  return fetch(`${API_DOMAIN}/api/hosts/${updateHostData._id}`, {
     method: "PATCH",
     headers: {
       Authorization: "Bearer " + token,
@@ -61,14 +60,13 @@ export const updateHost = updateHostData => (dispatch, getState) => {
     .then(data => {
       dispatch({
         type: UPDATE_HOST_SUCCESS,
-        hostData: data
+        payload: data
       });
     })
     .catch(err => {
-      // dispatch here on fail --
       dispatch({
         type: UPDATE_HOST_FAILURE,
-        updateResult: "Unable to update.  Please try again later."
+        payload: "Unable to update.  Please try again later."
       });
     });
 };
