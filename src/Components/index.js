@@ -6,7 +6,7 @@ import Login from "./LoginAndRegistration/Login";
 import { Nav } from './Nav';
 import { PublicView } from "./PublicView";
 import { Register } from "./LoginAndRegistration/Register";
-import { ShelterAdminPortal } from "./ShelterAdminPortal";
+import ShelterAdminPortal from "./ShelterAdminPortal";
 
 export {
   AnimalListView,
