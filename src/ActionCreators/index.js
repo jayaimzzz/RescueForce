@@ -1,4 +1,13 @@
-import { GET_SHELTER_BY_ID, getShelterById, GET_ALL_SHELTERS, getAllShelters } from "./shelterActionCreators";
+import {
+  GET_SHELTER_BY_ID,
+  getShelterById,
+  getAllShelters,
+  GET_ALL_SHELTERS,
+  updateShelter,
+  UPDATE_SHELTER_STARTED,
+  UPDATE_SHELTER_SUCCESS,
+  UPDATE_SHELTER_FAILURE
+} from "./shelterActionCreators";
 import {
   getAnimals,
   GET_ANIMALS_LIST,
@@ -50,6 +59,10 @@ export {
   ADD_ANIMAL_FAILURE,
   updateAnimal,
   addAnimal,
+  updateShelter,
+  UPDATE_SHELTER_STARTED,
+  UPDATE_SHELTER_SUCCESS,
+  UPDATE_SHELTER_FAILURE,
   updateHost,
   UPDATE_HOST,
   UPDATE_HOST_SUCCESS,

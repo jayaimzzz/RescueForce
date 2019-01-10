@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Image, Button, Card, Icon } from "semantic-ui-react";
-import ModalUpdate from "./ModalUpdate";
+import ModalUpdateShelter from "./ModalUpdateShelter";
 
 class ShelterProfile extends Component {
   render() {
     const shelter = this.props.shelter;
     return (
       <Card style={{ margin: "auto", width: "40vw" }}>
-        <Image src={shelter.photos[0]} />
+        <Image src={shelter.photos && shelter.photos[0]} />
         <Card.Content>
           <Card.Header>{shelter.name}</Card.Header>
           <Card.Description>Address: {shelter.address}</Card.Description>
@@ -23,7 +23,7 @@ class ShelterProfile extends Component {
 
           {this.props.canEdit && (
             <Card.Content extra>
-              <ModalUpdate />
+              <ModalUpdateShelter />
             </Card.Content>
           )}
         </Card.Content>
@@ -33,7 +33,7 @@ class ShelterProfile extends Component {
 }
 
 const mapStateToProps = state => ({
-  shelter: state.auth.user.data,
+  shelter: state.shelters.find(shelter => shelter._id === state.auth.user.data._id),
   canEdit: true
 });
 
