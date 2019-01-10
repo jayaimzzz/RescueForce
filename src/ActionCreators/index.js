@@ -1,6 +1,8 @@
 import {
   GET_SHELTER_BY_ID,
   getShelterById,
+  getAllShelters,
+  GET_ALL_SHELTERS,
   updateShelter,
   UPDATE_SHELTER_STARTED,
   UPDATE_SHELTER_SUCCESS,
