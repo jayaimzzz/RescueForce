@@ -5,6 +5,10 @@ import HostVacancies from "./HostVacancies";
 import HostModalUpdate from "./HostModalUpdate";
 
 class HostProfile extends Component {
+  handleApproveClick = () => {
+    const hostData = {"_id":this.props.host._id,"approved":true}
+    this.props.updateHost(hostData)
+  }
   render() {
     const host = this.props.host;
     const hostProfilePic = host.photos[0];
@@ -33,7 +37,7 @@ class HostProfile extends Component {
             </Card.Content>
           )}
           {this.props.canApproveNewHost && (
-            <Button color="red">Approve {host.name}</Button>
+            <Button onClick={this.handleApproveClick} color="red">Approve {host.name}</Button>
           )}
           {this.props.canEdit && (
             <Card.Content extra>
