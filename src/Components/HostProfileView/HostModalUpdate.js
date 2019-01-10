@@ -3,7 +3,7 @@ import { Form, Button, Modal, Icon, Header, Segment } from "semantic-ui-react";
 import {
   updateHost,
   getAllHosts
-} from "../../ActionCreators/hostActionCreators";
+} from "../../ActionCreators";
 import { connect } from "react-redux";
 
 class HostModalUpdate extends React.Component {
@@ -14,7 +14,8 @@ class HostModalUpdate extends React.Component {
 
   handleOpen = event => {
     this.setState({
-      open: true
+      open: true,
+      host: this.props.host
     });
   };
 
