@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import HostCard from "./HostCard";
 import { HostFilter } from "./HostFilter";
+import HostListHeader from "./HostListHeader"
 import { getAllHosts, getAnimals } from "../../ActionCreators"
 
 class HostListView extends Component {
@@ -12,9 +13,9 @@ class HostListView extends Component {
 
   render() {
     return (
-      <div style={{ height: 1000, backgroundColor: "orange", margin: 10 }}>
-        Host List View
-        <HostFilter />
+      <div style={{ padding:"10px" }}>
+        <HostListHeader shelter={this.props.shelter}></HostListHeader>
+        {/* <HostFilter /> */}
         {this.props.hosts.map(host => (
           <HostCard key={"hostId" + host._id } host={host} />
         ))}
@@ -25,7 +26,8 @@ class HostListView extends Component {
 
 const mapStateToProps = state => {
   return {
-    hosts: state.hosts
+    hosts: state.hosts,
+    shelter: state.auth.user.data
   };
 };
 
