@@ -17,7 +17,7 @@ import {
 import { logout } from "../ActionCreators/index";
 import { DevNav } from "./DevNav";
 import { CAT, DOG, EXOTIC } from "../Constants";
-import { getShelterById } from "../ActionCreators";
+import { getShelterById, getAllShelters } from "../ActionCreators";
 
 class App extends Component {
   renderMain = () => (
@@ -29,7 +29,7 @@ class App extends Component {
   );
 
   componentDidMount = () => {
-    this.props.getShelterById("5c2f6d0731cf9d0964b1626d");
+    this.props.getAllShelters();
   };
 
   render() {
@@ -90,6 +90,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     getShelterById: shelterId => dispatch(getShelterById(shelterId)),
+    getAllShelters: () => dispatch(getAllShelters()),
     logout: () => dispatch(logout()),
     navToLogin: () => dispatch(push("/login"))
   };

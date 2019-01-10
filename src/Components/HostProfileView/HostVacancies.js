@@ -46,7 +46,6 @@ const mapStateToProps = (state, props) => {
 
   const animalsAtHost = state.animals.filter(
       animal => {
-        console.log(animal)
         if (animal.hostId) {
           return animal.hostId._id === props.host._id
         } else {

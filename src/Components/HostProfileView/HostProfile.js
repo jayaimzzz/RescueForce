@@ -10,6 +10,7 @@ class HostProfile extends Component {
     const hostProfilePic = host.photos[0];
     const shelter = this.props.shelter
     const shelterProfilePic = shelter.photos[0];
+     
     return (
       <Card>
         <Image src={hostProfilePic} size="medium" />
@@ -26,6 +27,10 @@ class HostProfile extends Component {
             </Card.Content>
           )}
           <HostModalUpdate host={host}></HostModalUpdate>
+          {this.props.canApproveNewHost && (
+
+            <Button color="red">Approve {host.name}</Button>
+          )}
           {this.props.canEdit && (
           <Card.Content extra>
           <Button onClick={()=>console.log('edit profile button clicked')}><Icon name='edit'/>Edit Profile</Button>

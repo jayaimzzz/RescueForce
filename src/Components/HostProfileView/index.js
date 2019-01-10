@@ -15,7 +15,7 @@ class HostProfileView extends Component {
           )}
         </div>
         <div style={{ float: "left", width: "fit-content" }}>
-        <HostProfile host={this.props.host} shelter={this.props.shelter} canEdit={this.props.canEdit}/>
+        <HostProfile host={this.props.host} shelter={this.props.shelter} canEdit={this.props.canEdit} canApproveNewHost={this.props.canApproveNewHost}/>
         </div>
         <div style={{ float: "left" }}>
           <Header>{this.props.host.name}'s current foster animals</Header>
@@ -46,14 +46,13 @@ const mapStateToProps = (state, props) => {
       shelter = host.shelterId;
     };
   const canEdit = loggedInUser.data._id === hostId
-  console.log(host);
-  console.log(shelter);
-  console.log(loggedInUser);
-  console.log(hostId);
+  const canApproveNewHost = !host.approved & loggedInUser.data._id === shelter._id ? true : false;
+
   return {
     host: host,
     shelter: shelter,
-    canEdit: canEdit
+    canEdit: canEdit,
+    canApproveNewHost
   };
 };
 
