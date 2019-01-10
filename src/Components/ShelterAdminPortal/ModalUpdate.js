@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button, Modal, Icon, Header, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
+import { updateShelter } from "../../ActionCreators";
 
 class ModalUpdate extends Component {
   state = {
@@ -34,6 +35,13 @@ class ModalUpdate extends Component {
   };
 
   handleClose = () => {
+    this.setState({
+      open: false
+    });
+  };
+
+  handleSubmit = () => {
+    this.props.updateShelter(this.state.shelter);
     this.setState({
       open: false
     });
@@ -127,7 +135,9 @@ const mapStateToProps = state => ({
   shelter: state.auth.user.data
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  updateShelter: shelterInfo => dispatch(updateShelter(shelterInfo))
+});
 
 export default connect(
   mapStateToProps,
