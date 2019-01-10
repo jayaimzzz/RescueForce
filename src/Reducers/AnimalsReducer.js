@@ -19,12 +19,12 @@ export const AnimalsReducer = (state = initState, action) => {
     //       return [...state];
 
     case UPDATE_ANIMAL_SUCCESS:
-      const index = state.findIndex(animal => {
-        return animal._id === action.animalData.id;
-        // lines above look for a single animal and returns an animal when that animal's id matches the animalData.id that was updated. you've already updated that animal's info successfully; reconciling our data.
-      });
-      const newAnimals = state.slice().splice(index, 1, action.animalData);
-      return newAnimals;
+      // const index = state.findIndex(animal => {
+      //   return animal._id === action.animalData.id;
+      //   // lines above look for a single animal and returns an animal when that animal's id matches the animalData.id that was updated. you've already updated that animal's info successfully; reconciling our data.
+      // });
+      // const newAnimals = state.slice().splice(index, 1, action.animalData);
+      return [...state, action.animalData]
 
     case UPDATE_ANIMAL_FAILURE:
       return [...state];

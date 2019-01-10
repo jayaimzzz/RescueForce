@@ -1,11 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { push } from "connected-react-router";
 import { Image, Button, Card, Icon, CardContent } from "semantic-ui-react";
 import ModalUpdate from './ModalUpdate'
 import { updateAnimal } from '../../ActionCreators'
 import moment from 'moment'
 
+
 class AnimalProfile extends Component {
+
+  handleClaimFosterClick = (data) => () => {
+    this.props.updateAnimal(data)
+    .then(()=> this.props.navToAnimalProfile("/host/" + this.props.loggedInUserId))
+  }
+  
+
   render() {
     const animal = this.props.animal;
     const data = {
@@ -13,7 +22,6 @@ class AnimalProfile extends Component {
       "hostId":this.props.loggedInUserId,
       "status":"foster-only"
     }
-    const handleClaimFosterClick = () => {this.props.updateAnimal(data)}
 
     return (
 
@@ -39,7 +47,7 @@ class AnimalProfile extends Component {
                   <ModalUpdate animal={animal}></ModalUpdate>
                 )} 
                 {this.props.canClaim && (
-                  <Button onClick={handleClaimFosterClick}color="red">Foster {this.props.animal.name}</Button>
+                  <Button onClick={this.handleClaimFosterClick(data)}color="red">Foster {this.props.animal.name}</Button>
                 )} 
 
             </Card.Content>
@@ -77,7 +85,8 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  updateAnimal: data => dispatch(updateAnimal(data))
+  updateAnimal: data => dispatch(updateAnimal(data)),
+  navToAnimalProfile: (destination) => dispatch(push(destination))
 })
 
 export default connect(

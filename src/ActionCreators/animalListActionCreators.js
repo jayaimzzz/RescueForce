@@ -126,8 +126,9 @@ export const updateAnimal = updateAnimalData => (dispatch, getState) => {
         type: UPDATE_ANIMAL_SUCCESS,
         animalData: data
         // 'animalData' is the name we're going to call it in the redux state?
-      });
-      dispatch(push(`/animal/${updateAnimalData.id}`));
+      })
+      // .then(()=>
+      // dispatch(push(`/animal/${updateAnimalData.id}`)));
     })
     .catch(err => {
       // dispatch here on fail --
