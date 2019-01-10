@@ -57,8 +57,8 @@ const mapStateToProps = (state, props) => {
     if(animal.hostId && loggedInUser.data._id === animal.hostId._id){
       canUpdate = true;
     }
-    // console.log(typeof animal.hostId._id)
-    if(typeof animal.hostId === "undefined"){
+    const animalHasHost = animal.hostId ? true : false;
+    if(!animalHasHost){
       canClaim = true;
     }
   }
@@ -67,10 +67,10 @@ const mapStateToProps = (state, props) => {
       canUpdate = true;
     }
   }
-  
-  console.log(canClaim)
   return {
-    animal: animal
+    animal: animal,
+    canUpdate: canUpdate,
+    canClaim: canClaim
   };
 };
 
