@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Image, Button, Card, Icon } from "semantic-ui-react";
 import HostVacancies from "./HostVacancies";
+import HostModalUpdate from './HostModalUpdate'
 
 class HostProfile extends Component {
   render() {
@@ -25,11 +26,11 @@ class HostProfile extends Component {
               Fostering for {shelter.name}
             </Card.Content>
           )}
+          <HostModalUpdate host={host}></HostModalUpdate>
           {this.props.canApproveNewHost && (
 
             <Button color="red">Approve {host.name}</Button>
           )}
-          
           {this.props.canEdit && (
           <Card.Content extra>
           <Button onClick={()=>console.log('edit profile button clicked')}><Icon name='edit'/>Edit Profile</Button>

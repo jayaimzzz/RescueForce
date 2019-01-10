@@ -24,9 +24,12 @@ class Nav extends Component {
           <nav
             className="top"
             style={{
-              marginTop: "20px",
+              width: "100%",
+              margin: "20px",
+              paddingBottom: "20px",
               width: "100%",
               backgroundColor: "white",
+
               position: "fixed",
               height: "8%",
               fontSize: "20px",
@@ -52,11 +55,7 @@ class Nav extends Component {
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
                   href="#section-one"
-<<<<<<< HEAD
-                  style={{ padding: "0.6em 10%", width: "80%" }}
-=======
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
->>>>>>> b47790ded41d809f6e00fd14d26bbd39a1acf664
                   onClick={this.handlePageScroll(this.sectionOne)}
                 >
                   <Icon className="paw icon">Scrolling</Icon>
@@ -65,11 +64,7 @@ class Nav extends Component {
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
                   href="#section-two"
-<<<<<<< HEAD
-                  style={{ padding: "0.6em 10%", width: "80%" }}
-=======
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
->>>>>>> b47790ded41d809f6e00fd14d26bbd39a1acf664
                   onClick={this.handlePageScroll(this.sectionTwo)}
                 >
                   <Icon className="paw icon">Mission</Icon>
@@ -78,11 +73,7 @@ class Nav extends Component {
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
                   href="#section-three"
-<<<<<<< HEAD
-                  style={{ padding: "0.6em 10%", width: "80%" }}
-=======
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
->>>>>>> b47790ded41d809f6e00fd14d26bbd39a1acf664
                   onClick={this.handlePageScroll(this.sectionThree)}
                 >
                   <Icon className="paw icon">Animals</Icon>
@@ -91,11 +82,7 @@ class Nav extends Component {
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
                   href="#section-four"
-<<<<<<< HEAD
-                  style={{ padding: "0.6em 10%", width: "80%" }}
-=======
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
->>>>>>> b47790ded41d809f6e00fd14d26bbd39a1acf664
                   onClick={this.handlePageScroll(this.sectionFour)}
                 >
                   <Icon className="paw icon">Apply</Icon>
@@ -106,13 +93,8 @@ class Nav extends Component {
                 style={{ width: "100%", color: "black" }}
               >
                 <a
-<<<<<<< HEAD
-                  href="section-five"
-                  style={{ padding: "0.6em 10%", width: "80%" }}
-=======
                   href="#section-five"
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
->>>>>>> b47790ded41d809f6e00fd14d26bbd39a1acf664
                   onClick={this.handlePageScroll(this.sectionFive)}
                 >
                   <Icon className="paw icon">Donations</Icon>
@@ -135,15 +117,6 @@ class Nav extends Component {
         <div
           id="section-two"
           style={{
-<<<<<<< HEAD
-            height: "500px",
-            backgroundColor: "red",
-            textAlign: "center"
-          }}
-          ref={this.sectionTwo}
-        >
-          James needs to write a mission statement and it needs to go here.
-=======
             height: "400px",
             backgroundColor: "#D8D8E4",
             borderBottomColor: "black",
@@ -168,9 +141,8 @@ class Nav extends Component {
               padding: "20px",
               paddingTop: "30px",
               textAlign: "center",
-              fontSize: "23px",
-              fontFamily: "fantasy",
-              fontStyle: "italic"
+              fontSize: "26px",
+              fontFamily: "fantasy"
             }}
           >
             Second Chance Animal Services is a nationally recognized
@@ -182,21 +154,15 @@ class Nav extends Component {
             for those that qualify, community outreach, educational programs,
             training, a pet food pantry, and other services.
           </p>
->>>>>>> b47790ded41d809f6e00fd14d26bbd39a1acf664
         </div>
         <div
           id="section-three"
           style={{
-<<<<<<< HEAD
-            height: "500px",
-            backgroundColor: "blue"
-=======
             height: "400px",
             backgroundColor: "white",
             borderBottomColor: "black",
             borderBottom: "3px solid",
             borderRadius: "2px"
->>>>>>> b47790ded41d809f6e00fd14d26bbd39a1acf664
           }}
           ref={this.sectionThree}
         >
@@ -205,16 +171,11 @@ class Nav extends Component {
         <div
           id="section-four"
           style={{
-<<<<<<< HEAD
-            height: "500px",
-            backgroundColor: "yellow"
-=======
             height: "400px",
             backgroundColor: "#D8D8E4",
             borderBottomColor: "black",
             borderBottom: "3px solid",
             borderRadius: "2px"
->>>>>>> b47790ded41d809f6e00fd14d26bbd39a1acf664
           }}
           ref={this.sectionFour}
         >
@@ -222,14 +183,7 @@ class Nav extends Component {
         </div>
         <div
           id="section-five"
-<<<<<<< HEAD
-          style={{
-            height: "500px",
-            backgroundColor: "green"
-          }}
-=======
           style={{ height: "400px", backgroundColor: "white" }}
->>>>>>> b47790ded41d809f6e00fd14d26bbd39a1acf664
           ref={this.sectionFive}
         >
           Donate
