@@ -49,8 +49,28 @@ class AnimalProfile extends Component {
 }
 
 const mapStateToProps = (state, props) => {
+  const loggedInUser = state.auth.user;
+  const animal = state.animals.find(animal => animal._id === props.animalId)
+  let canUpdate = false;
+  let canClaim = false;
+  if(loggedInUser.type === "host"){
+    if(animal.hostId && loggedInUser.data._id === animal.hostId._id){
+      canUpdate = true;
+    }
+    // console.log(typeof animal.hostId._id)
+    if(typeof animal.hostId === "undefined"){
+      canClaim = true;
+    }
+  }
+  if(loggedInUser.type === "shelter"){
+    if(animal.shelterId && animal.shelterId._id === animal.shelterId._id){
+      canUpdate = true;
+    }
+  }
+  
+  console.log(canClaim)
   return {
-    animal: state.animals.find(animal => animal._id === props.animalId)
+    animal: animal
   };
 };
 
