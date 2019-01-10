@@ -21,7 +21,7 @@ import {
   updateAnimal,
   addAnimal
 } from "./animalListActionCreators";
-import { GET_ALL_HOSTS, getAllHosts } from "./hostActionCreators";
+import { GET_ALL_HOSTS, getAllHosts, updateHost, UPDATE_HOST, UPDATE_HOST_SUCCESS, UPDATE_HOST_FAILURE } from "./hostActionCreators";
 import {
   login,
   logout,
@@ -34,6 +34,8 @@ import {
 export {
   getShelterById,
   GET_SHELTER_BY_ID,
+  getAllShelters,
+  GET_ALL_SHELTERS,
   getAnimals,
   GET_ANIMALS_LIST,
   getAllHosts,
@@ -58,5 +60,9 @@ export {
   updateShelter,
   UPDATE_SHELTER_STARTED,
   UPDATE_SHELTER_SUCCESS,
-  UPDATE_SHELTER_FAILURE
+  UPDATE_SHELTER_FAILURE,
+  updateHost,
+  UPDATE_HOST,
+  UPDATE_HOST_SUCCESS,
+  UPDATE_HOST_FAILURE
 };

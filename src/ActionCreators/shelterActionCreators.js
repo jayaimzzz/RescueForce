@@ -2,6 +2,7 @@ import axios from "axios";
 import { API_DOMAIN } from "../Constants";
 
 export const GET_SHELTER_BY_ID = "GET_SHELTER_BY_ID";
+export const GET_ALL_SHELTERS = "GET_ALL_SHELTERS";
 export const UPDATE_SHELTER_STARTED = "update_shelter_started";
 export const UPDATE_SHELTER_SUCCESS = "update_shelter_success";
 export const UPDATE_SHELTER_FAILURE = "update_shelter_failure";
@@ -26,6 +27,24 @@ export const getShelterById = shelterId => {
   };
 };
 
-export const updateShelter = shelterInfo => dispatch => {
-
+export const getAllShelters = () => {
+  return function(dispatch) {
+    axios
+      .get(API_DOMAIN + "/api/shelters/")
+      .then(res => {
+        if (res.status === 200) {
+          dispatch({
+            type: GET_ALL_SHELTERS,
+            payload: res.data.data
+          });
+        } else {
+          console.log(res);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 };
+
+export const updateShelter = shelterInfo => dispatch => {};

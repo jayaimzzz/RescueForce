@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Image, Button, Card, Icon } from "semantic-ui-react";
 import HostVacancies from "./HostVacancies";
+import HostModalUpdate from './HostModalUpdate'
 
 class HostProfile extends Component {
   render() {
@@ -9,6 +10,7 @@ class HostProfile extends Component {
     const hostProfilePic = host.photos[0];
     const shelter = this.props.shelter
     const shelterProfilePic = shelter.photos[0];
+     
     return (
       <Card>
         <Image src={hostProfilePic} size="medium" />
@@ -23,6 +25,11 @@ class HostProfile extends Component {
               <Image src={shelterProfilePic} avatar={true} size="massive" />
               Fostering for {shelter.name}
             </Card.Content>
+          )}
+          <HostModalUpdate host={host}></HostModalUpdate>
+          {this.props.canApproveNewHost && (
+
+            <Button color="red">Approve {host.name}</Button>
           )}
           {this.props.canEdit && (
           <Card.Content extra>
