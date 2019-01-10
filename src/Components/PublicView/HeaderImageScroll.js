@@ -35,24 +35,25 @@ class HeaderImageScroll extends Component {
     const images = this.props.images;
     return (
       <div className="ui segment" style={styles.segment}>
-        {images.map((image, index) => (
-          <Image
+        {images.map((image, index) => {
+            console.log(image)
+          return <Image
             style={styles.img}
             size="small"
             bordered
             src={image}
             key={`${this.props.animalId}ImgNum${index}`}
           />
-        ))}
+        })}
       </div>
     );
   }
 }
 
 const mapStateToProps = (state, props) => {
+  const animals = state.animals.filter(animal => animal.status === "adoptable" && animal.photos.length > 0)
   return {
-    images: (state.animals[0] && state.animals[0].photos) || []
-    // images: state.animals.find(animal => animal.id === props.animalId).pictures
+    images: animals.map(animal => animal.photos[0]) || []
   };
 };
 
