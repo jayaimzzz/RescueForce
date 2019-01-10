@@ -47,7 +47,6 @@ const mapStateToProps = (state, props) => {
     };
   const canEdit = loggedInUser.data._id === hostId
   const canApproveNewHost = !host.approved & loggedInUser.data._id === shelter._id ? true : false;
-  
 
   return {
     host: host,
