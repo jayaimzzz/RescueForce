@@ -45,8 +45,13 @@ class HostVacancies extends Component {
 const mapStateToProps = (state, props) => {
 
   const animalsAtHost = state.animals.filter(
-    animal => animal.hostId === props.host._id
-  );
+      animal => {
+        if (animal.hostId) {
+          return animal.hostId._id === props.host._id
+        } else {
+          return false
+        }
+      });
   const qtyCatsAtHost = animalsAtHost.filter(animal => animal.species === "cat")
     .length;
   const qtyDogsAtHost = animalsAtHost.filter(animal => animal.species === "dog")

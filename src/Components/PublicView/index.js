@@ -7,7 +7,7 @@ class PublicView extends Component {
     return (
       <div>
         <Fragment>
-          <div
+          {/* <div
             style={{
               height: "800px",
               backgroundColor: "#f7f8f9",
@@ -16,7 +16,7 @@ class PublicView extends Component {
               fontSize: "20px"
             }}
           />
-          Supposed to be Rescue Force image scroll
+          Supposed to be Rescue Force image scroll */}
         </Fragment>
       </div>
     );

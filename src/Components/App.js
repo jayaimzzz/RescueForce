@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Route, Switch, withRouter } from "react-router";
 import { push } from "connected-react-router";
 import { connect } from "react-redux";
-import { Button } from "semantic-ui-react";
+import { Button, Sticky } from "semantic-ui-react";
 import {
   AnimalListView,
   AnimalProfileView,
@@ -17,33 +17,42 @@ import {
 import { logout } from "../ActionCreators/index";
 import { DevNav } from "./DevNav";
 import { CAT, DOG, EXOTIC } from "../Constants";
-import { getShelterById } from "../ActionCreators";
+import { getShelterById, getAllShelters } from "../ActionCreators";
 
 class App extends Component {
   renderMain = () => (
     <Fragment>
-    <Nav />
-    <DevNav />
+      <Nav />
+      <DevNav />
       <PublicView />
     </Fragment>
   );
 
   componentDidMount = () => {
-    this.props.getShelterById("5c2511cafd2a4e05c5db0a60");
+    this.props.getAllShelters();
   };
 
   render() {
     return (
       <Fragment>
-        <div>Rescue Force</div>
         {this.props.isLoggedIn ? (
           <Button primary onClick={() => this.props.logout()}>
             Logout
           </Button>
         ) : (
-          <Button primary onClick={() => this.props.navToLogin()}>
-            Login
-          </Button>
+          <Sticky>
+            <Button
+              className="ui right floated primary button"
+              style={{
+                backgroundColor: "#000000",
+                marginRight: "14px"
+              }}
+              primary
+              onClick={() => this.props.navToLogin()}
+            >
+              Login
+            </Button>
+          </Sticky>
         )}
         <Switch>
           <Route exact path="/host/:id" component={HostProfileView} />
@@ -81,6 +90,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     getShelterById: shelterId => dispatch(getShelterById(shelterId)),
+    getAllShelters: () => dispatch(getAllShelters()),
     logout: () => dispatch(logout()),
     navToLogin: () => dispatch(push("/login"))
   };

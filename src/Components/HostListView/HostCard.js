@@ -7,7 +7,9 @@ import {
   Image,
   Grid,
   Container,
-  Segment
+  Segment,
+  Label,
+  Header
 } from "semantic-ui-react";
 
 class HostCard extends Component {
@@ -20,6 +22,8 @@ class HostCard extends Component {
       <Segment>
         <Grid>
           <Grid.Column width={2}>
+          {host.approved && (<Label ribbon color='green'>Approved</Label>)}
+          {!host.approved && (<Label ribbon color='red'>Pending</Label>)}
             <Image
               as={Link}
               to={"/host/" + host._id}
@@ -30,8 +34,8 @@ class HostCard extends Component {
           </Grid.Column>
           <Grid.Column width={4}>
             <Container>
-              <h4>{host.name}</h4>
-              <span>{host.address}</span>
+              <Header as={Link} to={"/host/" + host._id}>{host.name}</Header>
+              <div>{host.address}</div>
             </Container>
           </Grid.Column>
           <Grid.Column width={3}>
