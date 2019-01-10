@@ -37,8 +37,12 @@ class AnimalProfile extends Component {
                <Card.Description>{animal.name} {animal.specialNeeds ? "does" : "does not"} have special needs. </Card.Description>
          </Card.Content>
             <Card.Content extra>
-                  
-                <ModalUpdate animal={animal}></ModalUpdate>
+                {this.props.canUpdate && (
+                  <ModalUpdate animal={animal}></ModalUpdate>
+                )} 
+                {this.props.canClaim && (
+                  <Button color="red">Foster {this.props.animal.name}</Button>
+                )} 
 
             </Card.Content>
       
@@ -51,14 +55,15 @@ class AnimalProfile extends Component {
 const mapStateToProps = (state, props) => {
   const loggedInUser = state.auth.user;
   const animal = state.animals.find(animal => animal._id === props.animalId)
+  console.log(animal)
+  console.log(loggedInUser.data._id)
   let canUpdate = false;
   let canClaim = false;
   if(loggedInUser.type === "host"){
     if(animal.hostId && loggedInUser.data._id === animal.hostId._id){
       canUpdate = true;
     }
-    const animalHasHost = animal.hostId ? true : false;
-    if(!animalHasHost){
+    if(animal.status === "need-foster"){
       canClaim = true;
     }
   }
@@ -74,7 +79,9 @@ const mapStateToProps = (state, props) => {
   };
 };
 
+const mapDispatchToProps = null
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(AnimalProfile);
