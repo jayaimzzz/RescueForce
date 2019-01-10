@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from "react";
 
-import HeaderImageScroll from "./HeaderImageScroll";
-
 class PublicView extends Component {
   render() {
     return (
