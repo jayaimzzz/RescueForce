@@ -113,7 +113,9 @@ class Nav extends Component {
             borderRadius: "2px"
           }}
           ref={this.sectionOne}
-        />
+        >
+          <HeaderImageScroll />
+        </div>
         <div
           id="section-two"
           style={{
