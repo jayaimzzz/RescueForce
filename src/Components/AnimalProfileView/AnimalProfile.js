@@ -1,20 +1,27 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { push } from "connected-react-router";
 import { Image, Button, Card, Icon, CardContent } from "semantic-ui-react";
 import ModalUpdate from './ModalUpdate'
+import { updateAnimal } from '../../ActionCreators'
 import moment from 'moment'
+
 
 class AnimalProfile extends Component {
 
-  //  yesOrNo (bool) {
-  //   return bool ? "is" : "is not"
-  // }
+  handleClaimFosterClick = (data) => () => {
+    this.props.updateAnimal(data)
+    .then(()=> this.props.navToAnimalProfile("/host/" + this.props.loggedInUserId))
+  }
+  
 
   render() {
     const animal = this.props.animal;
-    // const shelter = this.props.shelter;
-    // const host = this.props.host;
-    // const ButtonExampleShorthand = () => <Button content='Click Here' />
+    const data = {
+      "id":this.props.animal._id,
+      "hostId":this.props.loggedInUserId,
+      "status":"foster-only"
+    }
 
     return (
 
@@ -28,7 +35,6 @@ class AnimalProfile extends Component {
                <Card.Description>About: {animal.about}</Card.Description>
                <Card.Description>Host Id: {animal.hostId ? animal.hostId._id : ''}</Card.Description>
                <Card.Description>Status: {animal.status}</Card.Description>
-               {/* <Card.Description>{animal.name} {this.yesOrNo(animal.animalFriendly)} animal-friendly. </Card.Description> */}
                <Card.Description>{animal.name} {animal.animalFriendly ? "is" : "is not"} animal-friendly. </Card.Description>
                <Card.Description>{animal.name} {animal.peopleFriendly ? "is" : "is not"} people-friendly.  </Card.Description>
                <Card.Description>{animal.name} {animal.pregnant ? "is" : "is not"} pregnant. </Card.Description>
@@ -37,8 +43,12 @@ class AnimalProfile extends Component {
                <Card.Description>{animal.name} {animal.specialNeeds ? "does" : "does not"} have special needs. </Card.Description>
          </Card.Content>
             <Card.Content extra>
-                  
-                <ModalUpdate animal={animal}></ModalUpdate>
+                {this.props.canUpdate && (
+                  <ModalUpdate animal={animal}></ModalUpdate>
+                )} 
+                {this.props.canClaim && (
+                  <Button onClick={this.handleClaimFosterClick(data)}color="red">Foster {this.props.animal.name}</Button>
+                )} 
 
             </Card.Content>
       
@@ -49,12 +59,37 @@ class AnimalProfile extends Component {
 }
 
 const mapStateToProps = (state, props) => {
+  const loggedInUser = state.auth.user;
+  const animal = state.animals.find(animal => animal._id === props.animalId)
+  let canUpdate = false;
+  let canClaim = false;
+  if(loggedInUser.type === "host"){
+    if(animal.hostId && loggedInUser.data._id === animal.hostId._id){
+      canUpdate = true;
+    }
+    if(animal.status === "need-foster"){
+      canClaim = true;
+    }
+  }
+  if(loggedInUser.type === "shelter"){
+    if(animal.shelterId && animal.shelterId._id === animal.shelterId._id){
+      canUpdate = true;
+    }
+  }
   return {
-    animal: state.animals.find(animal => animal._id === props.animalId)
+    animal: animal,
+    canUpdate: canUpdate,
+    canClaim: canClaim,
+    loggedInUserId: loggedInUser.data._id
   };
 };
 
+const mapDispatchToProps = dispatch => ({
+  updateAnimal: data => dispatch(updateAnimal(data)),
+  navToAnimalProfile: (destination) => dispatch(push(destination))
+})
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(AnimalProfile);
