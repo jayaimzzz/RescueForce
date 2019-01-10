@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import HeaderImageScroll from "../PublicView/HeaderImageScroll";
 import { timingSafeEqual } from "crypto";
-import { Icon } from "semantic-ui-react";
+import { Icon, Header } from "semantic-ui-react";
 
 class Nav extends Component {
   constructor(props) {
@@ -107,14 +107,17 @@ class Nav extends Component {
         <div
           id="section-one"
           style={{
-            height: "400px",
+            paddingTop: "100px",
+            height: "300px",
             backgroundColor: "white",
             borderBottomColor: "black",
             borderBottom: "3px solid",
             borderRadius: "2px"
           }}
           ref={this.sectionOne}
-        />
+        >
+          <HeaderImageScroll />
+        </div>
         <div
           id="section-two"
           style={{
@@ -135,7 +138,7 @@ class Nav extends Component {
               fontSize: "40px"
             }}
           >
-            Rescue Force (our hypo-thesis)
+            Rescue Force (our hypothesis)
           </h3>
           <p
             style={{
