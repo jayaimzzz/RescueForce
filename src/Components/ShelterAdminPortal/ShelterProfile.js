@@ -8,7 +8,7 @@ class ShelterProfile extends Component {
     const shelter = this.props.shelter;
     return (
       <Card style={{ margin: "auto", width: "40vw" }}>
-        <Image src={shelter.photos[0]} />
+        <Image src={shelter.photos && shelter.photos[0]} />
         <Card.Content>
           <Card.Header>{shelter.name}</Card.Header>
           <Card.Description>Address: {shelter.address}</Card.Description>
