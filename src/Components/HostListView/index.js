@@ -25,9 +25,20 @@ class HostListView extends Component {
 }
 
 const mapStateToProps = state => {
+  const loggedInUser = state.auth.user
+  let shelter = {}
+  let hosts = []
+  if (loggedInUser.type === "shelter"){
+    shelter = loggedInUser.data
+    hosts = state.hosts
+  }
+  if (loggedInUser.type === "host"){
+    shelter = loggedInUser.data.shelterId;
+    hosts = [loggedInUser]
+  }
   return {
-    hosts: state.hosts,
-    shelter: state.auth.user.data
+    hosts: hosts,
+    shelter: shelter
   };
 };
 
