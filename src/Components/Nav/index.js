@@ -24,6 +24,7 @@ class Nav extends Component {
           <nav
             className="top"
             style={{
+              marginTop: "20px",
               width: "100%",
               margin: "20px",
               paddingBottom: "20px",
@@ -134,15 +135,16 @@ class Nav extends Component {
               fontSize: "40px"
             }}
           >
-            Rescue Force
+            Rescue Force (our hypo-thesis)
           </h3>
           <p
             style={{
               padding: "20px",
               paddingTop: "30px",
               textAlign: "center",
-              fontSize: "26px",
-              fontFamily: "fantasy"
+              fontSize: "23px",
+              fontFamily: "fantasy",
+              fontStyle: "italic"
             }}
           >
             Second Chance Animal Services is a nationally recognized
@@ -166,7 +168,17 @@ class Nav extends Component {
           }}
           ref={this.sectionThree}
         >
-          Animals To Adopt
+          <p
+            style={{
+              fontFamily: "cursive",
+              fontSize: "50px",
+              textAlign: "center",
+              margin: "30px",
+              paddingTop: "100px"
+            }}
+          >
+            adopt a furry friend
+          </p>
         </div>
         <div
           id="section-four"
