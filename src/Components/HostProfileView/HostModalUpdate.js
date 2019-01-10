@@ -13,14 +13,13 @@ import {
 } from "../../ActionCreators/hostActionCreators";
 import { connect } from "react-redux";
 
-const options = [
-  { key: "1", text: "1", value: "1" },
-  { key: "2", text: "2", value: "2" },
-  { key: "3", text: "3", value: "3" }
-];
-
 class HostModalUpdate extends React.Component {
   state = {
+    name: this.props.host.name,
+    address: this.props.host.address,
+    phoneNumber: this.props.host.phoneNumber,
+    // email: this.props.host.email,
+    capacity: this.props.capacity,
     id: this.props.host._id
   };
 
@@ -48,19 +47,13 @@ class HostModalUpdate extends React.Component {
     });
   };
 
-  // handleChangeUpdateShelterId = event => {
-  //   this.setState({
-  //     shelterId: event.target.value
-  //   });
-  // };
-
   handleChangeUpdateAddress = event => {
     this.setState({
       address: event.target.value
     });
   };
 
-  handleChangePhoneNumber = event => {
+  handleChangeUpdatePhoneNumber = event => {
     this.setState({
       phoneNumber: event.target.value
     });
@@ -72,11 +65,17 @@ class HostModalUpdate extends React.Component {
     });
   };
 
-  // handleChangeCapacity = event => {
-  //   this.setState({
-  //     capacity: event.target.value
-  //   });
-  // };
+  handleChangeDogsCapacity = event => {
+    this.setState({
+      capacity: {...this.state.capacity, dogs: event.target.value}
+    });
+  };
+
+  handleChangeCatsCapacity = event => {
+    this.setState({
+      capacity: {...this.state.capacity, cats: event.target.value}
+    });
+  };
 
   handleSubmit = event => {
     this.props
@@ -135,23 +134,21 @@ class HostModalUpdate extends React.Component {
               placeholder="E-Mail"
               />
             </Form.Group>
-            {/* <Form.Group>
-            <Form.Select
+            <Form.Group>
+            <Form.Input
                 fluid
                 label="Capacity Cats"
-                options={options}
-                onChange={this.handleChangeCapacity("capacity.cats")}
+                onChange={this.handleChangeCatsCapacity}
                 placeholder="Amount"
               />
 
-              <Form.Select
+              <Form.Input
                 fluid
                 label="Capacity Dogs"
-                options={options}
-                onChange={this.handleChangeCapacity("capacity.dogs")}
+                onChange={this.handleChangeDogsCapacity}
                 placeholder="Amount"
               />
-              </Form.Group> */}
+              </Form.Group>
           </Segment>
         </Form>
 
