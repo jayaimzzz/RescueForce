@@ -38,7 +38,7 @@ const mapStateToProps = (state, props) => {
   let shelter = {};
   if(loggedInUser.type === "shelter") {
       host = state.hosts.find(host => host._id === hostId);
-      shelter = state.shelters.find(shelter => shelter._id === host.shelterId._id);
+      shelter = state.shelters.find(shelter => shelter._id === (host.shelterId && host.shelterId._id));
     };
   if(loggedInUser.type === "host"){
       host = loggedInUser.data;
@@ -46,7 +46,7 @@ const mapStateToProps = (state, props) => {
       shelter = host.shelterId;
     };
   const canEdit = loggedInUser.data._id === hostId
-  const canApproveNewHost = !host.approved & loggedInUser.data._id === shelter._id ? true : false;
+  const canApproveNewHost = !host.approved && shelter && loggedInUser.data._id === shelter._id ? true : false;
 
   return {
     host: host,
