@@ -24,9 +24,12 @@ class Nav extends Component {
           <nav
             className="top"
             style={{
-              marginTop: "20px",
+              width: "100%",
+              margin: "20px",
+              paddingBottom: "20px",
               width: "100%",
               backgroundColor: "white",
+
               position: "fixed",
               height: "8%",
               fontSize: "20px",
@@ -137,9 +140,8 @@ class Nav extends Component {
               padding: "20px",
               paddingTop: "30px",
               textAlign: "center",
-              fontSize: "23px",
-              fontFamily: "fantasy",
-              fontStyle: "italic"
+              fontSize: "26px",
+              fontFamily: "fantasy"
             }}
           >
             Second Chance Animal Services is a nationally recognized
