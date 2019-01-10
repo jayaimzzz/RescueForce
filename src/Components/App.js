@@ -35,7 +35,6 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <div />
         {this.props.isLoggedIn ? (
           <Button primary onClick={() => this.props.logout()}>
             Logout

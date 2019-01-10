@@ -57,8 +57,9 @@ class Nav extends Component {
                   href="#section-one"
                   style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
                   onClick={this.handlePageScroll(this.sectionOne)}
-                />
-                <Icon className="paw icon">Scrolling</Icon>
+                >
+                  <Icon className="paw icon">Scrolling</Icon>
+                </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
