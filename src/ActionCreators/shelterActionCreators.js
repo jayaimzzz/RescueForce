@@ -47,4 +47,33 @@ export const getAllShelters = () => {
   };
 };
 
-export const updateShelter = shelterInfo => dispatch => {};
+export const updateShelter = shelterInfo => (dispatch, getState) => {
+  dispatch({
+    type: UPDATE_SHELTER_STARTED
+  });
+  const token = getState().auth.user.token;
+  axios.patch(`${API_DOMAIN}/api/shelters/${shelterInfo._id}`, shelterInfo, {
+    headers: {
+      Authorization: "Bearer " + token,
+      "Content-Type": "application/json"
+    }
+  }).then(res => {
+    if (res.status === 200) {
+      dispatch({
+        type: UPDATE_SHELTER_SUCCESS,
+        payload: res.body.body
+      });
+    } else {
+      console.log('error updating shelter');
+      console.log(res.body);
+      dispatch({
+        type: UPDATE_SHELTER_FAILURE
+      });
+    }
+  }).catch(err => {
+    console.error(err);
+    dispatch({
+      type: UPDATE_SHELTER_FAILURE
+    });
+  }).then(() => dispatch(getAllShelters()));
+};

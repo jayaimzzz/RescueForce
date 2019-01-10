@@ -3,7 +3,7 @@ import { Form, Button, Modal, Icon, Header, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { updateShelter } from "../../ActionCreators";
 
-class ModalUpdate extends Component {
+class ModalUpdateShelter extends Component {
   state = {
     open: false,
     shelter: this.props.shelter
@@ -41,7 +41,9 @@ class ModalUpdate extends Component {
   };
 
   handleSubmit = () => {
-    this.props.updateShelter(this.state.shelter);
+    const { name, address, email, phoneNumber, capacity, _id} = this.state.shelter;
+    const shelter = { name, address, email, phoneNumber, capacity, _id};
+    this.props.updateShelter(shelter);
     this.setState({
       open: false
     });
@@ -132,7 +134,7 @@ class ModalUpdate extends Component {
 }
 
 const mapStateToProps = state => ({
-  shelter: state.auth.user.data
+  shelter: state.shelters.find(shelter => shelter._id === state.auth.user.data._id)
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -142,4 +144,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ModalUpdate);
+)(ModalUpdateShelter);
