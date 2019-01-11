@@ -7,10 +7,10 @@ import { Button, Sticky } from "semantic-ui-react";
 import {
   AnimalListView,
   AnimalProfileView,
+  FrontPageNav,
   HostListView,
   HostProfileView,
   Login,
-  FrontPageNav,
   PublicView,
   Register,
   ShelterAdminPortal,

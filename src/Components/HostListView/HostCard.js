@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import MiniListOfAnimals from "./AnimalImgScroll";
-import HostVacancies from "../HostProfileView/HostVacancies"
+import HostVacancies from "../HostProfileView/HostVacancies";
 import {
   Image,
   Grid,
@@ -14,16 +14,23 @@ import {
 
 class HostCard extends Component {
   render() {
-    const styles = {
-    };
+    const styles = {};
     const host = this.props.host;
     const hostProfilePic = host.photos[0];
     return (
       <Segment>
         <Grid>
           <Grid.Column width={2}>
-          {host.approved && (<Label ribbon color='green'>Approved</Label>)}
-          {!host.approved && (<Label ribbon color='red'>Pending</Label>)}
+            {host.approved && (
+              <Label ribbon color="green">
+                Approved
+              </Label>
+            )}
+            {!host.approved && (
+              <Label ribbon color="red">
+                Pending
+              </Label>
+            )}
             <Image
               as={Link}
               to={"/host/" + host._id}
@@ -34,12 +41,14 @@ class HostCard extends Component {
           </Grid.Column>
           <Grid.Column width={4}>
             <Container>
-              <Header as={Link} to={"/host/" + host._id}>{host.name}</Header>
+              <Header as={Link} to={"/host/" + host._id}>
+                {host.name}
+              </Header>
               <div>{host.address}</div>
             </Container>
           </Grid.Column>
           <Grid.Column width={3}>
-            <HostVacancies host={host}/>
+            <HostVacancies host={host} />
           </Grid.Column>
           <Grid.Column width={7}>
             <MiniListOfAnimals hostId={host._id} />

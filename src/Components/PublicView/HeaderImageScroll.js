@@ -9,18 +9,21 @@ const styles = {
     display: "inline-block",
     borderRadius: "5px",
     transition: "transform .2s",
+    // width: "170px",
+    // height: "150px",
     width: "200px",
     height: "120px",
     backgroundPosition: "50% 50%",
     backgroundRepeat: "no repeat",
     backgroundSize: "cover",
-    padding: "5px",
+    padding: "10px",
     backgroundColor: "#D8D8E4",
-    margin: "2px"
+    margin: "10px"
   },
   segment: {
     margin: "auto",
     paddingTop: "20px",
+    paddingBottom: "20px",
     overflowX: "scroll",
     whiteSpace: "nowrap",
     borderRadius: "5px",
@@ -39,7 +42,7 @@ class HeaderImageScroll extends Component {
         {animals.map((animal, index) => {
           return (
             <Image
-            // style={styles.img}
+            style={styles.img}
             size="small"
             bordered
             rounded

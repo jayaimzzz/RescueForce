@@ -109,10 +109,12 @@ class FrontPageNav extends Component {
           id="section-one"
           style={{
             paddingTop: "100px",
+            margin: "0 0 50px 0",
             height: "300px",
             backgroundColor: "white",
             borderBottomColor: "black",
             borderBottom: "3px solid",
+            borderTopColor: "black",
             borderRadius: "2px"
           }}
           ref={this.sectionOne}
