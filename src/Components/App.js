@@ -6,6 +6,7 @@ import { Button, Sticky } from "semantic-ui-react";
 import {
   AnimalListView,
   AnimalProfileView,
+  FrontPageNav,
   HostListView,
   HostProfileView,
   Login,
@@ -22,7 +23,7 @@ import { getShelterById, getAllShelters } from "../ActionCreators";
 class App extends Component {
   renderMain = () => (
     <Fragment>
-      <Nav />
+      <FrontPageNav />
       <DevNav />
       <PublicView />
     </Fragment>
