@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import HeaderImageScroll from "../PublicView/HeaderImageScroll";
 import { timingSafeEqual } from "crypto";
-import { Icon } from "semantic-ui-react";
+import { Icon, Header } from "semantic-ui-react";
 
 class Nav extends Component {
   constructor(props) {
@@ -24,6 +24,7 @@ class Nav extends Component {
           <nav
             className="top"
             style={{
+              marginTop: "20px",
               width: "100%",
               margin: "20px",
               paddingBottom: "20px",
@@ -106,7 +107,8 @@ class Nav extends Component {
         <div
           id="section-one"
           style={{
-            height: "400px",
+            paddingTop: "100px",
+            height: "300px",
             backgroundColor: "white",
             borderBottomColor: "black",
             borderBottom: "3px solid",
@@ -136,15 +138,16 @@ class Nav extends Component {
               fontSize: "40px"
             }}
           >
-            Rescue Force
+            Rescue Force (our hypothesis)
           </h3>
           <p
             style={{
               padding: "20px",
               paddingTop: "30px",
               textAlign: "center",
-              fontSize: "26px",
-              fontFamily: "fantasy"
+              fontSize: "23px",
+              fontFamily: "fantasy",
+              fontStyle: "italic"
             }}
           >
             Second Chance Animal Services is a nationally recognized
@@ -168,7 +171,17 @@ class Nav extends Component {
           }}
           ref={this.sectionThree}
         >
-          Animals To Adopt
+          <p
+            style={{
+              fontFamily: "cursive",
+              fontSize: "50px",
+              textAlign: "center",
+              margin: "30px",
+              paddingTop: "100px"
+            }}
+          >
+            adopt a furry friend
+          </p>
         </div>
         <div
           id="section-four"
