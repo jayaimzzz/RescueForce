@@ -16,6 +16,7 @@ export {
   HostListView,
   HostProfileView,
   Login,
+  FrontPageNav,
   Nav,
   PublicView,
   Register,

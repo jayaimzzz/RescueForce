@@ -29,6 +29,7 @@ class FrontPageNav extends Component {
               width: "100%",
               margin: "20px",
               paddingBottom: "20px",
+              width: "100%",
               backgroundColor: "white",
 
               position: "fixed",
