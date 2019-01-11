@@ -1,15 +1,16 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import { Image } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import { Image, Segment } from "semantic-ui-react";
 import { getAnimals } from "../../ActionCreators";
 
 const styles = {
   img: {
     display: "inline-block",
-    borderRadius: "5px",
+    // borderRadius: "5px",
     transition: "transform .2s",
-    width: "120px",
-    height: "120px",
+    // width: "200px",
+    // height: "120px",
     backgroundPosition: "50% 50%",
     backgroundRepeat: "no repeat",
     backgroundSize: "cover",
@@ -32,28 +33,38 @@ class HeaderImageScroll extends Component {
     this.props.getAnimals();
   }
   render() {
-    const images = this.props.images;
+    const animals = this.props.animals;
     return (
-      <div className="ui segment" style={styles.segment}>
-        {images.map((image, index) => {
-            console.log(image)
-          return <Image
+      <Segment style={styles.segment}>
+        {animals.map((animal, index) => {
+          return (
+            <Image
             style={styles.img}
             size="small"
             bordered
-            src={image}
-            key={`${this.props.animalId}ImgNum${index}`}
-          />
+            rounded
+            verticalAlign="bottom"
+            src={animal.photos[0]}
+            key={`${animal._id}ImgNum${index}`}
+            as={Link}
+            to={"/animal/" + animal._id}
+            />
+          );
         })}
-      </div>
+      </Segment>
     );
   }
 }
 
 const mapStateToProps = (state, props) => {
-  const animals = state.animals.filter(animal => animal.status === "adoptable" && animal.photos.length > 0)
+  const animalsThatAreAdoptable = state.animals.filter(
+    animal => animal.status === "adoptable" && animal.photos.length > 0
+  );
+  const adoptableAnimalsThatHavePictures = animalsThatAreAdoptable.filter(
+    animal => animal.photos[0].length > 0
+  );
   return {
-    images: animals.map(animal => animal.photos[0]) || []
+    animals: adoptableAnimalsThatHavePictures
   };
 };
 
