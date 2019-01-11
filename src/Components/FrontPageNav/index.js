@@ -3,7 +3,7 @@ import HeaderImageScroll from "../PublicView/HeaderImageScroll";
 import { timingSafeEqual } from "crypto";
 import { Icon, Header } from "semantic-ui-react";
 
-class Nav extends Component {
+class FrontPageNav extends Component {
   constructor(props) {
     super(props);
     this.sectionOne = React.createRef();
@@ -208,4 +208,4 @@ class Nav extends Component {
   }
 }
 
-export { Nav };
+export { FrontPageNav };

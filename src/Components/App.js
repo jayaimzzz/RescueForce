@@ -10,7 +10,7 @@ import {
   HostListView,
   HostProfileView,
   Login,
-  Nav,
+  FrontPageNav,
   PublicView,
   Register,
   ShelterAdminPortal
@@ -23,7 +23,7 @@ import { getShelterById, getAllShelters } from "../ActionCreators";
 class App extends Component {
   renderMain = () => (
     <Fragment>
-      <Nav />
+      <FrontPageNav />
       <DevNav />
       <PublicView />
     </Fragment>
@@ -39,7 +39,7 @@ class App extends Component {
         <div
           style={{
             height: 50,
-            backgroundColor: "#B0B0B8"
+            backgroundColor: "#B0B0B8",
           }}
         >
           <div
@@ -49,7 +49,7 @@ class App extends Component {
               display: "flex",
               justifyContent: "space-around",
               alignItems: "center",
-              margin: "auto"
+              margin: "auto",
             }}
           >
             <Link to="/cats">Cats</Link>
