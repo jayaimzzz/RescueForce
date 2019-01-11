@@ -27,8 +27,7 @@ class MissionStatement extends Component {
         >
           <p>
             Most animal rescue groups and shelters depend on a network of foster
-            homes. RescueForce helps rescue groups manage their network of
-            foster homes.
+            homes. RescueForce helps rescue groups manage that network.
           </p>
           <p>
             A shelter can add an animal. When the animal is marked as needing a
