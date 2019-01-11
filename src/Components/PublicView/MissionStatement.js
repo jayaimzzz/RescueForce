@@ -59,6 +59,7 @@ class MissionStatement extends Component {
             Once a rescue animal is ready to be listed for adoption, a simple
             click of a button will make this animal viewable to all the public.
           </p>
+          <p>Helping animals is important. Helping those who help animals is our mission.</p>
         </div>
       </Fragment>
     );
