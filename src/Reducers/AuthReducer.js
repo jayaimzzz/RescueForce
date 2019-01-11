@@ -6,10 +6,11 @@ import {
   LOGOUT
 } from "../ActionCreators";
 
-INITIAL_STATE.auth =
-  JSON.parse(localStorage.getItem("auth")) || INITIAL_STATE.auth;
+const getInitState = () => {
+  return JSON.parse(localStorage.getItem("auth")) || INITIAL_STATE.auth;
+};
 
-export const AuthReducer = (state = INITIAL_STATE.auth, action) => {
+export const AuthReducer = (state = getInitState(), action) => {
   switch (action.type) {
     case LOGIN_STARTED:
       return { ...state, auth_in_progress: true };
@@ -18,10 +19,7 @@ export const AuthReducer = (state = INITIAL_STATE.auth, action) => {
     case LOGIN_UNSUCCESSFUL:
       return { ...state, auth_in_progress: false };
     case LOGOUT:
-      return {
-        user: { ...INITIAL_STATE.auth.user, ...{ token: "" } },
-        auth_in_progress: false
-      };
+      return INITIAL_STATE.auth;
     default:
       return state;
   }

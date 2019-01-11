@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Route, Switch, withRouter } from "react-router";
+import { Link } from "react-router-dom";
 import { push } from "connected-react-router";
 import { connect } from "react-redux";
 import { Button, Sticky } from "semantic-ui-react";
@@ -9,12 +10,13 @@ import {
   HostListView,
   HostProfileView,
   Login,
-  Nav,
+  FrontPageNav,
   PublicView,
   Register,
-  ShelterAdminPortal
+  ShelterAdminPortal,
+  Nav
 } from "./index";
-import { logout } from "../ActionCreators/index";
+import { logout } from "../ActionCreators";
 import { DevNav } from "./DevNav";
 import { CAT, DOG, EXOTIC } from "../Constants";
 import { getShelterById, getAllShelters } from "../ActionCreators";
@@ -22,7 +24,7 @@ import { getShelterById, getAllShelters } from "../ActionCreators";
 class App extends Component {
   renderMain = () => (
     <Fragment>
-      <Nav />
+      <FrontPageNav />
       <DevNav />
       <PublicView />
     </Fragment>
@@ -35,25 +37,7 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        {this.props.isLoggedIn ? (
-          <Button primary onClick={() => this.props.logout()}>
-            Logout
-          </Button>
-        ) : (
-          <Sticky>
-            <Button
-              className="ui right floated primary button"
-              style={{
-                backgroundColor: "#000000",
-                marginRight: "14px"
-              }}
-              primary
-              onClick={() => this.props.navToLogin()}
-            >
-              Login
-            </Button>
-          </Sticky>
-        )}
+        <Nav/> 
         <Switch>
           <Route exact path="/host/:id" component={HostProfileView} />
           <Route exact path="/hosts" component={HostListView} />
@@ -84,7 +68,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  isLoggedIn: state.auth.user ? Boolean(state.auth.user.token) : false
+  isLoggedIn: state.auth.user ? Boolean(state.auth.user.token) : false,
 });
 
 const mapDispatchToProps = dispatch => {
