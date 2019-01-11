@@ -40,6 +40,20 @@ export const AnimalFilter = props => (
           onChange={props.filters.handleNullableRadioChange}
         />
       </Form.Group>
+      <Form.Checkbox
+        label="Must Be Animal Friendly"
+        checked={Boolean(props.filter.animalFriendly)}
+        name="animalFriendly"
+        value="true"
+        onChange={props.filters.handleToggle}
+      />
+      <Form.Checkbox
+        label="Must Be Kid Friendly"
+        checked={Boolean(props.filter.peopleFriendly)}
+        name="peopleFriendly"
+        value="true"
+        onChange={props.filters.handleToggle}
+      />
     </Form>
   </Segment>
 );

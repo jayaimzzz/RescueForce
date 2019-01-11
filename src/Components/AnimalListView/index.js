@@ -31,6 +31,18 @@ class AnimalListView extends Component {
       filter
     });
   };
+  
+  handleFilterToggle = (event, { name, value }) => {
+    const filter = {...this.state.filter };
+    if (filter[name]) {
+      delete filter[name];
+    } else {
+      filter[name] = true;
+    }
+    this.setState({
+      filter
+    });
+  };
 
   render() {
     const animals = this.props.animals.filter(animal => {
@@ -53,7 +65,8 @@ class AnimalListView extends Component {
               filter={this.state.filter}
               filters={{
                 handleChange: this.handleFilterChange,
-                handleNullableRadioChange: this.handleFilterNullableRadioChange
+                handleNullableRadioChange: this.handleFilterNullableRadioChange,
+                handleToggle: this.handleFilterToggle
               }}
             />
           </Grid.Column>
