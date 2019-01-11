@@ -16,34 +16,54 @@ class PersonalDetails extends Component {
   render() {
     const { values } = this.props;
     return (
-      <Form color="blue">
-        <h1 className="ui centered">Enter Personal Details</h1>
-        <Form.Field>
-          <label>Age</label>
-          <input
-            placeholder="Age"
-            onChange={this.props.handleChange("age")}
-            defaultValue={values.age}
-          />
-        </Form.Field>
-        <Form.Field>
-          <label>City</label>
-          <input
-            placeholder="City"
-            onChange={this.props.handleChange("city")}
-            defaultValue={values.city}
-          />
-        </Form.Field>
-        <Form.Field>
-          <label>Country</label>
-          <input
-            placeholder="Country"
-            onChange={this.props.handleChange("country")}
-            defaultValue={values.country}
-          />
-        </Form.Field>
-        <Button onClick={this.back}>Back</Button>
-        <Button onClick={this.saveAndContinue}>Save And Continue </Button>
+      <Form color="blue" style={{ backgroundColor: "lightGrey" }}>
+        <h1 className="ui centered">Pet Foster Infomation</h1>
+        <Form.Group>
+          <Form.Field>
+            <label>Address</label>
+            <input
+              placeholder="Address"
+              onChange={this.props.handleChange("address")}
+              value={values.address}
+            />
+          </Form.Field>
+        </Form.Group>
+        <Form.Group>
+          <Form.Field>
+            <label>Phone Number</label>
+            <input
+              placeholder="Phone Number"
+              onChange={this.props.handleChange("phoneNumber")}
+              value={values.phoneNumber}
+            />
+          </Form.Field>
+        </Form.Group>
+        <Form.Group>
+          <Form.Field>
+            <label>Number of Cats You Want to Foster</label>
+            <input
+              placeholder="Cat Capacity"
+              onChange={this.props.handleChange("capacityCat")}
+              value={values.capacityCat}
+            />
+          </Form.Field>
+        </Form.Group>
+        <Form.Group>
+          <Form.Field>
+            <label>Number of Dogs You Want to Foster</label>
+            <input
+              placeholder="Dog Capacity"
+              onChange={this.props.handleChange("capacityDog")}
+              value={values.capacityDog}
+            />
+          </Form.Field>
+        </Form.Group>
+        <Button color="darkGrey" onClick={this.back}>
+          Back
+        </Button>
+        <Button color="grey" onClick={this.saveAndContinue}>
+          Save And Continue{" "}
+        </Button>
       </Form>
     );
   }
