@@ -7,10 +7,10 @@ import { getAnimals } from "../../ActionCreators";
 const styles = {
   img: {
     display: "inline-block",
-    // borderRadius: "5px",
+    borderRadius: "5px",
     transition: "transform .2s",
-    // width: "200px",
-    // height: "120px",
+    width: "200px",
+    height: "120px",
     backgroundPosition: "50% 50%",
     backgroundRepeat: "no repeat",
     backgroundSize: "cover",
@@ -39,7 +39,7 @@ class HeaderImageScroll extends Component {
         {animals.map((animal, index) => {
           return (
             <Image
-            style={styles.img}
+            // style={styles.img}
             size="small"
             bordered
             rounded
@@ -57,12 +57,7 @@ class HeaderImageScroll extends Component {
 }
 
 const mapStateToProps = (state, props) => {
-  const animalsThatAreAdoptable = state.animals.filter(
-    animal => animal.status === "adoptable" && animal.photos.length > 0
-  );
-  const adoptableAnimalsThatHavePictures = animalsThatAreAdoptable.filter(
-    animal => animal.photos[0].length > 0
-  );
+  const adoptableAnimalsThatHavePictures = state.animals.filter(animal => animal.status === "adoptable" && animal.photos.length > 0);
   return {
     animals: adoptableAnimalsThatHavePictures
   };
