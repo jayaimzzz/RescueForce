@@ -19,7 +19,27 @@ export const AnimalFilter = props => (
     }}
   >
     <Form>
-      <Form.Select name='breed' options={props.breeds} onChange={props.filters.handleChange}/>
+      <Form.Select
+        name="breed"
+        options={props.breeds}
+        onChange={props.filters.handleChange}
+      />
+      <Form.Group>
+        <Form.Checkbox
+          label="Male"
+          checked={props.filter.sex === "male"}
+          name="sex"
+          value="male"
+          onChange={props.filters.handleNullableRadioChange}
+        />
+        <Form.Checkbox
+          label="Female"
+          checked={props.filter.sex === "female"}
+          name="sex"
+          value="female"
+          onChange={props.filters.handleNullableRadioChange}
+        />
+      </Form.Group>
     </Form>
   </Segment>
 );

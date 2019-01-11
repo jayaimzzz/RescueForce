@@ -10,6 +10,7 @@ class AnimalListView extends Component {
   };
 
   handleFilterNullableRadioChange = (event, { name, value }) => {
+    console.log('yup')
     const filter = { ...this.state.filter };
     if (this.state.filter[name] === value) {
       delete filter[name];
@@ -49,6 +50,7 @@ class AnimalListView extends Component {
           <Grid.Column width={6}>
             <AnimalFilter
               breeds={this.props.breeds}
+              filter={this.state.filter}
               filters={{
                 handleChange: this.handleFilterChange,
                 handleNullableRadioChange: this.handleFilterNullableRadioChange
