@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import HeaderImageScroll from "../PublicView/HeaderImageScroll";
 import { timingSafeEqual } from "crypto";
 import { Icon, Header } from "semantic-ui-react";
+import MissionStatement from "../PublicView/MissionStatement";
 
 class Nav extends Component {
   constructor(props) {
@@ -121,7 +122,7 @@ class Nav extends Component {
         <div
           id="section-two"
           style={{
-            height: "400px",
+            // height: "400px",
             backgroundColor: "#D8D8E4",
             borderBottomColor: "black",
             borderBottom: "3px solid",
@@ -129,36 +130,7 @@ class Nav extends Component {
           }}
           ref={this.sectionTwo}
         >
-          <h3
-            style={{
-              paddingTop: "30px",
-              textAlign: "center",
-              fontFamily: "fantasy",
-              fontStyle: "bold",
-              fontSize: "40px"
-            }}
-          >
-            Rescue Force (our hypothesis)
-          </h3>
-          <p
-            style={{
-              padding: "20px",
-              paddingTop: "30px",
-              textAlign: "center",
-              fontSize: "23px",
-              fontFamily: "fantasy",
-              fontStyle: "italic"
-            }}
-          >
-            Second Chance Animal Services is a nationally recognized
-            organization that provides innovative programs and services to help
-            animals. Second Chance Animal Services has been helping animals
-            since 1999. We are a no-kill, non-profit charitable 501c3
-            organization. We help over 34,000 pets through adoption, low cost
-            spay/neuter, high quality veterinary care for all, subsidized rates
-            for those that qualify, community outreach, educational programs,
-            training, a pet food pantry, and other services.
-          </p>
+          <MissionStatement/>
         </div>
         <div
           id="section-three"
