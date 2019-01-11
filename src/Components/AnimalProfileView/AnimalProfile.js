@@ -13,21 +13,17 @@ class AnimalProfile extends Component {
     this.props.updateAnimal(data)
     .then(()=> this.props.navToAnimalProfile("/host/" + this.props.loggedInUserId))
   }
-  
 
   render() {
     
     const animal = this.props.animal;
-    const host = this.props.host
     const data = {
       "id":this.props.animal._id,
       "hostId":this.props.loggedInUserId,
-      "status":"foster-only",
-      "host":this.props.host,
+      "status":"foster-only"
     }
 
     return (
-
       <Card>
          <Card.Content>
            <Card.Header>{animal.name}</Card.Header>
@@ -36,9 +32,12 @@ class AnimalProfile extends Component {
                <Card.Description>DOB: {moment(animal.dob).format('MM/DD/YYYY')}</Card.Description>
                <Card.Description>Sex: {animal.sex}</Card.Description>
                <Card.Description>About: {animal.about}</Card.Description>
+               {this.props.displayHostName 
+               ? (
                <Card.Description>
-                 Host: {host.name}
-               </Card.Description>
+                 Host: { animal.hostId && animal.hostId.name || "N/A"}
+               </Card.Description>)
+               : null}
                <Card.Description>Status: {animal.status}</Card.Description>
                <Card.Description>{animal.name} {animal.animalFriendly ? "is" : "is not"} animal-friendly. </Card.Description>
                <Card.Description>{animal.name} {animal.peopleFriendly ? "is" : "is not"} people-friendly.  </Card.Description>
@@ -64,28 +63,28 @@ class AnimalProfile extends Component {
 }
 
 const mapStateToProps = (state, props) => {
-  const loggedInUser = state.auth.user;
+  const role = state.auth.user.type;
   const animal = state.animals.find(animal => animal._id === props.animalId)
+  let displayHostName = false;
   let canUpdate = false;
   let canClaim = false;
-  if(loggedInUser.type === "host"){
-    if(animal.hostId && loggedInUser.data._id === animal.hostId._id){
+  if(role === "host"){
       canUpdate = true;
-    }
+      
     if(animal.status === "need-foster"){
       canClaim = true;
     }
   }
-  if(loggedInUser.type === "shelter"){
-    if(animal.shelterId && animal.shelterId._id === animal.shelterId._id){
+  if(role === "shelter"){
+      displayHostName = true;
       canUpdate = true;
     }
-  }
   return {
     animal: animal,
     canUpdate: canUpdate,
     canClaim: canClaim,
-    loggedInUserId: loggedInUser.data._id
+    loggedInUserId: role._id,
+    displayHostName: displayHostName
   };
 };
 
