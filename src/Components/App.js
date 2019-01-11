@@ -11,7 +11,6 @@ import {
   HostListView,
   HostProfileView,
   Login,
-  FrontPageNav,
   PublicView,
   Register,
   ShelterAdminPortal,
