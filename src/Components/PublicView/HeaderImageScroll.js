@@ -8,18 +8,19 @@ const styles = {
     display: "inline-block",
     borderRadius: "5px",
     transition: "transform .2s",
-    width: "120px",
-    height: "120px",
+    width: "170px",
+    height: "150px",
     backgroundPosition: "50% 50%",
     backgroundRepeat: "no repeat",
     backgroundSize: "cover",
-    padding: "5px",
+    padding: "10px",
     backgroundColor: "#D8D8E4",
-    margin: "2px"
+    margin: "10px"
   },
   segment: {
     margin: "auto",
     paddingTop: "20px",
+    paddingBottom: "20px",
     overflowX: "scroll",
     whiteSpace: "nowrap",
     borderRadius: "5px",
@@ -36,14 +37,16 @@ class HeaderImageScroll extends Component {
     return (
       <div className="ui segment" style={styles.segment}>
         {images.map((image, index) => {
-            console.log(image)
-          return <Image
-            style={styles.img}
-            size="small"
-            bordered
-            src={image}
-            key={`${this.props.animalId}ImgNum${index}`}
-          />
+          console.log(image);
+          return (
+            <Image
+              style={styles.img}
+              size="small"
+              bordered
+              src={image}
+              key={`${this.props.animalId}ImgNum${index}`}
+            />
+          );
         })}
       </div>
     );
@@ -51,14 +54,11 @@ class HeaderImageScroll extends Component {
 }
 
 const mapStateToProps = (state, props) => {
-  const animals = state.animals.filter(animal => animal.status === "adoptable" && animal.photos.length > 0)
+  const animals = state.animals.filter(
+    animal => animal.status === "adoptable" && animal.photos.length > 0
+  );
   return {
-<<<<<<< HEAD
-    images: (state.animals[0] && state.animals[0].photos) || []
-    // images: state.animals.find(animal => animal.id === props.animalId).pictures
-=======
     images: animals.map(animal => animal.photos[0]) || []
->>>>>>> a06ae49f17a8c28af29cdcfd9fd8c9487a09f087
   };
 };
 
