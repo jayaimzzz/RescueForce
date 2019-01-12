@@ -7,12 +7,17 @@ import Success from "./Success";
 class Register extends Component {
   state = {
     step: 1,
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
-    age: "",
-    city: "",
-    country: ""
+    phoneNumber: "",
+    password: "",
+    address: "",
+    capacityCat:"",
+    capacityDog:"", 
+    passwordsMatch: false,
+    emailsMatch: false,
+    confirmEmail:"",
+    confirmPassword:""
   };
 
   nextStep = () => {
@@ -33,10 +38,26 @@ class Register extends Component {
     this.setState({ [input]: event.target.value });
   };
 
+
+  handleCheckPassword = event => {
+    const passwordsMatch = this.state.password === this.state.confirmPassword
+    this.setState({passwordsMatch})
+    if (!passwordsMatch){
+      alert("Passwords do not match.")
+    }
+  }
+
+  handleCheckEmail = event => {
+    const emailsMatch = this.state.email === this.state.confirmEmail
+    this.setState({emailsMatch})
+    if (!emailsMatch){
+      alert("Emails do not match.  Do better next time.")
+    }
+  }
+
   render() {
     const { step } = this.state;
-    const { firstName, lastName, email, age, city, country } = this.state;
-    const values = { firstName, lastName, email, age, city, country };
+    const values = this.state;
     switch (step) {
       case 1:
         return (
@@ -44,6 +65,8 @@ class Register extends Component {
             nextStep={this.nextStep}
             handleChange={this.handleChange}
             values={values}
+            handleCheckEmail={this.handleCheckEmail}
+            handleCheckPassword={this.handleCheckPassword}
           />
         );
       case 2:
