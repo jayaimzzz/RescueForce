@@ -48,7 +48,7 @@ class AnimalCard extends Component {
           <Label as="a" color="blue" ribbon>
             Foster-only
           </Label>}
-          {animal.status === NEED_FOSTER &&
+          {animal.status ===  NEED_FOSTER &&
           <Label as="a" color="yellow" ribbon>
             Foster ready
           </Label>}
