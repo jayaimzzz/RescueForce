@@ -10,7 +10,6 @@ class AnimalListView extends Component {
   };
 
   handleFilterNullableRadioChange = (event, { name, value }) => {
-    console.log('yup')
     const filter = { ...this.state.filter };
     if (this.state.filter[name] === value) {
       delete filter[name];
