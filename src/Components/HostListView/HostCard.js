@@ -16,7 +16,7 @@ class HostCard extends Component {
   render() {
     const styles = {};
     const host = this.props.host;
-    const hostProfilePic = host.photos[0];
+    const hostProfilePic = host.photos && host.photos[0];
     return (
       <Segment>
         <Grid>
