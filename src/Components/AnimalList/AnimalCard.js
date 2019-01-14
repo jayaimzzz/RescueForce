@@ -43,8 +43,7 @@ class AnimalCard extends Component {
           </Card.Meta>
           <Card.Description style={{ color: "black" }}>
             {animal.name} is a {animal.sex} {animal.sex==="female" ? <Icon name ='female'style={{backgroundColor: 'pink'}}/> : <Icon name ='male' style={{backgroundColor: '#328CE5'}}/>} 
-            and {animal.pregnant ? "is" : "is not"} pregnant.{" "}
-            {/* try to conditionally render this so that the "is/is not" pregnant option isn't populated if the animal.sex==='male' */}
+            {animal.sex==="female" && `and ${animal.pregnant ? "is" : "is not"} pregnant`}.
           </Card.Description>
         </Card.Content>
       </Card>
