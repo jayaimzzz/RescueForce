@@ -19,11 +19,15 @@ class AnimalList extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {animals: state.animals}
+}
+
 const mapDispatchToProps = dispatch => ({
   getAnimals: filter => dispatch(getAnimals(filter))
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(AnimalList);
