@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Card, Image, Icon } from "semantic-ui-react";
+import { Card, Image, Icon, Label } from "semantic-ui-react";
 import moment from "moment";
 
 class AnimalCard extends Component {
+
   render() {
     const animal = this.props.animal;
     const hasPhoto =
@@ -36,13 +37,32 @@ class AnimalCard extends Component {
             size="small"
             src={animalProfilePhoto}
           />
+
+          {animal.status === "adoptable" &&
+          <Label as="a" color="green" ribbon>
+            Adoptable{" "}
+          </Label>}
+          {animal.status === "foster-only" &&
+          <Label as="a" color="blue" ribbon>
+            Foster-only
+          </Label>}
+          {animal.status === "need-foster" &&
+          <Label as="a" color="yellow" ribbon>
+            Foster ready
+          </Label>}
+
           <Card.Header style={{ padding: "5px" }}>{animal.name}</Card.Header>
           <Card.Meta style={{ color: "black" }}>
             {animal.name} was born almost {moment(animal.dob).fromNow()} on{" "}
             {moment(animal.dob).format("l")}.{" "}
           </Card.Meta>
           <Card.Description style={{ color: "black" }}>
-            {animal.name} is a {animal.sex} {animal.sex==="female" ? <Icon name ='female'style={{backgroundColor: 'pink'}}/> : <Icon name ='male' style={{backgroundColor: '#328CE5'}}/>} 
+            {animal.name} is a {animal.sex}{" "}
+            {animal.sex === "female" ? (
+              <Icon name="female" style={{ backgroundColor: "pink" }} />
+            ) : (
+              <Icon name="male" style={{ backgroundColor: "#328CE5" }} />
+            )}
             and {animal.pregnant ? "is" : "is not"} pregnant.{" "}
             {/* try to conditionally render this so that the "is/is not" pregnant option isn't populated if the animal.sex==='male' */}
           </Card.Description>
@@ -53,3 +73,4 @@ class AnimalCard extends Component {
 }
 
 export { AnimalCard };
+
