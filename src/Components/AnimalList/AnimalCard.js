@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Card, Image } from "semantic-ui-react";
+import { Card, Image, Icon } from "semantic-ui-react";
+import moment from "moment";
 
 class AnimalCard extends Component {
   render() {
@@ -22,7 +23,8 @@ class AnimalCard extends Component {
         to={"/animal/" + animal._id}
       >
         <Card.Content
-          style={{ margin: "5px", padding: "5px", backgroundColor: "#B0D6D0" }}
+          // style={{ margin: "5px", padding: "5px", backgroundColor: "#B0D6D0" }}
+          style={{ margin: "5px", padding: "5px", backgroundColor: "#77E8E8" }}
         >
           <Image
             style={{
@@ -35,9 +37,14 @@ class AnimalCard extends Component {
             src={animalProfilePhoto}
           />
           <Card.Header style={{ padding: "5px" }}>{animal.name}</Card.Header>
-          <Card.Meta>DOB: {animal.dob}</Card.Meta>
-          <Card.Description>
-            Adorable pet that eats, shits and cuddles.
+          <Card.Meta style={{ color: "black" }}>
+            {animal.name} was born almost {moment(animal.dob).fromNow()} on{" "}
+            {moment(animal.dob).format("l")}.{" "}
+          </Card.Meta>
+          <Card.Description style={{ color: "black" }}>
+            {animal.name} is a {animal.sex} {animal.sex==="female" ? <Icon name ='female'style={{backgroundColor: 'pink'}}/> : <Icon name ='male' style={{backgroundColor: '#328CE5'}}/>} 
+            and {animal.pregnant ? "is" : "is not"} pregnant.{" "}
+            {/* try to conditionally render this so that the "is/is not" pregnant option isn't populated if the animal.sex==='male' */}
           </Card.Description>
         </Card.Content>
       </Card>
