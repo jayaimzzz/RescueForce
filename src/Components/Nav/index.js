@@ -49,6 +49,7 @@ class Nav extends Component {
             <Button
               primary
               style={{
+                backgroundColor: "#77E8E8",
                 height: "inherit",
                 width: 100,
                 position: "absolute",
@@ -63,6 +64,7 @@ class Nav extends Component {
             <Button
               className="ui right floated primary button"
               style={{
+                backgroundColor: "#77E8E8",
                 height: "inherit",
                 width: 100,
                 position: "absolute",
