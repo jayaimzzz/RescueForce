@@ -46,8 +46,14 @@ class AnimalListView extends Component {
   render() {
     const animals = this.props.animals.filter(animal => {
       for (let key in this.state.filter) {
-        if (animal[key] !== this.state.filter[key]) {
-          return false;
+        if (typeof animal[key] === 'string') {
+          if (animal[key].toLowerCase() !== this.state.filter[key]) {
+            return false;
+          }
+        } else {
+          if (animal[key] !== this.state.filter[key]) {
+            return false;
+          }
         }
       }
       return true;

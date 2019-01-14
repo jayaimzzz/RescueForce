@@ -6,9 +6,9 @@ import HostModalUpdate from "./HostModalUpdate";
 
 class HostProfile extends Component {
   handleApproveClick = () => {
-    const hostData = {"_id":this.props.host._id,"approved":true}
-    this.props.updateHost(hostData)
-  }
+    const hostData = { _id: this.props.host._id, approved: true };
+    this.props.updateHost(hostData);
+  };
   render() {
     const host = this.props.host;
     const hostProfilePic = host.photos[0];
@@ -19,7 +19,13 @@ class HostProfile extends Component {
         : "https://www.digitalcitizen.life/sites/default/files/styles/img_u_large/public/featured/2016-08/photo_gallery.jpg";
 
     return (
-      <Card>
+      <Card
+        style={{
+          margin: "20px",
+          border: "1px solid",
+          borderColor: "black"
+        }}
+      >
         <Image src={hostProfilePic} size="medium" />
         <Card.Content>
           <Card.Header>{host.name}</Card.Header>
@@ -37,7 +43,9 @@ class HostProfile extends Component {
             </Card.Content>
           )}
           {this.props.canApproveNewHost && (
-            <Button onClick={this.handleApproveClick} color="red">Approve {host.name}</Button>
+            <Button onClick={this.handleApproveClick} color="red">
+              Approve {host.name}
+            </Button>
           )}
           {this.props.canEdit && (
             <Card.Content extra>
