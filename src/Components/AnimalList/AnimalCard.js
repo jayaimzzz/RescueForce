@@ -6,11 +6,6 @@ import moment from "moment";
 class AnimalCard extends Component {
   render() {
     const animal = this.props.animal;
-    console.log(animal.dob);
-    console.log(typeof animal.dob);
-    const mom = moment(animal.dob);
-    console.log(mom);
-    console.log(typeof mom);
     const hasPhoto =
       typeof animal.photos !== "undefined" ? animal.photos.length > 0 : false;
     const animalProfilePhoto = hasPhoto
