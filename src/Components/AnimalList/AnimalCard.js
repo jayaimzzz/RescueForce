@@ -48,7 +48,7 @@ class AnimalCard extends Component {
           <Label as="a" color="blue" ribbon>
             Foster-only
           </Label>}
-          {animal.status === NEED_FOSTER &&
+          {animal.status ===  NEED_FOSTER &&
           <Label as="a" color="yellow" ribbon>
             Foster ready
           </Label>}
@@ -65,8 +65,7 @@ class AnimalCard extends Component {
             ) : (
               <Icon name="male" style={{ backgroundColor: "#328CE5" }} />
             )}
-            and {animal.pregnant ? "is" : "is not"} pregnant.{" "}
-            {/* try to conditionally render this so that the "is/is not" pregnant option isn't populated if the animal.sex==='male' */}
+            {animal.sex === 'female' && ` and ${animal.pregnant ? "is" : "is not"} pregnant`}{". "}
           </Card.Description>
         </Card.Content>
       </Card>
