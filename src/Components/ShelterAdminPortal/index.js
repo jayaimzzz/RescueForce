@@ -4,8 +4,13 @@ import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import ModalAddAnimal from "./ModalAddAnimal";
 import ShelterProfile from "./ShelterProfile";
+import { getAnimals } from '../../ActionCreators';
 
 class ShelterAdminPortal extends Component {
+  componentDidMount = () => {
+    this.props.getAnimals();
+  };
+
   render() {
     return (
       <Segment style={{ width: "80vw", margin: "auto" }}>
@@ -37,7 +42,8 @@ class ShelterAdminPortal extends Component {
 const mapDispatchToProps = dispatch => ({
   navToDogsList: () => dispatch(push("/dogs")),
   navToCatsList: () => dispatch(push("/cats")),
-  navToHostList: () => dispatch(push("/hosts"))
+  navToHostList: () => dispatch(push("/hosts")),
+  getAnimals: () => dispatch(getAnimals())
 });
 
 export default connect(

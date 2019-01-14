@@ -1,12 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { AnimalCard } from "./AnimalCard";
 import { connect } from "react-redux";
-import { getAnimals } from "../../ActionCreators";
 
 class AnimalList extends Component {
-  componentDidMount() {
-    this.props.getAnimals();
-  }
 
   render() {
     return (
@@ -19,11 +15,23 @@ class AnimalList extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  getAnimals: filter => dispatch(getAnimals(filter))
-});
+const mapStateToProps = (state, props) => {
+  let animals;
+  if (props.filter) {
+    animals = props.animals.filter(animal => {
+      for (let key of Object.keys(props.filter)) {
+        if (animal[key] !== props.filter[key]) {
+          return false;
+        }
+      }      
+      return true;
+    })
+  } else {
+    animals = props.animals;
+  }
+  return { animals }
+};
 
 export default connect(
-  null,
-  mapDispatchToProps
+  mapStateToProps
 )(AnimalList);

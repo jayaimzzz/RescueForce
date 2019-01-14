@@ -3,16 +3,19 @@ import { connect } from "react-redux";
 import HostProfile from "./HostProfile";
 import AnimalList from "../AnimalList";
 import { Header } from "semantic-ui-react";
-import { updateHost } from "../../ActionCreators";
+import { getAnimals, updateHost } from "../../ActionCreators";
 
 class HostProfileView extends Component {
+  componentWillMount = () => {
+    this.props.getAnimals();
+  };
+
   render() {
-    const hostId = this.props.host._id;
     return (
       <Fragment>
         <div style={{}}>
           {this.props.canEdit && (
-            <Header center>Welcome {this.props.host.name}</Header>
+            <Header textAlign="center">Welcome {this.props.host.name}</Header>
           )}
         </div>
         <div style={{ float: "left", width: "fit-content" }}>
@@ -26,11 +29,11 @@ class HostProfileView extends Component {
         </div>
         <div style={{ float: "left" }}>
           <Header>{this.props.host.name}'s current foster animals</Header>
-          <AnimalList filter={{ hostId }} />
+          <AnimalList animals={ this.props.hostAnimals } />
           {this.props.canEdit && (
             <div>
               <Header>Animals in need of a foster home</Header>
-              <AnimalList filter={{ status: "need-foster" }} />
+              <AnimalList animals={this.props.animals} filter={{ status: "need-foster" }} />
             </div>
           )}
         </div>
@@ -51,9 +54,10 @@ const mapStateToProps = (state, props) => {
   }
   if (loggedInUser.type === "host") {
     host = loggedInUser.data;
-    // shelter = state.shelters.find(shelter => shelter._id === host.shelterId);
     shelter = host.shelterId;
   }
+  const animals = state.animals;
+  const hostAnimals = state.animals.filter(animal => (animal.hostId && animal.hostId._id) === host._id)
   const canEdit = loggedInUser.data._id === hostId;
   const canApproveNewHost =
     !host.approved && shelter && loggedInUser.data._id === shelter._id
@@ -64,13 +68,16 @@ const mapStateToProps = (state, props) => {
     host: host,
     shelter: shelter,
     canEdit: canEdit,
-    canApproveNewHost
+    canApproveNewHost,
+    animals,
+    hostAnimals
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateHost: hostData => dispatch(updateHost(hostData))
+    updateHost: hostData => dispatch(updateHost(hostData)),
+    getAnimals: () => dispatch(getAnimals())
   };
 };
 
