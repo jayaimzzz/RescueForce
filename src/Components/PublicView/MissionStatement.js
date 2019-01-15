@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from "react";
+import LeftBannerImage from "../../Images/LeftSideGraphic.png";
+import RightBannerImage from "../../Images/RightSideGraphic.png"
 
 class MissionStatement extends Component {
   render() {
@@ -13,7 +15,13 @@ class MissionStatement extends Component {
             fontSize: "40px"
           }}
         >
+          <img class="ui medium image" src={LeftBannerImage}
+          style={{float: "left"}}
+          ></img>
           Rescue Force
+        <img class="ui medium image" src={RightBannerImage}
+        style={{float: "right"}}
+        ></img>
         </h3>
         <div
           style={{
