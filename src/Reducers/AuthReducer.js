@@ -17,7 +17,7 @@ export const AuthReducer = (state = getInitState(), action) => {
     case LOGIN_SUCCESSFUL:
       return { user: action.payload, auth_in_progress: false };
     case LOGIN_UNSUCCESSFUL:
-      return { ...state, auth_in_progress: false, loginResult: action.result };
+      return { ...state, auth_in_progress: false, loginResult: action.loginResult };
     case LOGOUT:
       return INITIAL_STATE.auth;
     default:

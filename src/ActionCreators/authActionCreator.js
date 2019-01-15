@@ -25,7 +25,7 @@ export const login = loginData => {
             dispatch(push("/admin"));
           }
         } else {
-          dispatch({ type: LOGIN_UNSUCCESSFUL, loginResult: "Invalid Username and/or Password.  Please try again!"  });
+          dispatch({ type: LOGIN_UNSUCCESSFUL });
         }
       })
       .catch(err => {
