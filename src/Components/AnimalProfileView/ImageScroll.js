@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { SHELTER } from "../../Constants"
 import { Image, Segment } from "semantic-ui-react";
 import ImageEdit from "./ImageEdit";
 
@@ -32,15 +33,21 @@ class ImageScroll extends Component {
             />
           ))}
         </div>
-        <ImageEdit animalId={this.props.animalId} />
+        {this.props.canUpdate && (
+          <ImageEdit animalId={this.props.animalId} />
+        )}
       </Segment>
     );
   }
 }
 
 const mapStateToProps = (state, props) => {
+  const animal = state.animals.find(animal => animal._id === props.animalId)
   return {
-    images: state.animals.find(animal => animal._id === props.animalId).photos
+    images: animal.photos,
+    canUpdate:
+      state.auth.user.type === SHELTER ||
+      state.auth.user.data._id === (animal.hostId && animal.hostId._id)
   };
 };
 
