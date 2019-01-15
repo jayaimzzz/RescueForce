@@ -21,6 +21,7 @@ class ChangeHostImageModal extends Component {
     if (this.state.newImage) {
       this.props.uploadPhoto(this.state.newImage);
     }
+    this.handleToggleOpen();
   };
 
   handleImageChange = (event) => {

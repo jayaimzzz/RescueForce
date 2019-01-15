@@ -28,7 +28,12 @@ export const HostsReducer = (state = initState, action) => {
       return state;
     case UPDATE_HOST_IMAGE_SUCCESS:
       const { id, data } = action.payload;
-      return state.map(host => (host._id === id ? data : host));
+      const index = state.indexOf(host => host._id === id);
+      if (index < 1) {
+        return [...state, data]
+      } else {
+        return state.map(host => (host._id === id ? data : host));
+      }
     default:
       return state;
   }
