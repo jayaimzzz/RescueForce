@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import ModalAddAnimal from "./ModalAddAnimal";
 import ShelterProfile from "./ShelterProfile";
-import { getAnimals } from '../../ActionCreators';
+import { getAnimals } from "../../ActionCreators";
 
 class ShelterAdminPortal extends Component {
   componentDidMount = () => {
@@ -15,17 +15,21 @@ class ShelterAdminPortal extends Component {
     return (
       <Segment style={{ width: "80vw", margin: "auto" }}>
         <ShelterProfile />
-        <div style={{ margin: 'auto', marginTop: 50, width: '40vw', display: 'flex', justifyContent: 'center' }}>
+        <div
+          style={{
+            margin: "auto",
+            marginTop: 50,
+            width: "40vw",
+            display: "flex",
+            justifyContent: "center"
+          }}
+        >
           <ModalAddAnimal />
-          <Button
-            onClick={this.props.navToDogsList}
-          >
+          <Button onClick={this.props.navToDogsList}>
             <Icon color="red" size="large" name="paw" />
             View Dogs
           </Button>
-          <Button
-            onClick={this.props.navToCatsList}
-          >
+          <Button onClick={this.props.navToCatsList}>
             <Icon color="red" size="large" name="paw" />
             View Cats
           </Button>
