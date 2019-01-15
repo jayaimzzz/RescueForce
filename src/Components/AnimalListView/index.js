@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import { Segment, Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
+import moment from "moment";
 import AnimalList from "../AnimalList";
 import { AnimalFilter } from "./AnimalFilter";
 
 class AnimalListView extends Component {
   state = {
-    filter: {}
+    filter: {},
+    ageFilter: {
+      greaterOrLessThan: '',
+      years: '',
+      months: ''
+    }
   };
 
   handleFilterNullableRadioChange = (event, { name, value }) => {
@@ -20,8 +26,8 @@ class AnimalListView extends Component {
   };
 
   handleFilterChange = (event, { name, value }) => {
-    const filter = {...this.state.filter };
-    if (value === 'Show All') {
+    const filter = { ...this.state.filter };
+    if (value === "Show All") {
       delete filter[name];
     } else {
       filter[name] = value;
@@ -30,9 +36,28 @@ class AnimalListView extends Component {
       filter
     });
   };
-  
+
+  handleFilterChangeAge = (event, { name, value }) => {
+    this.setState({
+      ageFilter: {
+        ...this.state.ageFilter,
+        [name]: value
+      }
+    });
+  };
+
+  handleFilterClearAge = () => {
+    this.setState({
+      ageFilter: {
+        greaterOrLessThan: '',
+        years: '',
+        months: ''
+      }
+    });
+  };
+
   handleFilterToggle = (event, { name, value }) => {
-    const filter = {...this.state.filter };
+    const filter = { ...this.state.filter };
     if (filter[name]) {
       delete filter[name];
     } else {
@@ -44,9 +69,9 @@ class AnimalListView extends Component {
   };
 
   render() {
-    const animals = this.props.animals.filter(animal => {
+    let animals = this.props.animals.filter(animal => {
       for (let key in this.state.filter) {
-        if (typeof animal[key] === 'string') {
+        if (typeof animal[key] === "string") {
           if (animal[key].toLowerCase() !== this.state.filter[key]) {
             return false;
           }
@@ -58,6 +83,23 @@ class AnimalListView extends Component {
       }
       return true;
     });
+    if (
+      this.state.ageFilter &&
+      this.state.ageFilter.greaterOrLessThan &&
+      (this.state.ageFilter.years || this.state.ageFilter.months)
+    ) {
+      const cutoff = moment()
+        .subtract(this.state.ageFilter.years, "years")
+        .subtract(this.state.ageFilter.months, "months");
+      animals = animals.filter(animal => {
+        const dob = moment(animal.dob);
+        if (this.state.ageFilter.greaterOrLessThan === "<") {
+          return cutoff < dob;
+        } else {
+          return cutoff > dob;
+        }
+      });
+    }
     return (
       <Segment style={{ maxWidth: 1500, margin: "auto" }}>
         <Grid>
@@ -68,11 +110,15 @@ class AnimalListView extends Component {
             <AnimalFilter
               breeds={this.props.breeds}
               filter={this.state.filter}
+              ageFilter={this.state.ageFilter}
               filters={{
                 handleChange: this.handleFilterChange,
                 handleNullableRadioChange: this.handleFilterNullableRadioChange,
-                handleToggle: this.handleFilterToggle
+                handleToggle: this.handleFilterToggle,
+                handleChangeAge: this.handleFilterChangeAge,
+                handleFilterClearAge: this.handleFilterClearAge
               }}
+              role={this.props.role}
             />
           </Grid.Column>
         </Grid>
@@ -97,11 +143,13 @@ const mapStateToProps = (state, props) => {
             return breedlist;
           }
         },
-        ['Show All']
-      ).sort((a, b) => {
-        if (b === 'Show All' || a.toLowerCase() < b.toLowerCase()) return -1;
+        ["Show All"]
+      )
+      .sort((a, b) => {
+        if (b === "Show All" || a.toLowerCase() < b.toLowerCase()) return -1;
       })
-      .map(breed => ({ text: breed, value: breed }))
+      .map(breed => ({ text: breed, value: breed })),
+    role: state.auth.user.type
   };
 };
 
