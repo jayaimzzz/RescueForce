@@ -10,7 +10,6 @@ import {
 
 class HostListHeader extends Component {
   render() {
-    console.log(this.props.shelter);
     const shelter = this.props.shelter;
     return (
       <Segment>

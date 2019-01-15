@@ -7,20 +7,20 @@ import { getAllHosts, getAnimals } from "../../ActionCreators";
 
 class HostListView extends Component {
   state = {
-    filter: {
-      capacity: {
-        cats: "",
-        dogs: ""
-      }
-    },
-    capacityFilter: {
-      cats: {
-        capacity: "",
-        greaterOrLessThan: ""
+    filters: {
+      textFilters: {
+        name: "",
+        email: ""
       },
-      dogs: {
-        capacity: "",
-        greaterOrLessThan: ""
+      capacityFilter: {
+        cats: {
+          capacity: "",
+          greaterOrLessThan: ""
+        },
+        dogs: {
+          capacity: "",
+          greaterOrLessThan: ""
+        }
       }
     }
   };
@@ -32,30 +32,106 @@ class HostListView extends Component {
 
   handleChangeRange = species => (event, { name, value }) => {
     this.setState({
-      capacityFilter: {
-        ...this.state.capacityFilter,
-        [species]: {
-          ...this.state.capacityFilter[species],
+      filters: {
+        ...this.state.filters,
+        capacityFilter: {
+          ...this.state.filters.capacityFilter,
+          [species]: {
+            ...this.state.filters.capacityFilter[species],
+            [name]: value
+          }
+        }
+      }
+    });
+  };
+
+  handleChangeTextFilter = (event, { name, value }) => {
+    this.setState({
+      filters: {
+        ...this.state.filters,
+        textFilters: {
+          ...this.state.filters.textFilters,
           [name]: value
         }
       }
     });
   };
 
+  handleClearFilters = () => {
+    this.setState({
+      filters: {
+        textFilters: {
+          name: "",
+          email: ""
+        },
+        capacityFilter: {
+          cats: {
+            capacity: "",
+            greaterOrLessThan: ""
+          },
+          dogs: {
+            capacity: "",
+            greaterOrLessThan: ""
+          }
+        }
+      }
+    });
+  };
+
   render() {
+    let hosts = this.props.hosts
+      .filter(host => {
+        for (let key in this.state.filters.textFilters) {
+          if (
+            !host[key] ||
+            !host[key].includes(this.state.filters.textFilters[key])
+          ) {
+            return false;
+          }
+        }
+        return true;
+      })
+      .filter(host => {
+        for (let species in this.state.filters.capacityFilter) {
+          if (
+            this.state.filters.capacityFilter[species].capacity &&
+            this.state.filters.capacityFilter[species].greaterOrLessThan
+          ) {
+            if (
+              this.state.filters.capacityFilter[species].greaterOrLessThan ===
+              "<"
+            ) {
+              return (
+                Number(host.capacity[species]) <
+                Number(this.state.filters.capacityFilter[species].capacity)
+              );
+            } else {
+              return (
+                Number(host.capacity[species]) >
+                Number(this.state.filters.capacityFilter[species].capacity)
+              );
+            }
+          } else {
+            return true;
+          }
+        }
+      });
+
     return (
       <div style={{ padding: "10px" }}>
         <HostListHeader shelter={this.props.shelter} />
         <HostFilter
+          handleChangeTextFilter={this.handleChangeTextFilter}
           dogCapacityFilter={{
-            handleChangeRange: this.handleChangeRange("dog"),
+            handleChangeRange: this.handleChangeRange("dogs")
           }}
           catCapacityFilter={{
-            handleChangeRange: this.handleChangeRange("cat"),
+            handleChangeRange: this.handleChangeRange("cats")
           }}
-          filters={{ handleChangeRange: this.handleChangeRange }}
+          filterValues={this.state.filters}
+          clearFilters={this.handleClearFilters}
         />
-        {this.props.hosts.map(host => (
+        {hosts.map(host => (
           <HostCard key={"hostId" + host._id} host={host} />
         ))}
       </div>

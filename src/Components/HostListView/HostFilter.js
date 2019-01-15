@@ -28,6 +28,7 @@ class HostFilter extends Component {
             Filter Hosts!
           </Button>
         }
+        size="small"
         open={this.state.open}
         onClose={this.toggleOpen}
       >
@@ -35,8 +36,22 @@ class HostFilter extends Component {
           Filter Hosts
         </Header>
         <Form size="large">
-          <Input name="name" />
-          <Input name="email" />
+          <Form.Group widths="equal" inline>
+            <Input
+              label="name"
+              name="name"
+              onChange={this.props.handleChangeTextFilter}
+              value={this.props.filterValues.textFilters.name}
+              placeholder="Name"
+            />
+            <Input
+              label="email"
+              name="email"
+              onChange={this.props.handleChangeTextFilter}
+              value={this.props.filterValues.textFilters.email}
+              placeholder="Email"
+            />
+          </Form.Group>
           <Segment>
             <Header
               style={{ width: "100%", margin: "auto", textAlign: "center" }}
@@ -46,16 +61,22 @@ class HostFilter extends Component {
             <Form.Select
               name="greaterOrLessThan"
               label="< / >"
-              options={[{text: "Show All", value: "Show All" }, { text: "<", value: "<" }, { text: ">", value: ">" }]}
-              onChange={this.props.filters.handleChangeRange}
-              value={this.props.dogCapacityFilter.greaterOrLessThan}
+              options={[
+                { text: "Show All", value: "" },
+                { text: "<", value: "<" },
+                { text: ">", value: ">" }
+              ]}
+              onChange={this.props.dogCapacityFilter.handleChangeRange}
+              value={
+                this.props.filterValues.capacityFilter.dogs.greaterOrLessThan
+              }
             />
             <Form.Input
               type="number"
               label="Dog Capacity"
               name="capacity"
-              onChange={this.props.filters.handleChangeRange}
-              value={this.props.dogCapacityFilter.capacity}
+              onChange={this.props.dogCapacityFilter.handleChangeRange}
+              value={this.props.filterValues.capacityFilter.dogs.capacity}
             />
           </Segment>
           <Segment>
@@ -67,18 +88,25 @@ class HostFilter extends Component {
             <Form.Select
               name="greaterOrLessThan"
               label="< / >"
-              options={[{text: "Show All", value: "Show All" }, { text: "<", value: "<" }, { text: ">", value: ">" }]}
-              onChange={this.props.filters.handleChangeRange}
-              value={this.props.catCapacityFilter.greaterOrLessThan}
+              options={[
+                { text: "Show All", value: "Show All" },
+                { text: "<", value: "<" },
+                { text: ">", value: ">" }
+              ]}
+              onChange={this.props.catCapacityFilter.handleChangeRange}
+              value={
+                this.props.filterValues.capacityFilter.cats.greaterOrLessThan
+              }
             />
             <Form.Input
               type="number"
               label="Cat Capacity"
               name="capacity"
-              onChange={this.props.filters.handleChangeRange}
-              value={this.props.catCapacityFilter.capacity}
+              onChange={this.props.catCapacityFilter.handleChangeRange}
+              value={this.props.filterValues.capacityFilter.cats.capacity}
             />
           </Segment>
+          <Button onClick={this.props.clearFilters}>Clear Filters</Button>
         </Form>
       </Modal>
     );
