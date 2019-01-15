@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Image, Button, Card, Icon } from "semantic-ui-react";
 import HostVacancies from "./HostVacancies";
 import HostModalUpdate from "./HostModalUpdate";
+import ChangeHostImageModal from "./ChangeHostImageModal";
 
 class HostProfile extends Component {
   handleApproveClick = () => {
@@ -50,6 +51,7 @@ class HostProfile extends Component {
           {this.props.canEdit && (
             <Card.Content extra>
               <HostModalUpdate host={host} />
+              <ChangeHostImageModal id={host._id}/>
             </Card.Content>
           )}
         </Card.Content>
