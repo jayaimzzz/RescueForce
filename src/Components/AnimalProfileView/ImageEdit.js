@@ -60,7 +60,9 @@ class ImageEdit extends Component {
               onChange={this.handleFileChange}
             />
           </Form.Field>
-          <Button type="submit">Submit Photos</Button>
+          <Button type="submit" disabled={this.props.inProgress}>
+            Submit Photos
+          </Button>
         </Form>
         <SortableGallery
           axis={"xy"}
@@ -80,7 +82,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 const mapStateToProps = (state, ownProps) => ({
-  images: state.animals.find(animal => animal._id === ownProps.animalId).photos
+  images: state.animals.find(animal => animal._id === ownProps.animalId).photos,
+  inProgress: state.inProgress.addAnimalPhotos
 });
 
 export default connect(

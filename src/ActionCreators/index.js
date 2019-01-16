@@ -15,6 +15,8 @@ import {
   UPDATE_ANIMAL_SUCCESS,
   UPDATE_ANIMAL_FAILURE,
   UPDATE_ANIMAL_PHOTOS,
+  UPDATE_ANIMAL_PHOTOS_SUCCESS,
+  UPDATE_ANIMAL_PHOTOS_FAILURE,
   ADD_ANIMAL_STARTED,
   ADD_ANIMAL_SUCCESS,
   ADD_ANIMAL_FAILURE,
@@ -23,7 +25,14 @@ import {
   updateAnimal,
   addAnimal
 } from "./animalListActionCreators";
-import { GET_ALL_HOSTS, getAllHosts, updateHost, UPDATE_HOST, UPDATE_HOST_SUCCESS, UPDATE_HOST_FAILURE } from "./hostActionCreators";
+import {
+  GET_ALL_HOSTS,
+  getAllHosts,
+  updateHost,
+  UPDATE_HOST,
+  UPDATE_HOST_SUCCESS,
+  UPDATE_HOST_FAILURE
+} from "./hostActionCreators";
 import {
   login,
   logout,
@@ -51,6 +60,8 @@ export {
   updateAnimalPhotos,
   UPDATE_ANIMAL,
   UPDATE_ANIMAL_PHOTOS,
+  UPDATE_ANIMAL_PHOTOS_SUCCESS,
+  UPDATE_ANIMAL_PHOTOS_FAILURE,
   uploadAnimalPhotos,
   UPDATE_ANIMAL_SUCCESS,
   UPDATE_ANIMAL_FAILURE,

@@ -1,9 +1,6 @@
 import React from "react";
 import { Form, Button, Modal, Icon, Header, Segment } from "semantic-ui-react";
-import {
-  updateHost,
-  getAllHosts
-} from "../../ActionCreators";
+import { updateHost, getAllHosts } from "../../ActionCreators";
 import { connect } from "react-redux";
 
 class HostModalUpdate extends React.Component {
@@ -41,8 +38,15 @@ class HostModalUpdate extends React.Component {
   };
 
   handleSubmit = event => {
-    const {name, email, address, phoneNumber, capacity, _id} = this.state.host;
-    const host = {name, email, address, phoneNumber, capacity, _id};
+    const {
+      name,
+      email,
+      address,
+      phoneNumber,
+      capacity,
+      _id
+    } = this.state.host;
+    const host = { name, email, address, phoneNumber, capacity, _id };
     this.props
       .updateHost(host)
       .then(() => this.props.getAllHosts())
@@ -113,7 +117,9 @@ class HostModalUpdate extends React.Component {
                 type="number"
                 label="Capacity Cats"
                 name="cats"
-                value={this.state.host.capacity && this.state.host.capacity.cats}
+                value={
+                  this.state.host.capacity && this.state.host.capacity.cats
+                }
                 onChange={this.handleChangeCapacity}
                 placeholder="Amount"
               />
@@ -123,7 +129,9 @@ class HostModalUpdate extends React.Component {
                 type="number"
                 label="Capacity Dogs"
                 name="dogs"
-                value={this.state.host.capacity && this.state.host.capacity.dogs}
+                value={
+                  this.state.host.capacity && this.state.host.capacity.dogs
+                }
                 onChange={this.handleChangeCapacity}
                 placeholder="Amount"
               />
@@ -133,7 +141,11 @@ class HostModalUpdate extends React.Component {
 
         <Modal.Actions>
           <Button.Group fluid>
-            <Button className="submit-button" onClick={this.handleSubmit}>
+            <Button
+              className="submit-button"
+              disabled={this.props.inProgress}
+              onClick={this.handleSubmit}
+            >
               <Icon name="sticky note outline" /> Update
             </Button>
             <Button.Or />
@@ -152,7 +164,10 @@ class HostModalUpdate extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { role: state.auth.user.type };
+  return {
+    role: state.auth.user.type,
+    inProgress: state.inProgress.hostProfileUpdate
+  };
   // the second role is wherever in state "role" is located...
 };
 

@@ -9,7 +9,10 @@ import {
   Radio
 } from "semantic-ui-react";
 import moment from "moment";
-import { updateAnimal, getAnimals } from "../../ActionCreators/animalListActionCreators";
+import {
+  updateAnimal,
+  getAnimals
+} from "../../ActionCreators/animalListActionCreators";
 import { connect } from "react-redux";
 
 const options = [
@@ -24,9 +27,8 @@ const adoptionOptions = [
 
 class ModalUpdate extends React.Component {
   state = {
-    id: this.props.animal._id,
+    id: this.props.animal._id
   };
- 
 
   // handleChange = (event, {value}) => {
   //   this.setState({
@@ -101,9 +103,10 @@ class ModalUpdate extends React.Component {
   };
 
   handleSubmit = event => {
-    this.props.updateAnimal(this.state)
-    .then(() => this.props.getAnimals())
-    .then(() => this.handleClose());
+    this.props
+      .updateAnimal(this.state)
+      .then(() => this.props.getAnimals())
+      .then(() => this.handleClose());
   };
 
   render() {
@@ -292,7 +295,7 @@ class ModalUpdate extends React.Component {
               onChange={this.handleChangeUpdateAboutMe}
             />
 
-            {this.props.role === "shelter" && 
+            {this.props.role === "shelter" && (
               <Form.Group widths="equal">
                 <Form.Input
                   fluid
@@ -322,13 +325,13 @@ class ModalUpdate extends React.Component {
                   placeholder="Animal Id"
                 />
               </Form.Group>
-            }
+            )}
           </Segment>
         </Form>
 
         <Modal.Actions>
           <Button.Group fluid>
-            <Button className="submit-button" onClick={this.handleSubmit}>
+            <Button className="submit-button" disabled={this.props.inProgress} onClick={this.handleSubmit}>
               <Icon name="sticky note outline" /> Update
             </Button>
             <Button.Or />
@@ -346,8 +349,11 @@ class ModalUpdate extends React.Component {
   }
 }
 
-const mapStateToProps = state =>{
-  return {role: state.auth.user.type}
+const mapStateToProps = state => {
+  return {
+    role: state.auth.user.type,
+    inProgress: state.inProgress.animalProfileUpdate
+  };
   // the second role is wherever in state "role" is located...
 };
 
@@ -358,5 +364,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ModalUpdate);
-
-
