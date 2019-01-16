@@ -196,7 +196,7 @@ class FrontPageNav extends Component {
               >
                 Register to be a Foster Host
               </p>
-              <p style={{ fontFamily: "tahoma", fontSize: "19px" }}>
+              <p style={{ fontFamily: "tahoma", fontSize: "18px" }}>
                 Foster parents provide temporary care for cats, kittens, dogs
                 and puppies in their own homes. The most common reasons cats and
                 dogs need foster care is:
@@ -275,7 +275,7 @@ class FrontPageNav extends Component {
               >
                 Donate
               </p>
-              <p style={{ fontFamily: "tahoma", fontSize: "19px" }}>
+              <p style={{ fontFamily: "tahoma", fontSize: "18px" }}>
                 Pet owners understand the cost associated with caring for their
                 pet or pets. Food, vaccinations, flea control, toys, beds and
                 medical assistance when needed – it all adds up far too quickly

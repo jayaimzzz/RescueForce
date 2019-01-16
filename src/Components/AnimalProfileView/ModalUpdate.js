@@ -8,7 +8,6 @@ import {
   Segment,
   Radio
 } from "semantic-ui-react";
-import moment from "moment";
 import {
   updateAnimal,
   getAnimals
@@ -21,20 +20,15 @@ const options = [
 ];
 
 const adoptionOptions = [
-  { key: "3", text: "Foster Only", value: "foster only" },
-  { key: "4", text: "Adoptable", value: "adoptable:" }
+  { key: "3", text: "Needs a Foster Home", value: "need-foster"},
+  { key: "4", text: "Foster Only (not ready for adoption)", value: "foster-only" },
+  { key: "5", text: "Adoptable", value: "adoptable" }
 ];
 
 class ModalUpdate extends React.Component {
   state = {
     id: this.props.animal._id
   };
-
-  // handleChange = (event, {value}) => {
-  //   this.setState({
-  //     [event.target.name]: value
-  //   });
-  // };
 
   handleToggle = name => (event, { value }) => {
     this.setState({
@@ -61,32 +55,15 @@ class ModalUpdate extends React.Component {
   };
 
   handleChangeUpdateDOB = event => {
+    const [year, month, day] = event.target.value.split("-");
     this.setState({
-      dob: event.target.value
+      dob: new Date(year, month - 1, day)
     });
   };
 
   handleChangeUpdateBreed = event => {
     this.setState({
       breed: event.target.value
-    });
-  };
-
-  handleChangeUpdateHostId = event => {
-    this.setState({
-      hostId: event.target.value
-    });
-  };
-
-  handleChangeUpdateShelterId = event => {
-    this.setState({
-      shelterId: event.target.value
-    });
-  };
-
-  handleChangeUpdateAnimalId = event => {
-    this.setState({
-      id: event.target.value
     });
   };
 
@@ -158,7 +135,6 @@ class ModalUpdate extends React.Component {
                 placeholder="Species"
               />
             </Form.Group>
-
             <Form.Group inline>
               <Form.Field>
                 <label>Sex</label>
@@ -180,7 +156,6 @@ class ModalUpdate extends React.Component {
                 />
               </Form.Field>
             </Form.Group>
-
             <Form.Group inline>
               <label>Does the animal have special needs?</label>
               <Form.Radio
@@ -196,7 +171,6 @@ class ModalUpdate extends React.Component {
                 onChange={this.handleToggle("specialNeeds")}
               />
             </Form.Group>
-
             <Form.Group inline>
               <label>Does the animal have a special diet?</label>
               <Form.Radio
@@ -212,7 +186,6 @@ class ModalUpdate extends React.Component {
                 onChange={this.handleToggle("specialDiet")}
               />
             </Form.Group>
-
             <Form.Group widths="equal">
               <Form.Input
                 fluid
@@ -221,7 +194,6 @@ class ModalUpdate extends React.Component {
                 onChange={this.handleChangeUpdateDietNotes}
               />
             </Form.Group>
-
             <Form.Group inline>
               <label>Is the animal pregnant?</label>
               <Form.Radio
@@ -237,7 +209,6 @@ class ModalUpdate extends React.Component {
                 onChange={this.handleToggle("pregnantValue")}
               />
             </Form.Group>
-
             <Form.Group inline>
               <label>Is the animal fixed?</label>
               <Form.Radio
@@ -253,7 +224,6 @@ class ModalUpdate extends React.Component {
                 onChange={this.handleToggle("fixed")}
               />
             </Form.Group>
-
             <Form.Group inline>
               <label>Is the animal animal-friendly?</label>
               <Form.Radio
@@ -269,7 +239,6 @@ class ModalUpdate extends React.Component {
                 onChange={this.handleToggle("animalFriendly")}
               />
             </Form.Group>
-
             <Form.Group inline>
               <label>Is the animal people-friendly?</label>
               <Form.Radio
@@ -285,7 +254,6 @@ class ModalUpdate extends React.Component {
                 onChange={this.handleToggle("peopleFriendly")}
               />
             </Form.Group>
-
             <Form.TextArea
               name="theDeets"
               label="Details"
@@ -294,38 +262,13 @@ class ModalUpdate extends React.Component {
               rows={5}
               onChange={this.handleChangeUpdateAboutMe}
             />
-
-            {this.props.role === "shelter" && (
-              <Form.Group widths="equal">
-                <Form.Input
-                  fluid
-                  label="Shelter Id"
-                  onChange={this.handleChangeUpdateShelterId}
-                  placeholder="Shelter Id"
-                />
-
-                <Form.Input
-                  fluid
-                  label="Host Id"
-                  onChange={this.handleChangeUpdateHostId}
-                  placeholder="Host Id"
-                />
-
-                <Form.Select
-                  fluid
-                  label="Status"
-                  options={adoptionOptions}
-                  onChange={this.handleToggle("status")}
-                  placeholder="Status"
-                />
-                <Form.Input
-                  fluid
-                  label="Id"
-                  onChange={this.handleChangeUpdateAnimalId}
-                  placeholder="Animal Id"
-                />
-              </Form.Group>
-            )}
+            <Form.Select
+              fluid
+              label="Status"
+              options={adoptionOptions}
+              onChange={this.handleToggle("status")}
+              placeholder="Status"
+            />
           </Segment>
         </Form>
 
@@ -354,11 +297,9 @@ const mapStateToProps = state => {
     role: state.auth.user.type,
     inProgress: state.inProgress.animalProfileUpdate
   };
-  // the second role is wherever in state "role" is located...
 };
 
 const mapDispatchToProps = { updateAnimal, getAnimals };
-// this is a shortcut for writing a function that uses the action creator....
 
 export default connect(
   mapStateToProps,
