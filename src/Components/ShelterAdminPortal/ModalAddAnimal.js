@@ -82,7 +82,6 @@ class ModalAddAnimal extends React.Component {
     // .then(() => this.handleClose());
   };
   render() {
-    console.log(this.state);
     return (
       <Modal
         trigger={
