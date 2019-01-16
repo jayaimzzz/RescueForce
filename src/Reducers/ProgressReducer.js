@@ -17,7 +17,13 @@ import {
   UPDATE_SHELTER_FAILURE,
   REGISTER_HOST_STARTED,
   REGISTER_HOST_SUCCESS,
-  REGISTER_HOST_FAILURE
+  REGISTER_HOST_FAILURE,
+  UPDATE_HOST_IMAGE_STARTED,
+  UPDATE_HOST_IMAGE_SUCCESS,
+  UPDATE_HOST_IMAGE_FAILURE,
+  UPDATE_SHELTER_IMAGE_STARTED,
+  UPDATE_SHELTER_IMAGE_SUCCESS,
+  UPDATE_SHELTER_IMAGE_FAILURE
 } from "../ActionCreators";
 
 export const ProgressReducer = (state = INITIAL_STATE.inProgress, action) => {
@@ -52,6 +58,16 @@ export const ProgressReducer = (state = INITIAL_STATE.inProgress, action) => {
     case REGISTER_HOST_SUCCESS:
     case REGISTER_HOST_FAILURE:
       return { ...state, registration: false };
+    case UPDATE_HOST_IMAGE_STARTED:
+      return { ...state, changeHostPhoto: true };
+    case UPDATE_HOST_IMAGE_SUCCESS:
+    case UPDATE_HOST_IMAGE_FAILURE:
+      return { ...state, changeHostPhoto: false };
+    case UPDATE_SHELTER_IMAGE_STARTED:
+      return { ...state, changeShelterPhoto: true };
+    case UPDATE_SHELTER_IMAGE_SUCCESS:
+    case UPDATE_SHELTER_IMAGE_FAILURE:
+      return { ...state, changeShelterPhoto: false };
     default:
       return state;
   }
