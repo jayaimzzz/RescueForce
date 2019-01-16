@@ -33,7 +33,7 @@ class FrontPageNav extends Component {
               marginTop: "20px",
               width: "100%",
               margin: "20px",
-              marginLeft:'10px',
+              marginLeft:'0px',
               paddingBottom: "20px",
               width: "100%",
               // backgroundColor: "white",
@@ -162,10 +162,6 @@ class FrontPageNav extends Component {
             Adopt a furry friend
           </p>
         </div>
-        {/* {animal.status===ADOPTABLE} */}
-        {/* <AnimalCard animals={this.props.animals} filter={{ status: ADOPTABLE }}/> */}
-        {/* <AnimalList animals={this.props.animals} filter={{ status: ADOPTABLE }}/> */}
-        {/* The line above isn't working because of the 'filter' (see animalList - animalList/index.  In addition, trying to figure out how to put these in a grid.) */}
         <div
           id="section-four"
           style={{
@@ -201,7 +197,7 @@ class FrontPageNav extends Component {
               >
                 Register to be a Foster Host
               </p>
-              <p style={{ fontFamily: "tahoma", fontSize: "19px" }}>
+              <p style={{ fontFamily: "tahoma", fontSize: "18px" }}>
                 Foster parents provide temporary care for cats, kittens, dogs
                 and puppies in their own homes. The most common reasons cats and
                 dogs need foster care is:
@@ -240,7 +236,7 @@ class FrontPageNav extends Component {
                 style={{ fontSize: "20px", fontFamily: "tahoma", color:'77E8E8', textDecorationLine:'under' }}
                 to="/register"
               >
-                Click Here to Register
+                <Icon className="paw">Click Here to Register</Icon>
               </Link>{" "}
             </Grid.Row>
           </Grid>
@@ -275,7 +271,7 @@ class FrontPageNav extends Component {
               >
                 Donate
               </p>
-              <p style={{ fontFamily: "tahoma", fontSize: "19px" }}>
+              <p style={{ fontFamily: "tahoma", fontSize: "18px" }}>
                 Pet owners understand the cost associated with caring for their
                 pet or pets. Food, vaccinations, flea control, toys, beds and
                 medical assistance when needed – it all adds up far too quickly
@@ -289,12 +285,12 @@ class FrontPageNav extends Component {
                 <br />
                 Whether you chose to help out by making a financial
                 contribution, volunteering your time at a shelter, or donating
-                items on a shelter's 'wish list, you can find links to those
+                items on a shelter's wish list, you can find links to those
                 options below.
               </p>
             </Grid.Row>
             <Grid.Row>
-              <List style={{ color: "77E8E8", margin: "10px" }}>
+              <List style={{ color: "77E8E8", margin: "10px", marginLeft: '30px'}}>
                 <List.Content style={{ color: "77E8E8" }}>
                   <a href="https://facespayneuter.org/donate/">
                     Face Low Cost Animal Clinic Donation Page
