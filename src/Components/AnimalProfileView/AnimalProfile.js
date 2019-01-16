@@ -28,25 +28,26 @@ class AnimalProfile extends Component {
       <Card>
         <Card.Content style={{backgroundColor: "#77E8E8"}}>
           <Card.Header>{animal.name}</Card.Header>
-          <Card.Description>Species: {animal.species}</Card.Description>
-          <Card.Description>Breed: {animal.breed}</Card.Description>
+          <Card.Description><strong>Species:</strong> {animal.species}</Card.Description>
+          <Card.Description><strong>Breed:</strong> {animal.breed}</Card.Description>
           <Card.Description>
-            DOB: {moment(animal.dob).format("MM/DD/YYYY")}
+          <strong>DOB:</strong> {moment(animal.dob).format("MM/DD/YYYY")}
           </Card.Description>
-          <Card.Description>Sex: {animal.sex}
+          <Card.Description><strong>Sex:</strong> {animal.sex}
           {animal.sex === "female" ? (
               <Icon name="female" style={{ backgroundColor: "pink" }} />
             ) : (
               <Icon name="male" style={{ backgroundColor: "#328CE5" }} />
             )}
           </Card.Description>
-          <Card.Description>About: {animal.about}</Card.Description>
+          <Card.Description><strong>About:</strong> {animal.about}</Card.Description>
           {this.props.displayHostName ? (
             <Card.Description>
-              Host: {(animal.hostId && animal.hostId.name) || "N/A"}
+              <strong>Host:</strong> {(animal.hostId && animal.hostId.name) || "N/A"}
             </Card.Description>
           ) : null}
-          <Card.Description>Status: {animal.status}</Card.Description>
+          <Card.Description><strong>Status:</strong> {animal.status}</Card.Description>
+          <br></br>
           <Card.Description>
             {animal.name} {animal.animalFriendly ? "is" : "is not"}{" "}
             animal-friendly.{" "}
