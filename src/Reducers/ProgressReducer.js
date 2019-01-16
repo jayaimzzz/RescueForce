@@ -14,7 +14,10 @@ import {
   ADD_ANIMAL_FAILURE,
   UPDATE_SHELTER_STARTED,
   UPDATE_SHELTER_SUCCESS,
-  UPDATE_SHELTER_FAILURE
+  UPDATE_SHELTER_FAILURE,
+  REGISTER_HOST_STARTED,
+  REGISTER_HOST_SUCCESS,
+  REGISTER_HOST_FAILURE
 } from "../ActionCreators";
 
 export const ProgressReducer = (state = INITIAL_STATE.inProgress, action) => {
@@ -44,6 +47,11 @@ export const ProgressReducer = (state = INITIAL_STATE.inProgress, action) => {
     case UPDATE_SHELTER_SUCCESS:
     case UPDATE_SHELTER_FAILURE:
       return { ...state, shelterProfileUpdate: false };
+    case REGISTER_HOST_STARTED:
+      return { ...state, registration: true };
+    case REGISTER_HOST_SUCCESS:
+    case REGISTER_HOST_FAILURE:
+      return { ...state, registration: false };
     default:
       return state;
   }
