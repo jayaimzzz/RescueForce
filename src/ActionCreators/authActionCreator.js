@@ -30,7 +30,7 @@ export const login = loginData => {
       })
       .catch(err => {
         console.error(err);
-        dispatch({ type: LOGIN_UNSUCCESSFUL });
+        dispatch({ type: LOGIN_UNSUCCESSFUL, loginResult: "Invalid Username and/or Password.  Please try again!"  });
       });
   };
 };

@@ -12,6 +12,7 @@ export const API_DOMAIN = "http://localhost:3000";
 export const INITIAL_STATE = {
   auth: {
     auth_in_progress: false,
+    loginResult: "",
     user: {
       token: "",
       type: "",
