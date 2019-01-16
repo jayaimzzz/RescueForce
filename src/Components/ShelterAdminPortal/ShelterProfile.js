@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Image, Button, Card, Icon } from "semantic-ui-react";
 import ModalUpdateShelter from "./ModalUpdateShelter";
+import ChangeShelterImageModal from "./ChangeShelterImageModal";
 
 class ShelterProfile extends Component {
   render() {
@@ -24,6 +25,7 @@ class ShelterProfile extends Component {
           {this.props.canEdit && (
             <Card.Content extra>
               <ModalUpdateShelter />
+              <ChangeShelterImageModal id={shelter._id}/>
             </Card.Content>
           )}
         </Card.Content>
@@ -33,7 +35,9 @@ class ShelterProfile extends Component {
 }
 
 const mapStateToProps = state => ({
-  shelter: state.shelters.find(shelter => shelter._id === state.auth.user.data._id),
+  shelter: state.shelters.find(
+    shelter => shelter._id === state.auth.user.data._id
+  ),
   canEdit: true
 });
 
