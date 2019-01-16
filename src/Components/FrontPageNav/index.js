@@ -29,7 +29,7 @@ class FrontPageNav extends Component {
     console.log(animals);
     return (
       <Fragment>
-        <div className="site navigation page navigation">
+        <div style={{position: "relative", zIndex:2 }} className="site navigation page navigation">
           <nav
             className="top"
             style={{
@@ -64,15 +64,7 @@ class FrontPageNav extends Component {
                   <Icon className="paw icon">Home</Icon>
                 </a>
               </li>
-              <li className="ui breadcome" style={{ width: "100%" }}>
-                <a
-                  href="#section-one"
-                  style={{ padding: "0.6em 10%", width: "80%", color: "black" }}
-                  onClick={this.handlePageScroll(this.sectionOne)}
-                >
-                  <Icon className="paw icon">Scrolling</Icon>
-                </a>
-              </li>
+              
               <li className="ui breadcome" style={{ width: "100%" }}>
                 <a
                   href="#section-two"
