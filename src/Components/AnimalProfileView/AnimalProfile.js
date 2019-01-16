@@ -26,14 +26,20 @@ class AnimalProfile extends Component {
 
     return (
       <Card>
-        <Card.Content>
+        <Card.Content style={{backgroundColor: "#77E8E8"}}>
           <Card.Header>{animal.name}</Card.Header>
           <Card.Description>Species: {animal.species}</Card.Description>
           <Card.Description>Breed: {animal.breed}</Card.Description>
           <Card.Description>
             DOB: {moment(animal.dob).format("MM/DD/YYYY")}
           </Card.Description>
-          <Card.Description>Sex: {animal.sex}</Card.Description>
+          <Card.Description>Sex: {animal.sex}
+          {animal.sex === "female" ? (
+              <Icon name="female" style={{ backgroundColor: "pink" }} />
+            ) : (
+              <Icon name="male" style={{ backgroundColor: "#328CE5" }} />
+            )}
+          </Card.Description>
           <Card.Description>About: {animal.about}</Card.Description>
           {this.props.displayHostName ? (
             <Card.Description>
