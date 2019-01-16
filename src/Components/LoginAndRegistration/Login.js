@@ -74,7 +74,7 @@ class Login extends Component {
             Login
           </button>
         </Form>
-        {console.log(this.props.loginResult)}
+        {/* I want the information to display here */}
       </Segment>
     );
   }
