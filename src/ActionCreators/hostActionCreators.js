@@ -6,6 +6,9 @@ export const GET_ALL_HOSTS = "GET_ALL_HOSTS";
 export const UPDATE_HOST = "UPDATE_HOST";
 export const UPDATE_HOST_SUCCESS = "UPDATE_HOST_SUCCESS";
 export const UPDATE_HOST_FAILURE = "UPDATE_HOST_FAILURE";
+export const REGISTER_HOST_STARTED = "register_host_started";
+export const REGISTER_HOST_SUCCESS = "register_host_success";
+export const REGISTER_HOST_FAILURE = "register_host_failure";
 
 export const getAllHosts = () => {
   return function(dispatch, getState) {
@@ -67,6 +70,32 @@ export const updateHost = updateHostData => (dispatch, getState) => {
       dispatch({
         type: UPDATE_HOST_FAILURE,
         payload: "Unable to update.  Please try again later."
+      });
+    });
+};
+
+export const registerHost = host => dispatch => {
+  dispatch({ type: REGISTER_HOST_STARTED });
+  axios
+    .post(API_DOMAIN + "/register", host, {
+      headers: { "Content-Type": "application/json" }
+    })
+    .then(res => {
+      if (res.status === 201) {
+        dispatch({
+          type: REGISTER_HOST_SUCCESS
+        });
+      } else {
+        console.log(res);
+        dispatch({
+          type: REGISTER_HOST_FAILURE
+        });
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      dispatch({
+        type: REGISTER_HOST_FAILURE
       });
     });
 };

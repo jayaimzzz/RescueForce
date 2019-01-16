@@ -53,7 +53,7 @@ const mapStateToProps = (state, props) => {
     );
   }
   if (loggedInUser.type === "host") {
-    host = loggedInUser.data;
+    host = state.hosts.find(host => host._id === hostId) || loggedInUser.data;
     shelter = host.shelterId;
   }
   const animals = state.animals;
