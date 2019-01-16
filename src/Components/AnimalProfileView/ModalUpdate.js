@@ -20,8 +20,9 @@ const options = [
 ];
 
 const adoptionOptions = [
-  { key: "3", text: "Foster Only", value: "foster only" },
-  { key: "4", text: "Adoptable", value: "adoptable:" }
+  { key: "3", text: "Needs a Foster Home", value: "need-foster"},
+  { key: "4", text: "Foster Only (not ready for adoption)", value: "foster-only" },
+  { key: "5", text: "Adoptable", value: "adoptable" }
 ];
 
 class ModalUpdate extends React.Component {
