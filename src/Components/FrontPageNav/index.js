@@ -26,7 +26,6 @@ class FrontPageNav extends Component {
 
   render() {
     const animals = this.props.animals;
-    console.log(animals);
     return (
       <Fragment>
         <div style={{position: "relative", zIndex:2 }} className="site navigation page navigation">

@@ -5,6 +5,7 @@ class Confirmation extends Component {
   saveAndContinue = e => {
     e.preventDefault();
     this.props.nextStep();
+    this.props.registerHost();
   };
 
   back = e => {
