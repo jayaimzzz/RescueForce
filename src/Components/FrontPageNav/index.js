@@ -26,7 +26,6 @@ class FrontPageNav extends Component {
 
   render() {
     const animals = this.props.animals;
-    console.log(animals);
     return (
       <Fragment>
         <div style={{position: "relative", zIndex:2 }} className="site navigation page navigation">
@@ -138,7 +137,6 @@ class FrontPageNav extends Component {
         <div
           id="section-three"
           style={{
-            height: "750px",
             backgroundColor: "white",
             borderBottomColor: "black",
             borderBottom: "3px solid",
@@ -167,7 +165,6 @@ class FrontPageNav extends Component {
         <div
           id="section-four"
           style={{
-            height: "600px",
             backgroundColor: "#D8D8E4",
             borderBottomColor: "black",
             borderBottom: "3px solid",
@@ -251,7 +248,7 @@ class FrontPageNav extends Component {
 
         <div
           id="section-five"
-          style={{ height: "500px", backgroundColor: "white" }}
+          style={{ backgroundColor: "white" }}
           ref={this.sectionFive}
         >
           <Grid

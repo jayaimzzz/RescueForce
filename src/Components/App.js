@@ -25,7 +25,7 @@ class App extends Component {
   renderMain = () => (
     <Fragment>
       <FrontPageNav />
-      <DevNav />
+      {/* <DevNav /> */}
       <PublicView />
     </Fragment>
   );
