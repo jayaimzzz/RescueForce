@@ -44,7 +44,7 @@ class ModalAddAnimal extends React.Component {
 
   handleSexChange = (event, { value }) => {
     this.setState({
-      animal: {...this.state.animal, sex: value}
+      animal: { ...this.state.animal, sex: value }
     });
   };
 
@@ -81,7 +81,6 @@ class ModalAddAnimal extends React.Component {
     // do i need the line above since i'm just adding animals-not pulling any?
     // .then(() => this.handleClose());
   };
-
   render() {
     return (
       <Modal
@@ -108,6 +107,7 @@ class ModalAddAnimal extends React.Component {
                 name="name"
                 onChange={this.handleChange}
                 placeholder="Name"
+                required
               />
 
               <Form.Input
@@ -133,12 +133,15 @@ class ModalAddAnimal extends React.Component {
                 options={options}
                 onChange={this.handleChange}
                 placeholder="Species"
+                required
               />
             </Form.Group>
 
             <Form.Group inline>
-              <Form.Field>
+              <Form.Field required>
                 <label>Sex</label>
+              </Form.Field>
+              <Form.Field>
                 <Radio
                   label="Female"
                   value="female"
@@ -146,7 +149,7 @@ class ModalAddAnimal extends React.Component {
                   onChange={this.handleSexChange}
                 />
               </Form.Field>
-              <Form.Field>
+              <Form.Field >
                 <Radio
                   label="Male"
                   value="male"
@@ -167,7 +170,10 @@ class ModalAddAnimal extends React.Component {
               <Form.Radio
                 label="no"
                 value=""
-                checked={this.state.animal.specialNeeds !== undefined && !this.state.animal.specialNeeds}
+                checked={
+                  this.state.animal.specialNeeds !== undefined &&
+                  !this.state.animal.specialNeeds
+                }
                 onChange={this.handleToggle("specialNeeds")}
               />
             </Form.Group>
@@ -183,7 +189,10 @@ class ModalAddAnimal extends React.Component {
               <Form.Radio
                 label="no"
                 value=""
-                checked={this.state.animal.specialDiet !== undefined && !this.state.animal.specialDiet}
+                checked={
+                  this.state.animal.specialDiet !== undefined &&
+                  !this.state.animal.specialDiet
+                }
                 onChange={this.handleToggle("specialDiet")}
               />
             </Form.Group>
@@ -209,7 +218,10 @@ class ModalAddAnimal extends React.Component {
               <Form.Radio
                 label="no"
                 value=""
-                checked={this.state.animal.pregnant !== undefined && !this.state.animal.pregnant}
+                checked={
+                  this.state.animal.pregnant !== undefined &&
+                  !this.state.animal.pregnant
+                }
                 onChange={this.handleToggle("pregnant")}
               />
             </Form.Group>
@@ -225,7 +237,10 @@ class ModalAddAnimal extends React.Component {
               <Form.Radio
                 label="no"
                 value=""
-                checked={this.state.animal.fixed !== undefined && !this.state.animal.fixed}
+                checked={
+                  this.state.animal.fixed !== undefined &&
+                  !this.state.animal.fixed
+                }
                 onChange={this.handleToggle("fixed")}
               />
             </Form.Group>
@@ -241,7 +256,10 @@ class ModalAddAnimal extends React.Component {
               <Form.Radio
                 label="no"
                 value=""
-                checked={this.state.animal.animalFriendly !== undefined && !this.state.animal.animalFriendly}
+                checked={
+                  this.state.animal.animalFriendly !== undefined &&
+                  !this.state.animal.animalFriendly
+                }
                 onChange={this.handleToggle("animalFriendly")}
               />
             </Form.Group>
@@ -257,7 +275,10 @@ class ModalAddAnimal extends React.Component {
               <Form.Radio
                 label="no"
                 value=""
-                checked={this.state.animal.peopleFriendly !== undefined && !this.state.animal.peopleFriendly}
+                checked={
+                  this.state.animal.peopleFriendly !== undefined &&
+                  !this.state.animal.peopleFriendly
+                }
                 onChange={this.handleToggle("peopleFriendly")}
               />
             </Form.Group>
@@ -271,7 +292,7 @@ class ModalAddAnimal extends React.Component {
               onChange={this.handleChange}
             />
 
-            {this.props.role === "shelter" && (
+            {/* {this.props.role === "shelter" && (
               <Form.Group widths="equal">
                 <Form.Select
                   fluid
@@ -291,13 +312,21 @@ class ModalAddAnimal extends React.Component {
                   placeholder="Status"
                 />
               </Form.Group>
-            )}
+            )} */}
           </Segment>
         </Form>
 
         <Modal.Actions>
           <Button.Group fluid>
-            <Button className="submit-button" onClick={this.handleSubmit}>
+            <Button
+              className="submit-button"
+              onClick={this.handleSubmit}
+              disabled={
+                !this.state.animal.sex ||
+                !this.state.animal.name ||
+                !this.state.animal.species
+              }
+            >
               <Icon name="sticky note outline" /> Add
             </Button>
             <Button.Or />

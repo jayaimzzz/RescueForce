@@ -42,7 +42,7 @@ class HeaderImageScroll extends Component {
         {animals.map((animal, index) => {
           return (
             <Image
-            style={styles.img}
+            // style={styles.img}
             size="small"
             bordered
             rounded
