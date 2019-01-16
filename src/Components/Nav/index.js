@@ -32,6 +32,9 @@ class Nav extends Component {
               margin: "auto"
             }}
           >
+            <Link style={linkStyle} to="/">
+              Main
+            </Link>
             <Link style={linkStyle} to="/cats">
               Cats
             </Link>

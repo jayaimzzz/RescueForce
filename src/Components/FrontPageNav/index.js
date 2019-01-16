@@ -61,7 +61,7 @@ class FrontPageNav extends Component {
                     color: "black"
                   }}
                 >
-                  <Icon className="paw icon">Home</Icon>
+                  <Icon className="paw icon">Top</Icon>
                 </a>
               </li>
               <li className="ui breadcome" style={{ width: "100%" }}>
