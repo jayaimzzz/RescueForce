@@ -74,7 +74,7 @@ class Login extends Component {
             Login
           </button>
         </Form>
-        {/* I want the information to display here */}
+        {this.props.loginResult}
       </Segment>
     );
   }
@@ -82,7 +82,7 @@ class Login extends Component {
 
 const mapStateToProps = state => ({
   auth_in_progress: state.auth.auth_in_progress,
-  loginResult: state.authloginResult
+  loginResult: state.auth.loginResult
 });
 
 const mapDispatchToProps = dispatch => {

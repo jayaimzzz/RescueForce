@@ -13,9 +13,9 @@ const getInitState = () => {
 export const AuthReducer = (state = getInitState(), action) => {
   switch (action.type) {
     case LOGIN_STARTED:
-      return { ...state, auth_in_progress: true };
+      return { ...state, auth_in_progress: true, loginResult: "" };
     case LOGIN_SUCCESSFUL:
-      return { user: action.payload, auth_in_progress: false };
+      return { user: action.payload, auth_in_progress: false, loginResult: "" };
     case LOGIN_UNSUCCESSFUL:
       return { ...state, auth_in_progress: false, loginResult: action.loginResult };
     case LOGOUT:
