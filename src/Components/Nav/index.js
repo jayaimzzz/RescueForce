@@ -33,7 +33,7 @@ class Nav extends Component {
             }}
           >
             <Link style={linkStyle} to="/">
-              Home
+              Main
             </Link>
             <Link style={linkStyle} to="/cats">
               Cats
