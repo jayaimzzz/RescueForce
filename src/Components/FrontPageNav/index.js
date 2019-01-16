@@ -4,9 +4,11 @@ import { timingSafeEqual } from "crypto";
 import { Icon, Header, List, Grid } from "semantic-ui-react";
 import MissionStatement from "../PublicView/MissionStatement";
 import AnimalList from "../AnimalList";
-import AnimalCard from "../AnimalList";
+import { AnimalCard } from "../AnimalList/AnimalCard";
 import { ADOPTABLE } from "../../Constants/index";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import "../FrontPageNav/animalGridBox.css";
 
 class FrontPageNav extends Component {
   constructor(props) {
@@ -23,7 +25,8 @@ class FrontPageNav extends Component {
   };
 
   render() {
-    const animal = this.props.animal;
+    const animals = this.props.animals;
+    console.log(animals);
     return (
       <Fragment>
         <div className="site navigation page navigation">
@@ -33,7 +36,7 @@ class FrontPageNav extends Component {
               marginTop: "20px",
               width: "100%",
               margin: "20px",
-              marginLeft:'10px',
+              marginLeft: "0px",
               paddingBottom: "20px",
               width: "100%",
               // backgroundColor: "white",
@@ -143,11 +146,12 @@ class FrontPageNav extends Component {
         <div
           id="section-three"
           style={{
-            height: "500px",
+            height: "750px",
             backgroundColor: "white",
             borderBottomColor: "black",
             borderBottom: "3px solid",
             borderRadius: "2px"
+            
           }}
           ref={this.sectionThree}
         >
@@ -161,11 +165,13 @@ class FrontPageNav extends Component {
           >
             Adopt a furry friend
           </p>
+          <p style={{fontSize:'20px', fontFamily: 'cursive '}}>See all the animals available for adoption.</p>
+          <div className="adoptableImageBox">
+            {this.props.animals.map(animal => (
+              <AnimalCard key={animal._id} animal={animal} />
+            ))}
+          </div>
         </div>
-        {/* {animal.status===ADOPTABLE} */}
-        {/* <AnimalCard animals={this.props.animals} filter={{ status: ADOPTABLE }}/> */}
-        {/* <AnimalList animals={this.props.animals} filter={{ status: ADOPTABLE }}/> */}
-        {/* The line above isn't working because of the 'filter' (see animalList - animalList/index.  In addition, trying to figure out how to put these in a grid.) */}
         <div
           id="section-four"
           style={{
@@ -237,7 +243,12 @@ class FrontPageNav extends Component {
             </Grid.Row>
             <Grid.Row>
               <Link
-                style={{ fontSize: "20px", fontFamily: "tahoma", color:'77E8E8', textDecorationLine:'under' }}
+                style={{
+                  fontSize: "20px",
+                  fontFamily: "tahoma",
+                  color: "77E8E8",
+                  textDecorationLine: "under"
+                }}
                 to="/register"
               >
                 Click Here to Register
@@ -324,4 +335,14 @@ class FrontPageNav extends Component {
   }
 }
 
-export { FrontPageNav };
+const mapStateToProps = (state, props) => {
+  const animals = state.animals.filter(animal => animal.status === ADOPTABLE);
+  return {
+    animals
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(FrontPageNav);
