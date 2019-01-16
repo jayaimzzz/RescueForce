@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import UserDetails from "./UserDetails";
 import PersonalDetails from "./PersonalDetails";
 import Confirmation from "./Confirmation";
 import Success from "./Success";
+import { registerHost } from "../../ActionCreators";
 
 class Register extends Component {
   state = {
@@ -12,12 +14,12 @@ class Register extends Component {
     phoneNumber: "",
     password: "",
     address: "",
-    capacityCat:"",
-    capacityDog:"", 
+    capacityCat: "",
+    capacityDog: "",
     passwordsMatch: false,
     emailsMatch: false,
-    confirmEmail:"",
-    confirmPassword:""
+    confirmEmail: "",
+    confirmPassword: ""
   };
 
   nextStep = () => {
@@ -38,22 +40,37 @@ class Register extends Component {
     this.setState({ [input]: event.target.value });
   };
 
-
   handleCheckPassword = event => {
-    const passwordsMatch = this.state.password === this.state.confirmPassword
-    this.setState({passwordsMatch})
-    if (!passwordsMatch){
-      alert("Passwords do not match.")
+    const passwordsMatch = this.state.password === this.state.confirmPassword;
+    this.setState({ passwordsMatch });
+    if (!passwordsMatch) {
+      alert("Passwords do not match.");
     }
-  }
+  };
 
   handleCheckEmail = event => {
-    const emailsMatch = this.state.email === this.state.confirmEmail
-    this.setState({emailsMatch})
-    if (!emailsMatch){
-      alert("Emails do not match.  Do better next time.")
+    const emailsMatch = this.state.email === this.state.confirmEmail;
+    this.setState({ emailsMatch });
+    if (!emailsMatch) {
+      alert("Emails do not match.  Do better next time.");
     }
-  }
+  };
+
+  handleRegisterHost = () => {
+    const host = {
+      name: this.state.name,
+      email: this.state.email,
+      phoneNumber: this.state.phoneNumber,
+      password: this.state.password,
+      address: this.state.address,
+      capacity: {
+        dogs: Number(this.state.capacityDog),
+        cats: Number(this.state.capacityCat)
+      }
+    };
+
+    this.props.registerHost(host);
+  };
 
   render() {
     const { step } = this.state;
@@ -84,6 +101,7 @@ class Register extends Component {
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             values={values}
+            registerHost={this.handleRegisterHost}
           />
         );
       case 4:
@@ -92,4 +110,11 @@ class Register extends Component {
   }
 }
 
-export { Register };
+const mapDispatchToProps = dispatch => ({
+  registerHost: host => dispatch(registerHost(host))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Register);

@@ -3,6 +3,9 @@ import {
   UPDATE_HOST,
   UPDATE_HOST_SUCCESS,
   UPDATE_HOST_FAILURE,
+  REGISTER_HOST_STARTED,
+  REGISTER_HOST_SUCCESS,
+  REGISTER_HOST_FAILURE,
   UPDATE_HOST_IMAGE_STARTED,
   UPDATE_HOST_IMAGE_SUCCESS,
   UPDATE_HOST_IMAGE_FAILURE
@@ -21,6 +24,10 @@ export const HostsReducer = (state = initState, action) => {
         host._id === action.payload.data._id ? action.payload.data : host
       );
     case UPDATE_HOST_FAILURE:
+      return state;
+    case REGISTER_HOST_STARTED:
+    case REGISTER_HOST_SUCCESS:
+    case REGISTER_HOST_FAILURE:
       return state;
     case UPDATE_HOST_IMAGE_STARTED:
       return state;
