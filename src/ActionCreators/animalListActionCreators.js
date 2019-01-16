@@ -149,6 +149,7 @@ export const addAnimal = addAnimalData => (dispatch, getState) => {
           type: ADD_ANIMAL_SUCCESS,
           payload: res.data.data
         });
+        dispatch(getAnimals());
       }
     })
     .catch(err => console.error(err));

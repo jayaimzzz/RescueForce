@@ -55,9 +55,11 @@ class ModalAddAnimal extends React.Component {
   };
 
   handleDateChange = (event, { value }) => {
-    const [day, month, year] = value.split("-");
+    const [year, month, day] = value.split("-");
     const dob = new Date(year, month - 1, day);
-    this.setState({ dob });
+    this.setState({
+      animal: { ...this.state.animal, dob }
+    });
   };
 
   handleOpen = event => {
