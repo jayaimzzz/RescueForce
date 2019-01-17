@@ -41,15 +41,15 @@ class AnimalCard extends Component {
           />
 
           {animal.status === ADOPTABLE &&
-          <Label as="a" color="green" ribbon>
+          <Label as="div" color="green" ribbon>
             Adoptable{" "}
           </Label>}
           {animal.status === FOSTER_ONLY &&
-          <Label as="a" color="blue" ribbon>
+          <Label as="div" color="blue" ribbon>
             Foster-only
           </Label>}
           {animal.status ===  NEED_FOSTER &&
-          <Label as="a" color="yellow" ribbon>
+          <Label as="div" color="yellow" ribbon>
             Foster ready
           </Label>}
 

@@ -15,7 +15,6 @@ import { colors } from "../../Constants/"
 
 class HostCard extends Component {
   render() {
-    const styles = {};
     const host = this.props.host;
     const hostProfilePic = host.photos && host.photos[0];
     return (

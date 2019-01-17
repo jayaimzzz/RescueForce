@@ -1,9 +1,7 @@
 import React, { Component, Fragment } from "react";
 import HeaderImageScroll from "../PublicView/HeaderImageScroll";
-import { timingSafeEqual } from "crypto";
-import { Icon, Header, List, Grid } from "semantic-ui-react";
+import { Icon, List, Grid } from "semantic-ui-react";
 import MissionStatement from "../PublicView/MissionStatement";
-import AnimalList from "../AnimalList";
 import { AnimalCard } from "../AnimalList/AnimalCard";
 import { ADOPTABLE, colors } from "../../Constants/index";
 import { Link } from "react-router-dom";
@@ -25,7 +23,6 @@ class FrontPageNav extends Component {
   };
 
   render() {
-    const animals = this.props.animals;
     return (
       <Fragment>
         <div style={{position: "relative", zIndex:2 }} className="site navigation page navigation">
@@ -37,7 +34,6 @@ class FrontPageNav extends Component {
               margin: "20px",
               marginLeft: "0px",
               paddingBottom: "20px",
-              width: "100%",
               // backgroundColor: "white",
               backgroundColor: colors.a,
               position: "fixed",
@@ -295,22 +291,22 @@ class FrontPageNav extends Component {
             <Grid.Row>
               <List style={{ color: "77E8E8", margin: "10px" }}>
                 <List.Content style={{ color: "77E8E8" }}>
-                  <a href="https://facespayneuter.org/donate/" target="_blank">
+                  <a href="https://facespayneuter.org/donate/" target="_blank" rel="noopener noreferrer">
                     Face Low Cost Animal Clinic Donation Page
                   </a>
                 </List.Content>
                 <List.Content>
-                  <a href="https://indyhumane.org/get_involved/donate/" target="_blank">
+                  <a href="https://indyhumane.org/get_involved/donate/" target="_blank" rel="noopener noreferrer">
                     Indy Humane Animal Shelter Donation Page
                   </a>
                 </List.Content>
                 <List.Content>
-                  <a href="https://facespayneuter.org/get-involved/ways-help/wish-list/" target="_blank">
+                  <a href="https://facespayneuter.org/get-involved/ways-help/wish-list/" target="_blank" rel="noopener noreferrer">
                     Face Low Cost Animal Clinic Shelter Wish List
                   </a>
                 </List.Content>
                 <List.Content>
-                  <a href="https://indyhumane.org/blog/news/wishlist/" target="_blank">
+                  <a href="https://indyhumane.org/blog/news/wishlist/" target="_blank" rel="noopener noreferrer">
                     Indy Humane Animal Shelter Wish List
                   </a>
                 </List.Content>

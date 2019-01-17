@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Form, Button, Progress, Grid, Image } from "semantic-ui-react";
-import { throws } from "assert";
 import dogCatPic from "../../Images/dog-cat01.png" 
 
 class PersonalDetails extends Component {

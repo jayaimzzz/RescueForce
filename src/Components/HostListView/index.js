@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import HostCard from "./HostCard";
-import { HostFilter } from "./HostFilter";
 import HostListHeader from "./HostListHeader"
 import { getAllHosts, getAnimals } from "../../ActionCreators";
 import { colors } from "../../Constants/"

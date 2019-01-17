@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import {
   Image,
   Grid,
-  Container,
   Segment,
-  Label,
   Header
 } from "semantic-ui-react";
 import { colors } from "../../Constants"
