@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Image, Button, Card, Icon } from "semantic-ui-react";
+import { Image, Button, Card } from "semantic-ui-react";
 import HostVacancies from "./HostVacancies";
 import HostModalUpdate from "./HostModalUpdate";
 import ChangeHostImageModal from "./ChangeHostImageModal";

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { push } from "connected-react-router";
 import { API_DOMAIN } from "../Constants";
 
 export const GET_ANIMALS_LIST = "get_animals_list";

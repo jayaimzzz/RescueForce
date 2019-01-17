@@ -16,12 +16,12 @@ class MissionStatement extends Component {
           }}
         >
           <img class="ui medium image" src={LeftBannerImage}
-          style={{float: "left"}}
+          style={{float: "left"}} alt="BannerImage"
           ></img>
           Rescue Force
         <img class="ui medium image" src={RightBannerImage}
         style={{float: "right"}}
-        ></img>
+        alt="BannerImage"></img>
         </h3>
         <div
           style={{
