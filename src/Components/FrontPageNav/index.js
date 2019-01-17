@@ -5,7 +5,7 @@ import { Icon, Header, List, Grid } from "semantic-ui-react";
 import MissionStatement from "../PublicView/MissionStatement";
 import AnimalList from "../AnimalList";
 import { AnimalCard } from "../AnimalList/AnimalCard";
-import { ADOPTABLE } from "../../Constants/index";
+import { ADOPTABLE, colors } from "../../Constants/index";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "../FrontPageNav/animalGridBox.css";
@@ -39,7 +39,7 @@ class FrontPageNav extends Component {
               paddingBottom: "20px",
               width: "100%",
               // backgroundColor: "white",
-              backgroundColor: "#77E8E8",
+              backgroundColor: colors.a,
 
               position: "fixed",
               height: "8%",
@@ -112,7 +112,7 @@ class FrontPageNav extends Component {
             paddingTop: "100px",
             margin: "0 0 50px 0",
             height: "300px",
-            backgroundColor: "white",
+            backgroundColor: colors.backgroundA,
             borderBottomColor: "black",
             borderBottom: "3px solid",
             borderTopColor: "black",
@@ -125,7 +125,7 @@ class FrontPageNav extends Component {
         <div
           id="section-two"
           style={{
-            backgroundColor: "#D8D8E4",
+            backgroundColor: colors.backgroundB,
             borderBottomColor: "black",
             borderBottom: "3px solid",
             borderRadius: "2px"
@@ -137,7 +137,7 @@ class FrontPageNav extends Component {
         <div
           id="section-three"
           style={{
-            backgroundColor: "white",
+            backgroundColor: colors.backgroundA,
             borderBottomColor: "black",
             borderBottom: "3px solid",
             borderRadius: "2px"
@@ -165,7 +165,7 @@ class FrontPageNav extends Component {
         <div
           id="section-four"
           style={{
-            backgroundColor: "#D8D8E4",
+            backgroundColor: colors.backgroundB,
             borderBottomColor: "black",
             borderBottom: "3px solid",
             borderRadius: "2px"
@@ -248,7 +248,7 @@ class FrontPageNav extends Component {
 
         <div
           id="section-five"
-          style={{ backgroundColor: "white" }}
+          style={{ backgroundColor: colors.backgroundA }}
           ref={this.sectionFive}
         >
           <Grid

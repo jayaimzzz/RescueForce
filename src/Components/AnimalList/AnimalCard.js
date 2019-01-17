@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Card, Image, Icon, Label } from "semantic-ui-react";
 import moment from "moment";
 import { ADOPTABLE, FOSTER_ONLY, NEED_FOSTER } from '../../Constants/index'
-
+import { colors } from "../../Constants/"
 
 class AnimalCard extends Component {
 
@@ -27,7 +27,7 @@ class AnimalCard extends Component {
       >
         <Card.Content
           // style={{ margin: "5px", padding: "5px", backgroundColor: "#B0D6D0" }}
-          style={{ margin: "5px", padding: "5px", backgroundColor: "#77E8E8" }}
+          style={{ margin: "5px", padding: "5px", backgroundColor: colors.c }}
         >
           <Image
             style={{
