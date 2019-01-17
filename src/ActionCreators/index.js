@@ -21,7 +21,11 @@ import {
   updateAnimalPhotos,
   uploadAnimalPhotos,
   updateAnimal,
-  addAnimal
+  addAnimal,
+  getAnimal,
+  GET_ANIMAL_STARTED,
+  GET_ANIMAL_SUCCESS,
+  GET_ANIMAL_FAILURE
 } from "./animalListActionCreators";
 import {
   GET_ALL_HOSTS,
@@ -97,5 +101,9 @@ export {
   UPDATE_SHELTER_IMAGE_STARTED,
   UPDATE_SHELTER_IMAGE_SUCCESS,
   UPDATE_SHELTER_IMAGE_FAILURE,
-  uploadPhoto
+  uploadPhoto,
+  getAnimal,
+  GET_ANIMAL_STARTED,
+  GET_ANIMAL_SUCCESS,
+  GET_ANIMAL_FAILURE
 };

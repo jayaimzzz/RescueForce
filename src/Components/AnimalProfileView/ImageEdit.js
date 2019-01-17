@@ -38,8 +38,8 @@ class ImageEdit extends Component {
   };
 
   render() {
-    const images =
-      this.props.images.map(image => ({ src: image, width: 4, height: 3 })) ||
+    const images = (this.props.images && 
+      this.props.images.map(image => ({ src: image, width: 4, height: 3 }))) ||
       [];
     return (
       <Modal
@@ -79,9 +79,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch(uploadAnimalPhotos(ownProps.animalId, photos))
 });
 
-const mapStateToProps = (state, ownProps) => ({
-  images: state.animals.find(animal => animal._id === ownProps.animalId).photos
-});
+const mapStateToProps = (state, ownProps) => {
+  const animal = state.animals.find(animal => animal._id === ownProps.animalId);
+  return {
+    images: animal && animal.photos
+  }
+};
 
 export default connect(
   mapStateToProps,

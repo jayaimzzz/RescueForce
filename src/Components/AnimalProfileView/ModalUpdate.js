@@ -27,7 +27,7 @@ const adoptionOptions = [
 
 class ModalUpdate extends React.Component {
   state = {
-    id: this.props.animal._id
+    id: this.props.animal && this.props.animal._id
   };
 
   handleToggle = name => (event, { value }) => {
