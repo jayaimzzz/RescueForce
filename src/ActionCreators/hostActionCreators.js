@@ -9,6 +9,9 @@ export const UPDATE_HOST_FAILURE = "UPDATE_HOST_FAILURE";
 export const REGISTER_HOST_STARTED = "register_host_started";
 export const REGISTER_HOST_SUCCESS = "register_host_success";
 export const REGISTER_HOST_FAILURE = "register_host_failure";
+export const GET_HOST_STARTED = "get_host_started";
+export const GET_HOST_SUCCESS = "get_host_success";
+export const GET_HOST_FAILURE = "get_host_failure";
 
 export const getAllHosts = () => {
   return function(dispatch, getState) {
@@ -36,6 +39,30 @@ export const getAllHosts = () => {
         console.log(error);
       });
   };
+};
+
+export const getHost = hostId => (dispatch, getState) => {
+  const token = getState().auth.user.token;
+  dispatch({type: GET_HOST_STARTED});
+  axios.get(`${API_DOMAIN}/api/hosts/${hostId}`, {
+    headers: { Authorization: `Bearer ${token}` }
+  }).then(res => {
+    if (res.status === 200 ) {
+      dispatch({
+        type: GET_HOST_SUCCESS,
+        payload: res.data.data[0]
+      });
+    } else {
+      dispatch({
+        type: GET_HOST_FAILURE
+      });
+    }
+  }).catch(err => {
+    console.error(err);
+    dispatch({
+      type: GET_HOST_FAILURE
+    });
+  });
 };
 
 export const updateHost = updateHostData => (dispatch, getState) => {

@@ -11,14 +11,14 @@ import {
   Label,
   Header
 } from "semantic-ui-react";
+import { colors } from "../../Constants/"
 
 class HostCard extends Component {
   render() {
-    const styles = {};
     const host = this.props.host;
     const hostProfilePic = host.photos && host.photos[0];
     return (
-      <Segment>
+      <Segment style={{backgroundColor:colors.backgroundC}}>
         <Grid>
           <Grid.Column width={2}>
             {host.approved && (

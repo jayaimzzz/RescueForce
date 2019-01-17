@@ -1,5 +1,4 @@
 import axios from "axios";
-import { push } from "connected-react-router";
 import { API_DOMAIN } from "../Constants";
 
 export const GET_ANIMALS_LIST = "get_animals_list";
@@ -17,6 +16,10 @@ export const UPDATE_ANIMAL_FAILURE = "UPDATE_USER_FAILURE";
 export const ADD_ANIMAL_STARTED = "add_animal_started";
 export const ADD_ANIMAL_SUCCESS = "add_animal_success";
 export const ADD_ANIMAL_FAILURE = "add_animal_failure";
+
+export const GET_ANIMAL_STARTED = "get_animal_started";
+export const GET_ANIMAL_SUCCESS = "get_animal_success";
+export const GET_ANIMAL_FAILURE = "get_animal_failure";
 
 export const getAnimals = filter => (dispatch, getState) => {
   const token = getState().auth.user.token;
@@ -43,6 +46,30 @@ export const getAnimals = filter => (dispatch, getState) => {
     .catch(error => {
       console.log(error);
     });
+};
+
+export const getAnimal = animalId => (dispatch, getState) => {
+  const token = getState().auth.user.token;
+  dispatch({type: GET_ANIMAL_STARTED});
+  axios.get(`${API_DOMAIN}/api/animals/${animalId}`, {
+    headers: { Authorization: `Bearer ${token}` }
+  }).then(res => {
+    if (res.status === 200) {
+      dispatch({
+        type: GET_ANIMAL_SUCCESS,
+        payload: res.data.data[0]
+      });
+    } else {
+      dispatch({
+        type: GET_ANIMAL_FAILURE
+      });
+    }
+  }).catch(err => {
+    console.error(err);
+    dispatch({
+      type: GET_ANIMAL_FAILURE
+    });
+  });
 };
 
 export const updateAnimalPhotos = (animalId, photos) => (

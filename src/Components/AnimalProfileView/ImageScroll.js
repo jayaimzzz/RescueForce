@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { SHELTER } from "../../Constants"
 import { Image, Segment } from "semantic-ui-react";
 import ImageEdit from "./ImageEdit";
+import { colors } from "../../Constants/"
 
 const styles = {
   img: {
@@ -21,9 +22,9 @@ class ImageScroll extends Component {
   render() {
     const images = this.props.images;
     return (
-      <Segment>
+      <Segment style={{backgroundColor:colors.backgroundC}}>
         <div className="ui segment" style={styles.segment}>
-          {images.map((image, index) => (
+          {images && images.map((image, index) => (
             <Image
               style={styles.img}
               size="medium"
@@ -44,10 +45,10 @@ class ImageScroll extends Component {
 const mapStateToProps = (state, props) => {
   const animal = state.animals.find(animal => animal._id === props.animalId)
   return {
-    images: animal.photos,
+    images: animal && animal.photos,
     canUpdate:
       state.auth.user.type === SHELTER ||
-      state.auth.user.data._id === (animal.hostId && animal.hostId._id)
+      state.auth.user.data._id === (animal && animal.hostId && animal.hostId._id)
   };
 };
 

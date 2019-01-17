@@ -7,7 +7,7 @@ import { logout } from "../../ActionCreators";
 import { colors } from "../../Constants/"
 
 const linkStyle = {
-  color: "#ebebeb",
+  color: colors.textB,
   fontFamily: "sans-serif",
   fontSize: "2em"
 };
@@ -30,7 +30,7 @@ class Nav extends Component {
               display: "flex",
               justifyContent: "space-around",
               alignItems: "center",
-              margin: "auto"
+              margin: "auto",
             }}
           >
             <Link style={linkStyle} to="/">
@@ -58,7 +58,8 @@ class Nav extends Component {
                 width: 100,
                 position: "absolute",
                 top: 0,
-                right: 0
+                right: 0,
+                color: "textB"
               }}
               onClick={() => this.props.logout()}
             >
