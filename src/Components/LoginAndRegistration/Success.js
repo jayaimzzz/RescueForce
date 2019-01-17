@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Progress, Grid, Image } from "semantic-ui-react";
+import dogCatPic from "../../Images/dog-cat01.png"
 
 class Success extends Component {
   render() {
@@ -21,7 +22,7 @@ class Success extends Component {
             </Form>
           </Grid.Column>
           <Grid.Column stretched>
-            <Image src="https://cdn.pixabay.com/photo/2016/04/12/19/32/abstract-1325156_640.png" />
+            <Image src={dogCatPic} />
           </Grid.Column>
         </Grid.Row>
       </Grid>

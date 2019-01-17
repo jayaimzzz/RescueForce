@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Button } from "semantic-ui-react";
 import { push } from "connected-react-router";
 import { logout } from "../../ActionCreators";
+import { colors } from "../../Constants/"
 
 const linkStyle = {
   color: "#ebebeb",
@@ -18,7 +19,7 @@ class Nav extends Component {
         <div
           style={{
             height: 50,
-            backgroundColor: "#B0B0B8",
+            backgroundColor: colors.b,
             position: "relative"
           }}
         >
@@ -52,7 +53,7 @@ class Nav extends Component {
             <Button
               primary
               style={{
-                backgroundColor: "#77E8E8",
+                backgroundColor: colors.button,
                 height: "inherit",
                 width: 100,
                 position: "absolute",
@@ -67,7 +68,7 @@ class Nav extends Component {
             <Button
               className="ui right floated primary button"
               style={{
-                backgroundColor: "#77E8E8",
+                backgroundColor: colors.button,
                 height: "inherit",
                 width: 100,
                 position: "absolute",

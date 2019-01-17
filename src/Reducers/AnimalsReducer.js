@@ -3,7 +3,7 @@ import {
   UPDATE_ANIMAL,
   UPDATE_ANIMAL_FAILURE,
   UPDATE_ANIMAL_SUCCESS,
-  UPDATE_ANIMAL_PHOTOS,
+  UPDATE_ANIMAL_PHOTOS_SUCCESS,
   ADD_ANIMAL,
   ADD_ANIMAL_FAILURE,
   ADD_ANIMAL_SUCCESS,
@@ -32,7 +32,7 @@ export const AnimalsReducer = (state = initState, action) => {
     case UPDATE_ANIMAL_FAILURE:
       return state;
 
-    case UPDATE_ANIMAL_PHOTOS:
+    case UPDATE_ANIMAL_PHOTOS_SUCCESS:
       const { id, data } = action.payload;
       return state.map(animal => (animal._id === id ? data : animal));
 

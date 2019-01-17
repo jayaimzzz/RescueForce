@@ -79,10 +79,8 @@ class ModalAddAnimal extends React.Component {
     this.setState({
       open: false
     });
-    // .then(() => this.props.getAnimals())
-    // do i need the line above since i'm just adding animals-not pulling any?
-    // .then(() => this.handleClose());
   };
+
   render() {
     return (
       <Modal
@@ -326,7 +324,8 @@ class ModalAddAnimal extends React.Component {
               disabled={
                 !this.state.animal.sex ||
                 !this.state.animal.name ||
-                !this.state.animal.species
+                !this.state.animal.species || 
+                this.props.inProgress
               }
             >
               <Icon name="sticky note outline" /> Add
@@ -349,7 +348,8 @@ class ModalAddAnimal extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
   role: state.auth.user.type,
   hostOptions: state.hosts.map(host => ({ text: host.name, value: host._id })),
-  animal: { shelterId: state.auth.user.data._id }
+  animal: { shelterId: state.auth.user.data._id },
+  inProgress: state.inProgress.addAnimal
 });
 
 const mapDispatchToProps = { addAnimal, getAnimals, getAllHosts };

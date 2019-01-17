@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Button, List, Progress, Grid, Image } from "semantic-ui-react";
+import dogCatPic from "../../Images/dog-cat01.png"
 
 class Confirmation extends Component {
   saveAndContinue = e => {
@@ -23,7 +25,7 @@ class Confirmation extends Component {
         <Grid.Row>
           <Grid.Column stretched>
             <h2 className="ui centered">Confirm your Details</h2>
-            <Progress percent={66} color ='teal' progress>
+            <Progress percent={66} color="teal" progress>
               <h2>Step Three - Confirm!</h2>
             </Progress>
 
@@ -79,15 +81,15 @@ class Confirmation extends Component {
             </List>
 
             <Button color="teal" onClick={this.back}>
-                Back
-              </Button>
-              <Button color="grey" onClick={this.saveAndContinue}>
-                Confirm{" "}
-              </Button>
+              Back
+            </Button>
+            <Button color="grey" disabled={this.props.inProgress} onClick={this.saveAndContinue}>
+              Confirm{" "}
+            </Button>
           </Grid.Column>
           <Grid.Column stretched>
             {/* <Image src="https://cdn.pixabay.com/photo/2016/04/12/19/32/abstract-1325156_640.png" /> */}
-            <Image src="https://cdn.pixabay.com/photo/2016/10/20/12/16/dog-1755423_640.jpg" />
+            <Image src={dogCatPic} />
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -95,4 +97,8 @@ class Confirmation extends Component {
   }
 }
 
-export default Confirmation;
+const mapStateToProps = state => ({
+  inProgress: state.inProgress.registration
+});
+
+export default connect(mapStateToProps)(Confirmation);

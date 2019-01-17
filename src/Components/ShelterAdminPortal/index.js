@@ -5,6 +5,7 @@ import { push } from "connected-react-router";
 import ModalAddAnimal from "./ModalAddAnimal";
 import ShelterProfile from "./ShelterProfile";
 import { getAnimals } from "../../ActionCreators";
+import { colors } from "../../Constants";
 
 class ShelterAdminPortal extends Component {
   componentDidMount = () => {
@@ -13,7 +14,7 @@ class ShelterAdminPortal extends Component {
 
   render() {
     return (
-      <Segment style={{ width: "80vw", margin: "auto" }}>
+      <Segment style={{ width: "80vw", margin: "auto", backgroundColor: colors.backgroundA }}>
         <ShelterProfile />
         <div
           style={{

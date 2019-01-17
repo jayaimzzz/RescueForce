@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Progress, Grid, Image } from "semantic-ui-react";
+import dogCatPic from "../../Images/dog-cat01.png"
 
 class UserDetails extends Component {
   saveAndContinue = e => {
@@ -75,7 +76,7 @@ class UserDetails extends Component {
             </Form>
           </Grid.Column>
           <Grid.Column stretched>
-            <Image src="https://cdn.pixabay.com/photo/2016/07/21/14/18/dog-1532627_640.png" />
+            <Image src={dogCatPic} />
           </Grid.Column>
         </Grid.Row>
       </Grid>
