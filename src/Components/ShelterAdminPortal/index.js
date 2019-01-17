@@ -14,7 +14,7 @@ class ShelterAdminPortal extends Component {
 
   render() {
     return (
-      <Segment style={{ width: "80vw", margin: "auto", backgroundColor: colors.backgroundA }}>
+      <Segment style={{ width: "80vw", margin: "auto", backgroundColor: colors.backgroundC }}>
         <ShelterProfile />
         <div
           style={{

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { SHELTER } from "../../Constants"
 import { Image, Segment } from "semantic-ui-react";
 import ImageEdit from "./ImageEdit";
+import { colors } from "../../Constants/"
 
 const styles = {
   img: {
@@ -21,7 +22,7 @@ class ImageScroll extends Component {
   render() {
     const images = this.props.images;
     return (
-      <Segment>
+      <Segment style={{backgroundColor:colors.backgroundC}}>
         <div className="ui segment" style={styles.segment}>
           {images && images.map((image, index) => (
             <Image

@@ -27,7 +27,7 @@ class AnimalCard extends Component {
       >
         <Card.Content
           // style={{ margin: "5px", padding: "5px", backgroundColor: "#B0D6D0" }}
-          style={{ margin: "5px", padding: "5px", backgroundColor: colors.c }}
+          style={{ margin: "5px", padding: "5px", backgroundColor: colors.backgroundC }}
         >
           <Image
             style={{
@@ -54,7 +54,7 @@ class AnimalCard extends Component {
           </Label>}
 
           <Card.Header style={{ padding: "5px" }}>{animal.name}</Card.Header>
-          <Card.Meta style={{ color: "black" }}>
+          <Card.Meta style={{ color: "black", backgroundColor:"white" }}>
             {animal.name} was born almost {moment(animal.dob).fromNow()} on{" "}
             {moment(animal.dob).format("l")}.{" "}
           </Card.Meta>
