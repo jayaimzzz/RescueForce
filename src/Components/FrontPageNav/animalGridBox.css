@@ -1,0 +1,21 @@
+.adoptableImageBox {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    /* border: 2px solid grey; */
+    justify-content: space-around;
+    /* overflow: scroll; */
+}
+
+/* const styles = {
+    img: {
+      display: "inline-block",
+      borderRadius: "5px",
+      transition: "transform .2s"
+    },
+    segment: {
+      overflowX: "scroll",
+      whiteSpace: "nowrap",
+      borderRadius: "5px"
+    }
+  }; */
