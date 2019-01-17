@@ -296,22 +296,22 @@ class FrontPageNav extends Component {
             <Grid.Row>
               <List style={{ color: "77E8E8", margin: "10px" }}>
                 <List.Content style={{ color: "77E8E8" }}>
-                  <a href="https://facespayneuter.org/donate/">
+                  <a href="https://facespayneuter.org/donate/" target="_blank">
                     Face Low Cost Animal Clinic Donation Page
                   </a>
                 </List.Content>
                 <List.Content>
-                  <a href="https://indyhumane.org/get_involved/donate/">
+                  <a href="https://indyhumane.org/get_involved/donate/" target="_blank">
                     Indy Humane Animal Shelter Donation Page
                   </a>
                 </List.Content>
                 <List.Content>
-                  <a href="https://facespayneuter.org/get-involved/ways-help/wish-list/">
+                  <a href="https://facespayneuter.org/get-involved/ways-help/wish-list/" target="_blank">
                     Face Low Cost Animal Clinic Shelter Wish List
                   </a>
                 </List.Content>
                 <List.Content>
-                  <a href="https://indyhumane.org/blog/news/wishlist/">
+                  <a href="https://indyhumane.org/blog/news/wishlist/" target="_blank">
                     Indy Humane Animal Shelter Wish List
                   </a>
                 </List.Content>
