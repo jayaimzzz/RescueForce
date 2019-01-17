@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 import AnimalList from "../AnimalList";
 import { AnimalFilter } from "./AnimalFilter";
+import { colors } from "../../Constants/"
 
 class AnimalListView extends Component {
   state = {
@@ -101,7 +102,7 @@ class AnimalListView extends Component {
       });
     }
     return (
-      <Segment style={{ maxWidth: 1500, margin: "auto" }}>
+      <Segment style={{ maxWidth: 1500, margin: "auto", backgroundColor: colors.backgroundA }}>
         <Grid>
           <Grid.Column width={10}>
             <AnimalList animals={animals} />

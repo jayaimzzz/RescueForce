@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import HostProfile from "./HostProfile";
 import AnimalList from "../AnimalList";
-import { Header } from "semantic-ui-react";
+import { Header, Container } from "semantic-ui-react";
 import { getAnimals, updateHost } from "../../ActionCreators";
 
 class HostProfileView extends Component {
@@ -12,11 +12,11 @@ class HostProfileView extends Component {
 
   render() {
     return (
-      <Fragment>
+      <Container style={{backgroundColor:"pink"}}>
         <div style={{}}>
           {this.props.canEdit && (
             <Header textAlign="center">Welcome {this.props.host.name}</Header>
-          )}
+            )}
         </div>
         <div style={{ float: "left", width: "fit-content" }}>
           <HostProfile
@@ -25,7 +25,7 @@ class HostProfileView extends Component {
             canEdit={this.props.canEdit}
             canApproveNewHost={this.props.canApproveNewHost}
             updateHost={this.props.updateHost}
-          />
+            />
         </div>
         <div style={{ float: "left" }}>
           <Header>{this.props.host.name}'s current foster animals</Header>
@@ -37,7 +37,7 @@ class HostProfileView extends Component {
             </div>
           )}
         </div>
-      </Fragment>
+      </Container>
     );
   }
 }

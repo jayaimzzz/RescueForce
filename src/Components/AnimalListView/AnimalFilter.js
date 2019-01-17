@@ -1,12 +1,13 @@
 import React from "react";
 import { Form, Button, Header, Segment, Checkbox } from "semantic-ui-react";
 import { SHELTER, FOSTER_ONLY, NEED_FOSTER, ADOPTABLE } from "../../Constants";
+import { colors } from "../../Constants/"
 
 export const AnimalFilter = props => (
   <Segment
     style={{
       width: "100%",
-      backgroundColor: "lightgrey",
+      backgroundColor: colors.backgroundB,
       margin: "auto",
       marginTop: 40
     }}

@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import HostCard from "./HostCard";
 import { HostFilter } from "./HostFilter";
 import HostListHeader from "./HostListHeader"
-import { getAllHosts, getAnimals } from "../../ActionCreators"
+import { getAllHosts, getAnimals } from "../../ActionCreators";
+import { colors } from "../../Constants/"
 
 class HostListView extends Component {
   componentDidMount = () => {
@@ -13,7 +14,7 @@ class HostListView extends Component {
 
   render() {
     return (
-      <div style={{ padding:"10px" }}>
+      <div style={{ padding:"10px", backgroundColor: colors.backgroundA }}>
         <HostListHeader shelter={this.props.shelter}></HostListHeader>
         {/* <HostFilter /> */}
         {this.props.hosts.map(host => (
