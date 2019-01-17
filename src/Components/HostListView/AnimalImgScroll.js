@@ -5,6 +5,7 @@ import {
     Image,
     Segment
   } from "semantic-ui-react";
+import picComingSoon from "../../Images/picComingSoon.png"
 
 const styles = {
     img: {
@@ -29,7 +30,7 @@ const styles = {
               to={`/animal/${animal._id}`}
               circular
               spaced="right"
-              src={animal.photos[0]}
+              src={(animal.photos && animal.photos[0]) || picComingSoon}
               key={`${this.props.animalId}imgNum${index}`}
               verticalAlign="bottom"
               >

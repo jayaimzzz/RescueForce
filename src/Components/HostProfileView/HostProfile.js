@@ -3,7 +3,9 @@ import { Image, Button, Card } from "semantic-ui-react";
 import HostVacancies from "./HostVacancies";
 import HostModalUpdate from "./HostModalUpdate";
 import ChangeHostImageModal from "./ChangeHostImageModal";
+import picComingSoon from "../../Images/picComingSoon.png";
 import { colors } from "../../Constants/";
+
 
 class HostProfile extends Component {
   handleApproveClick = () => {
@@ -28,7 +30,7 @@ class HostProfile extends Component {
           background: colors.backgroundC
         }}
       >
-        <Image src={hostProfilePic} size="medium" />
+        <Image src={hostProfilePic || picComingSoon} size="medium" />
         <Card.Content>
           <Card.Header>{host && host.name}</Card.Header>
           <Card.Description>Address: {host && host.address}</Card.Description>

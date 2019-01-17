@@ -283,7 +283,7 @@ class FrontPageNav extends Component {
                 <br />
                 Whether you chose to help out by making a financial
                 contribution, volunteering your time at a shelter, or donating
-                items on a shelter's 'wish list, you can find links to those
+                items on a shelter's wish list, you can find links to those
                 options below.
               </p>
             </Grid.Row>

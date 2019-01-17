@@ -9,7 +9,6 @@ import { colors } from "../../Constants"
 
 class HostListHeader extends Component {
   render() {
-    console.log(this.props.shelter);
     const shelter = this.props.shelter;
     return (
       <Segment style={{backgroundColor: colors.backgroundB}}>
