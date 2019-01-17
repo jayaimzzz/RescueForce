@@ -53,9 +53,14 @@ class AnimalProfile extends Component {
           <Card.Description>
             {animal.name} {animal.animalFriendly ? "is" : "is not"}{" "}
             animal-friendly, {animal.peopleFriendly ? "is" : "is not"}{" "}
-            people-friendly, {" "}{animal.pregnant ? "is" : "is not"} pregnant, {" "}{animal.fixed ? "is" : "is not"} fixed, {" "}{animal.specialDiet ? "does" : "does not"} have a
-            special diet and {" "}{animal.specialNeeds ? "does" : "does not"} have
-            special needs.{" "}
+            people-friendly, {" "} 
+            {animal.fixed ? "is" : "is not"} fixed, {" "}{animal.specialDiet ? "does" : "does not"} have a
+            special diet, {" "}{animal.specialNeeds ? "does" : "does not"} have
+            special needs{" "}
+            {this.props.displayPregnancy ? (
+            <Card.Description>and {animal.pregnant ? "is" : "is not"} pregnant.{" "}
+            </Card.Description>
+            ) : "."}
           </Card.Description>
           </Grid.Column>
           <Grid.Column>
@@ -85,7 +90,8 @@ const mapStateToProps = (state, props) => {
       state.auth.user.data._id === (animal.hostId && animal.hostId._id),
     canClaim: state.auth.user.type === HOST && animal.status === NEED_FOSTER,
     loggedInUserId: state.auth.user.data._id,
-    displayHostName: state.auth.user.type === SHELTER
+    displayHostName: state.auth.user.type === SHELTER,
+    displayPregnancy: animal.sex === "female"
   };
 };
 
