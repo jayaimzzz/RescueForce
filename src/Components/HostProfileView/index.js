@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import HostProfile from "./HostProfile";
 import AnimalList from "../AnimalList";
-import { Header, Container } from "semantic-ui-react";
+import { Header, Container, Card } from "semantic-ui-react";
 import { getAnimals, updateHost, getHost } from "../../ActionCreators";
 
 class HostProfileView extends Component {
@@ -13,10 +13,13 @@ class HostProfileView extends Component {
 
   render() {
     return (
-      <Container style={{backgroundColor:"pink"}}>
+      <Container style={{}}>
         <div style={{}}>
           {this.props.canEdit && (
+            <Card raised centered>
+
             <Header textAlign="center">Welcome {this.props.host && this.props.host.name}</Header>
+            </Card>
           )}
         </div>
         <div style={{ float: "left", width: "fit-content" }}>
@@ -28,8 +31,11 @@ class HostProfileView extends Component {
             updateHost={this.props.updateHost}
             />
         </div>
-        <div style={{ float: "left" }}>
+        <div style={{ float: "left" , paddingTop:"10px"}}>
           <Header>{this.props.host && this.props.host.name}'s current foster animals</Header>
+          {this.props.hostAnimals.length === 0 && (
+            <Card>No animals currently in {this.props.host && this.props.host.name}'s care</Card>
+          )}
           <AnimalList animals={ this.props.hostAnimals } />
           {this.props.canEdit && (
             <div>
