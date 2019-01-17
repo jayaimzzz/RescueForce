@@ -6,8 +6,7 @@ class AnimalProfileView extends Component {
   render() {
     const animalId = this.props.match.params.id 
     return (
-      <div style={{ height: 350, backgroundColor: "yellow", margin: 10 }}>
-        Animal Profile View
+      <div>
         <ImageScroll animalId={animalId}/>
         <AnimalProfile animalId = {animalId}/>
       </div>

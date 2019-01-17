@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
-import { Image, Button, Card, Icon, CardContent } from "semantic-ui-react";
+import { Image, Button, Card, Icon, Grid, CardContent } from "semantic-ui-react";
 import { HOST, SHELTER, NEED_FOSTER } from "../../Constants";
 import ModalUpdate from "./ModalUpdate";
 import { updateAnimal } from "../../ActionCreators";
@@ -25,44 +25,43 @@ class AnimalProfile extends Component {
     };
 
     return (
-      <Card>
-        <Card.Content>
-          <Card.Header>{animal.name}</Card.Header>
-          <Card.Description>Species: {animal.species}</Card.Description>
-          <Card.Description>Breed: {animal.breed}</Card.Description>
+      <Card style={{width:"100%"}}>
+        <Card.Content style={{backgroundColor: "#77E8E8"}}>
+        <Grid columns={3} divided>
+        <Grid.Column>
+          <Card.Header><h3><strong>{animal.name}</strong></h3></Card.Header>
+          <Card.Description><strong>Species:</strong> {animal.species}</Card.Description>
+          <Card.Description><strong>Breed:</strong> {animal.breed}</Card.Description>
           <Card.Description>
-            DOB: {moment(animal.dob).format("MM/DD/YYYY")}
+          <strong>DOB:</strong> {moment(animal.dob).format("MM/DD/YYYY")}
           </Card.Description>
-          <Card.Description>Sex: {animal.sex}</Card.Description>
-          <Card.Description>About: {animal.about}</Card.Description>
+          <Card.Description><strong>Sex:</strong> {animal.sex}
+          {animal.sex === "female" ? (
+              <Icon name="female" style={{ backgroundColor: "pink" }} />
+            ) : (
+              <Icon name="male" style={{ backgroundColor: "#328CE5" }} />
+            )}
+          </Card.Description>
           {this.props.displayHostName ? (
             <Card.Description>
-              Host: {(animal.hostId && animal.hostId.name) || "N/A"}
+              <strong>Host:</strong> {(animal.hostId && animal.hostId.name) || "N/A"}
             </Card.Description>
           ) : null}
-          <Card.Description>Status: {animal.status}</Card.Description>
+          <Card.Description><strong>Status:</strong> {animal.status}</Card.Description>
+          </Grid.Column>
+          <Grid.Column>
           <Card.Description>
             {animal.name} {animal.animalFriendly ? "is" : "is not"}{" "}
-            animal-friendly.{" "}
-          </Card.Description>
-          <Card.Description>
-            {animal.name} {animal.peopleFriendly ? "is" : "is not"}{" "}
-            people-friendly.{" "}
-          </Card.Description>
-          <Card.Description>
-            {animal.name} {animal.pregnant ? "is" : "is not"} pregnant.{" "}
-          </Card.Description>
-          <Card.Description>
-            {animal.name} {animal.fixed ? "is" : "is not"} fixed.{" "}
-          </Card.Description>
-          <Card.Description>
-            {animal.name} {animal.specialDiet ? "does" : "does not"} have a
-            special diet.{" "}
-          </Card.Description>
-          <Card.Description>
-            {animal.name} {animal.specialNeeds ? "does" : "does not"} have
+            animal-friendly, {animal.peopleFriendly ? "is" : "is not"}{" "}
+            people-friendly, {" "}{animal.pregnant ? "is" : "is not"} pregnant, {" "}{animal.fixed ? "is" : "is not"} fixed, {" "}{animal.specialDiet ? "does" : "does not"} have a
+            special diet and {" "}{animal.specialNeeds ? "does" : "does not"} have
             special needs.{" "}
           </Card.Description>
+          </Grid.Column>
+          <Grid.Column>
+          <Card.Description><strong>About:</strong> {animal.about}</Card.Description>
+          </Grid.Column>
+          </Grid>
         </Card.Content>
         <Card.Content extra>
           {this.props.canUpdate && <ModalUpdate animal={animal} />}
