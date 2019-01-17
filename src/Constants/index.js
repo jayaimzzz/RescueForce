@@ -18,5 +18,15 @@ export const INITIAL_STATE = {
       type: "",
       data: {}
     }
+  },
+  inProgress: {
+    registration: false,
+    hostProfileUpdate: false,
+    animalProfileUpdate: false,
+    shelterProfileUpdate: false,
+    addAnimal: false,
+    changeHostPhoto: false,
+    changeShelterPhoto: false,
+    addAnimalPhotos: false
   }
 };

@@ -24,7 +24,7 @@ class ChangeHostImageModal extends Component {
     this.handleToggleOpen();
   };
 
-  handleImageChange = (event) => {
+  handleImageChange = event => {
     this.setState({
       newImage: event.target.files[0]
     });
@@ -53,7 +53,9 @@ class ChangeHostImageModal extends Component {
             accept="image/png, image/jpeg"
             onChange={this.handleImageChange}
           />
-          <Button type="submit">Update Photo</Button>
+          <Button disabled={this.props.inProgress} type="submit">
+            Update Photo
+          </Button>
         </Form>
       </Modal>
     );
@@ -64,7 +66,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   uploadPhoto: photo => dispatch(uploadPhoto(HOST, ownProps.id, photo))
 });
 
+const mapStateToProps = state => ({
+  inProgress: state.inProgress.changeHostPhoto
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ChangeHostImageModal);

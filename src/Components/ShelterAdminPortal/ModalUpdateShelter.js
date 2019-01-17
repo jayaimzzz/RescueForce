@@ -115,7 +115,7 @@ class ModalUpdateShelter extends Component {
         </Form>
         <Modal.Actions>
           <Button.Group fluid>
-            <Button className="submit-button" onClick={this.handleSubmit}>
+            <Button className="submit-button" disabled={this.props.inProgress} onClick={this.handleSubmit}>
               <Icon name="sticky note outline" /> Save Changes
             </Button>
             <Button.Or />
@@ -134,7 +134,8 @@ class ModalUpdateShelter extends Component {
 }
 
 const mapStateToProps = state => ({
-  shelter: state.shelters.find(shelter => shelter._id === state.auth.user.data._id)
+  shelter: state.shelters.find(shelter => shelter._id === state.auth.user.data._id),
+  inProgress: state.inProgress.shelterProfileUpdate
 });
 
 const mapDispatchToProps = dispatch => ({

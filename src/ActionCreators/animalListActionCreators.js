@@ -4,6 +4,8 @@ import { API_DOMAIN } from "../Constants";
 
 export const GET_ANIMALS_LIST = "get_animals_list";
 export const UPDATE_ANIMAL_PHOTOS = "update_animal_photos";
+export const UPDATE_ANIMAL_PHOTOS_SUCCESS = "update_animal_photos_success";
+export const UPDATE_ANIMAL_PHOTOS_FAILURE = "update_animal_photos_failure";
 // export const UPDATE_ANIMAL = "update_animal";
 
 // update animal actions
@@ -47,6 +49,9 @@ export const updateAnimalPhotos = (animalId, photos) => (
   dispatch,
   getState
 ) => {
+  dispatch({
+    type: UPDATE_ANIMAL_PHOTOS
+  });
   axios
     .patch(
       `${API_DOMAIN}/api/animals/${animalId}`,
@@ -56,21 +61,27 @@ export const updateAnimalPhotos = (animalId, photos) => (
     .then(res => {
       if (res.status === 200) {
         dispatch({
-          type: UPDATE_ANIMAL_PHOTOS,
+          type: UPDATE_ANIMAL_PHOTOS_SUCCESS,
           payload: {
             id: animalId,
             data: res.data.data
           }
         });
+      } else {
+        dispatch({ type: UPDATE_ANIMAL_PHOTOS_FAILURE });
       }
     })
-    .catch(err => console.err(err));
+    .catch(err => {
+      console.err(err);
+      dispatch({ type: UPDATE_ANIMAL_PHOTOS_FAILURE });
+    });
 };
 
 export const uploadAnimalPhotos = (animalId, photos) => (
   dispatch,
   getState
 ) => {
+  dispatch({ type: UPDATE_ANIMAL_PHOTOS });
   const formData = new FormData();
   for (let photo of photos) {
     formData.append("images", photo);
@@ -86,15 +97,20 @@ export const uploadAnimalPhotos = (animalId, photos) => (
     .then(res => {
       if (res.status === 200) {
         dispatch({
-          type: UPDATE_ANIMAL_PHOTOS,
+          type: UPDATE_ANIMAL_PHOTOS_SUCCESS,
           payload: {
             id: animalId,
             data: res.data.data
           }
         });
+      } else {
+        dispatch({ type: UPDATE_ANIMAL_PHOTOS_FAILURE });
       }
     })
-    .catch(err => console.error(err));
+    .catch(err => {
+      console.error(err);
+      dispatch({ type: UPDATE_ANIMAL_PHOTOS_FAILURE });
+    });
 };
 
 export const updateAnimal = updateAnimalData => (dispatch, getState) => {
@@ -124,7 +140,7 @@ export const updateAnimal = updateAnimalData => (dispatch, getState) => {
       dispatch({
         type: UPDATE_ANIMAL_SUCCESS,
         payload: data
-      })
+      });
     })
     .catch(err => {
       dispatch({

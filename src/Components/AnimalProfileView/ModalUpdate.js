@@ -274,7 +274,7 @@ class ModalUpdate extends React.Component {
 
         <Modal.Actions>
           <Button.Group fluid>
-            <Button className="submit-button" onClick={this.handleSubmit}>
+            <Button className="submit-button" disabled={this.props.inProgress} onClick={this.handleSubmit}>
               <Icon name="sticky note outline" /> Update
             </Button>
             <Button.Or />
@@ -293,12 +293,13 @@ class ModalUpdate extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { role: state.auth.user.type };
-  // the second role is wherever in state "role" is located...
+  return {
+    role: state.auth.user.type,
+    inProgress: state.inProgress.animalProfileUpdate
+  };
 };
 
 const mapDispatchToProps = { updateAnimal, getAnimals };
-// this is a shortcut for writing a function that uses the action creator....
 
 export default connect(
   mapStateToProps,

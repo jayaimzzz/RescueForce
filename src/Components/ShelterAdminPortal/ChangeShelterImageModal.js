@@ -52,7 +52,7 @@ class ChangeShelterImageModal extends Component {
             accept="image/png, image/jpeg"
             onChange={this.handleImageChange}
           />
-          <Button type="submit">Update Photo</Button>
+          <Button disabled={this.props.inProgress} type="submit">Update Photo</Button>
         </Form>
       </Modal>
     );
@@ -63,7 +63,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   uploadPhoto: photo => dispatch(uploadPhoto(SHELTER, ownProps.id, photo))
 });
 
+const mapStateToProps = state => ({
+  inProgress: state.inProgress.changeShelterPhoto
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ChangeShelterImageModal);
