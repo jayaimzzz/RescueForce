@@ -20,6 +20,7 @@ import { logout } from "../ActionCreators";
 import { DevNav } from "./DevNav";
 import { CAT, DOG, EXOTIC } from "../Constants";
 import { getShelterById, getAllShelters } from "../ActionCreators";
+import { colors } from "../Constants/"
 
 class App extends Component {
   renderMain = () => (
@@ -36,7 +37,7 @@ class App extends Component {
 
   render() {
     return (
-      <Fragment>
+      <div style={{backgroundColor:colors.backgroundA, height:"100vh"}}>
         <Nav/> 
         <Switch>
           <Route exact path="/host/:id" component={HostProfileView} />
@@ -62,7 +63,7 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
         </Switch>
-      </Fragment>
+      </div>
     );
   }
 }

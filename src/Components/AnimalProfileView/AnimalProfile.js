@@ -6,6 +6,7 @@ import { HOST, SHELTER, NEED_FOSTER } from "../../Constants";
 import ModalUpdate from "./ModalUpdate";
 import { updateAnimal } from "../../ActionCreators";
 import moment from "moment";
+import {colors } from "../../Constants/";
 
 class AnimalProfile extends Component {
   handleClaimFosterClick = data => () => {
@@ -26,7 +27,7 @@ class AnimalProfile extends Component {
 
     return (
       <Card style={{width:"100%"}}>
-        <Card.Content style={{backgroundColor: "#77E8E8"}}>
+        <Card.Content style={{backgroundColor:colors.backgroundC}}>
         <Grid columns={3} divided>
         <Grid.Column>
           <Card.Header><h3><strong>{animal.name}</strong></h3></Card.Header>
@@ -68,7 +69,7 @@ class AnimalProfile extends Component {
           </Grid.Column>
           </Grid>
         </Card.Content>
-        <Card.Content extra>
+        <Card.Content extra style={{backgroundColor:colors.backgroundC}}>
           {this.props.canUpdate && <ModalUpdate animal={animal} />}
           {this.props.canClaim && (
             <Button onClick={this.handleClaimFosterClick(data)} color="red">

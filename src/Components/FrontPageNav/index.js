@@ -40,7 +40,6 @@ class FrontPageNav extends Component {
               width: "100%",
               // backgroundColor: "white",
               backgroundColor: colors.a,
-
               position: "fixed",
               height: "8%",
               fontSize: "20px",
