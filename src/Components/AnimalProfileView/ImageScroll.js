@@ -21,7 +21,7 @@ const styles = {
 
 class ImageScroll extends Component {
   render() {
-    const images = this.props.images.length > 0 ? this.props.images : [picComingSoon];
+    const images = (this.props.images && this.props.images.length > 0) ? this.props.images : [picComingSoon];
     return (
       <Segment style={{backgroundColor:colors.backgroundC}}>
         <div className="ui segment" style={styles.segment}>

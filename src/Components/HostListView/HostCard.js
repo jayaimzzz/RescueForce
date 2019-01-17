@@ -17,7 +17,7 @@ import { colors } from "../../Constants/";
 class HostCard extends Component {
   render() {
     const host = this.props.host;
-    const hostProfilePic = host.photos && host.photos[0] || picComingSoon;
+    const hostProfilePic = (host.photos && host.photos[0]) || picComingSoon;
     return (
       <Segment style={{backgroundColor:colors.backgroundC}}>
         <Grid>

@@ -30,7 +30,7 @@ const styles = {
               to={`/animal/${animal._id}`}
               circular
               spaced="right"
-              src={animal.photos[0] || picComingSoon}
+              src={(animal.photos && animal.photos[0]) || picComingSoon}
               key={`${this.props.animalId}imgNum${index}`}
               verticalAlign="bottom"
               >
