@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 import AnimalList from "../AnimalList";
 import { AnimalFilter } from "./AnimalFilter";
+import { getAnimals } from '../../ActionCreators';
 import { colors } from "../../Constants/"
 
 class AnimalListView extends Component {
@@ -14,6 +15,10 @@ class AnimalListView extends Component {
       years: '',
       months: ''
     }
+  };
+
+  componentDidMount = () => {
+    this.props.getAnimals();
   };
 
   handleFilterNullableRadioChange = (event, { name, value }) => {
@@ -155,7 +160,9 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  getAnimals: () => dispatch(getAnimals())
+});
 
 export default connect(
   mapStateToProps,

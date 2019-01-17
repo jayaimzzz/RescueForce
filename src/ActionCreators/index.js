@@ -23,7 +23,11 @@ import {
   updateAnimalPhotos,
   uploadAnimalPhotos,
   updateAnimal,
-  addAnimal
+  addAnimal,
+  getAnimal,
+  GET_ANIMAL_STARTED,
+  GET_ANIMAL_SUCCESS,
+  GET_ANIMAL_FAILURE
 } from "./animalListActionCreators";
 import {
   GET_ALL_HOSTS,
@@ -35,7 +39,11 @@ import {
   registerHost,
   REGISTER_HOST_STARTED,
   REGISTER_HOST_SUCCESS,
-  REGISTER_HOST_FAILURE
+  REGISTER_HOST_FAILURE,
+  GET_HOST_STARTED,
+  GET_HOST_SUCCESS,
+  GET_HOST_FAILURE,
+  getHost
 } from "./hostActionCreators";
 import {
   login,
@@ -101,5 +109,13 @@ export {
   UPDATE_SHELTER_IMAGE_STARTED,
   UPDATE_SHELTER_IMAGE_SUCCESS,
   UPDATE_SHELTER_IMAGE_FAILURE,
-  uploadPhoto
+  uploadPhoto,
+  getAnimal,
+  GET_ANIMAL_STARTED,
+  GET_ANIMAL_SUCCESS,
+  GET_ANIMAL_FAILURE,
+  GET_HOST_STARTED,
+  GET_HOST_SUCCESS,
+  GET_HOST_FAILURE,
+  getHost
 };
