@@ -40,20 +40,20 @@ self.__precacheManifest = [
     "url": "http//jayaimzzz.github.io/RescueForce/static/media/flags.9c74e172.png"
   },
   {
-    "revision": "cd6c777f1945164224dee082abaea03a",
-    "url": "http//jayaimzzz.github.io/RescueForce/static/media/outline-icons.cd6c777f.woff2"
-  },
-  {
     "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
     "url": "http//jayaimzzz.github.io/RescueForce/static/media/outline-icons.ef60a4f6.woff"
   },
   {
-    "revision": "ad97afd3337e8cda302d10ff5a4026b8",
-    "url": "http//jayaimzzz.github.io/RescueForce/static/media/outline-icons.ad97afd3.ttf"
+    "revision": "cd6c777f1945164224dee082abaea03a",
+    "url": "http//jayaimzzz.github.io/RescueForce/static/media/outline-icons.cd6c777f.woff2"
   },
   {
     "revision": "701ae6abd4719e9c2ada3535a497b341",
     "url": "http//jayaimzzz.github.io/RescueForce/static/media/outline-icons.701ae6ab.eot"
+  },
+  {
+    "revision": "ad97afd3337e8cda302d10ff5a4026b8",
+    "url": "http//jayaimzzz.github.io/RescueForce/static/media/outline-icons.ad97afd3.ttf"
   },
   {
     "revision": "0ab54153eeeca0ce03978cc463b257f7",
@@ -80,12 +80,12 @@ self.__precacheManifest = [
     "url": "http//jayaimzzz.github.io/RescueForce/static/media/icons.b87b9ba5.ttf"
   },
   {
-    "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
-    "url": "http//jayaimzzz.github.io/RescueForce/static/media/brand-icons.c5ebe0b3.ttf"
-  },
-  {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
     "url": "http//jayaimzzz.github.io/RescueForce/static/media/brand-icons.13db00b7.eot"
+  },
+  {
+    "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
+    "url": "http//jayaimzzz.github.io/RescueForce/static/media/brand-icons.c5ebe0b3.ttf"
   },
   {
     "revision": "82f60bd0b94a1ed68b1e6e309ce2e8c3",

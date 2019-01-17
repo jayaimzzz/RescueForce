@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "http//jayaimzzz.github.io/RescueForce/precache-manifest.3f59da50ef267b93933082f12dc44f4a.js"
+  "http//jayaimzzz.github.io/RescueForce/precache-manifest.ae41a0adfb085f3f8fbcc77c4625787c.js"
 );
 
 workbox.clientsClaim();
