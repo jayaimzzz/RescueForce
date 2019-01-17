@@ -16,7 +16,14 @@ export const AnimalsReducer = (state = initState, action) => {
       return action.payload;
 
     case UPDATE_ANIMAL_SUCCESS:
-      return [...state, action.payload]
+      const copiedState = [...state];
+      const index = copiedState.findIndex(animal => animal._id === action.payload._id);
+      if (index < 0) {
+        copiedState.push(action.payload);
+      } else {
+        copiedState[index] = action.payload;
+      }
+      return copiedState;        
 
     case UPDATE_ANIMAL_FAILURE:
       return state;
