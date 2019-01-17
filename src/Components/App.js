@@ -1,9 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Route, Switch, withRouter } from "react-router";
-import { Link } from "react-router-dom";
 import { push } from "connected-react-router";
 import { connect } from "react-redux";
-import { Button, Sticky } from "semantic-ui-react";
 import {
   AnimalListView,
   AnimalProfileView,
@@ -17,7 +15,6 @@ import {
   Nav
 } from "./index";
 import { logout } from "../ActionCreators";
-import { DevNav } from "./DevNav";
 import { CAT, DOG, EXOTIC } from "../Constants";
 import { getShelterById, getAllShelters } from "../ActionCreators";
 

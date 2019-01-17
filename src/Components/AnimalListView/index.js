@@ -153,6 +153,7 @@ const mapStateToProps = (state, props) => {
       )
       .sort((a, b) => {
         if (b === "Show All" || a.toLowerCase() < b.toLowerCase()) return -1;
+        return 1;
       })
       .map(breed => ({ text: breed, value: breed })),
     role: state.auth.user.type

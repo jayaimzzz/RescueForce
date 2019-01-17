@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Form, Button, Progress, Grid, Image } from "semantic-ui-react";
+import { Form, Progress, Grid, Image } from "semantic-ui-react";
 import dogCatPic from "../../Images/dog-cat01.png"
 
 class Success extends Component {
   render() {
-    const { values } = this.props;
     return (
       <Grid columns={2} divided>
         <Grid.Row>

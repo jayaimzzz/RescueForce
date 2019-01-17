@@ -11,21 +11,13 @@ import {
 import { connect } from "react-redux";
 import {
   addAnimal,
-  updateAnimal,
   getAnimals,
   getAllHosts
 } from "../../ActionCreators";
-import { ADOPTABLE, FOSTER_ONLY, NEED_FOSTER } from "../../Constants";
 
 const options = [
   { key: "dog", text: "dog", value: "dog" },
   { key: "cat", text: "cat", value: "cat" }
-];
-
-const adoptionOptions = [
-  { text: "Needs Foster", value: NEED_FOSTER },
-  { text: "Foster Only", value: FOSTER_ONLY },
-  { text: "Adoptable", value: ADOPTABLE }
 ];
 
 class ModalAddAnimal extends React.Component {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
-import { Image, Button, Card, Icon, Grid, CardContent } from "semantic-ui-react";
+import { Button, Card, Icon, Grid } from "semantic-ui-react";
 import { HOST, SHELTER, NEED_FOSTER } from "../../Constants";
 import ModalUpdate from "./ModalUpdate";
 import { updateAnimal } from "../../ActionCreators";

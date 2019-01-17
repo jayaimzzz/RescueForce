@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import { Image, Button, Card, Icon } from "semantic-ui-react";
+import { Image, Card } from "semantic-ui-react";
 import ModalUpdateShelter from "./ModalUpdateShelter";
 import ChangeShelterImageModal from "./ChangeShelterImageModal";
 
