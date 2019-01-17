@@ -12,7 +12,7 @@ class HostProfile extends Component {
   };
   render() {
     const host = this.props.host;
-    const hostProfilePic = host.photos[0];
+    const hostProfilePic = host && host.photos[0];
     const shelter = this.props.shelter;
     const shelterProfilePic =
       shelter && shelter.photos
@@ -29,15 +29,15 @@ class HostProfile extends Component {
       >
         <Image src={hostProfilePic} size="medium" />
         <Card.Content>
-          <Card.Header>{host.name}</Card.Header>
-          <Card.Description>Address: {host.address}</Card.Description>
-          <Card.Description>Phone Number: {host.phoneNumber}</Card.Description>
+          <Card.Header>{host && host.name}</Card.Header>
+          <Card.Description>Address: {host && host.address}</Card.Description>
+          <Card.Description>Phone Number: {host && host.phoneNumber}</Card.Description>
           <Card.Description>
-            Capacity: Cats:{host.capacity && host.capacity.cats}, Dogs:
-            {host.capacity && host.capacity.dogs}
+            Capacity: Cats:{host && host.capacity && host.capacity.cats}, Dogs:
+            {host && host.capacity && host.capacity.dogs}
           </Card.Description>
-          <HostVacancies host={host} />
-          {host.approved && (
+          {host && <HostVacancies host={host} />}
+          {host && host.approved && (
             <Card.Content>
               <Image src={shelterProfilePic} avatar={true} size="massive" />
               Fostering for {shelter && shelter.name}

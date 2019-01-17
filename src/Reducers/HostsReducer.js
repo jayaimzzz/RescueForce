@@ -8,7 +8,8 @@ import {
   REGISTER_HOST_FAILURE,
   UPDATE_HOST_IMAGE_STARTED,
   UPDATE_HOST_IMAGE_SUCCESS,
-  UPDATE_HOST_IMAGE_FAILURE
+  UPDATE_HOST_IMAGE_FAILURE,
+  GET_HOST_SUCCESS
 } from "../ActionCreators";
 
 const initState = [];
@@ -33,14 +34,27 @@ export const HostsReducer = (state = initState, action) => {
       return state;
     case UPDATE_HOST_IMAGE_FAILURE:
       return state;
-    case UPDATE_HOST_IMAGE_SUCCESS:
+    case UPDATE_HOST_IMAGE_SUCCESS: {
       const { id, data } = action.payload;
       const index = state.indexOf(host => host._id === id);
       if (index < 1) {
-        return [...state, data]
+        return [...state, data];
       } else {
         return state.map(host => (host._id === id ? data : host));
       }
+    }
+    case GET_HOST_SUCCESS: {
+      const copiedState = [...state];
+      const index = copiedState.findIndex(
+        host => host._id === action.payload._id
+      );
+      if (index < 0) {
+        copiedState.push(action.payload);
+      } else {
+        copiedState[index] = action.payload;
+      }
+      return copiedState;
+    }
     default:
       return state;
   }
