@@ -46,11 +46,11 @@ class AnimalCard extends Component {
           </Label>}
           {animal.status === FOSTER_ONLY &&
           <Label as="div" color="blue" ribbon>
-            Foster-only
+            Foster
           </Label>}
           {animal.status ===  NEED_FOSTER &&
           <Label as="div" color="yellow" ribbon>
-            Foster ready
+            Needs Foster Home
           </Label>}
 
           <Card.Header style={{ padding: "5px" }}>{animal.name}</Card.Header>
