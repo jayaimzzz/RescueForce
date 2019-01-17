@@ -5,12 +5,13 @@ import {
   Segment,
   Header
 } from "semantic-ui-react";
+import { colors } from "../../Constants"
 
 class HostListHeader extends Component {
   render() {
     const shelter = this.props.shelter;
     return (
-      <Segment>
+      <Segment style={{backgroundColor: colors.backgroundB}}>
         <Grid columns={2} divided>
           <Grid.Row>
             <Grid.Column width={4}>

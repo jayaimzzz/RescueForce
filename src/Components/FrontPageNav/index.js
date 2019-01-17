@@ -36,7 +36,6 @@ class FrontPageNav extends Component {
               paddingBottom: "20px",
               // backgroundColor: "white",
               backgroundColor: colors.a,
-
               position: "fixed",
               height: "8%",
               fontSize: "20px",

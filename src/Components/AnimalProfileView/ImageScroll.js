@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { SHELTER } from "../../Constants"
 import { Image, Segment } from "semantic-ui-react";
 import ImageEdit from "./ImageEdit";
-import picComingSoon from "../../Images/picComingSoon.png"
+import picComingSoon from "../../Images/picComingSoon.png";
+import { colors } from "../../Constants/";
 
 const styles = {
   img: {
@@ -22,7 +23,7 @@ class ImageScroll extends Component {
   render() {
     const images = this.props.images.length > 0 ? this.props.images : [picComingSoon];
     return (
-      <Segment>
+      <Segment style={{backgroundColor:colors.backgroundC}}>
         <div className="ui segment" style={styles.segment}>
           {images && images.map((image, index) => (
             <Image
