@@ -74,7 +74,7 @@ class Login extends Component {
             Login
           </button>
         </Form>
-        {this.props.loginResult}
+        <div style={{color:"red"}}><strong>{this.props.loginResult}</strong></div>
       </Segment>
     );
   }
