@@ -88,8 +88,8 @@ const mapStateToProps = (state, props) => {
     animal,
     canUpdate:
       state.auth.user.type === SHELTER ||
-      state.auth.user.data._id === (animal.hostId && animal.hostId._id),
-    canClaim: state.auth.user.type === HOST && animal.status === NEED_FOSTER,
+      state.auth.user.data._id === (animal && animal.hostId && animal.hostId._id),
+    canClaim: state.auth.user.type === HOST && animal && animal.status === NEED_FOSTER,
     loggedInUserId: state.auth.user.data._id,
     displayHostName: state.auth.user.type === SHELTER,
     displayPregnancy: animal && animal.sex === "female"
