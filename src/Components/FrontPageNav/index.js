@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import HeaderImageScroll from "../PublicView/HeaderImageScroll";
-import { Icon, List, Grid } from "semantic-ui-react";
+import { Icon, List, Grid, Sticky } from "semantic-ui-react";
 import MissionStatement from "../PublicView/MissionStatement";
 import { AnimalCard } from "../AnimalList/AnimalCard";
 import { ADOPTABLE, colors } from "../../Constants/index";
@@ -9,6 +9,9 @@ import { connect } from "react-redux";
 import "../FrontPageNav/animalGridBox.css";
 
 class FrontPageNav extends Component {
+  state = {
+    navBarTop: '50px'
+  }
   constructor(props) {
     super(props);
     this.sectionOne = React.createRef();
@@ -22,21 +25,48 @@ class FrontPageNav extends Component {
     window.scrollTo({ top: ref.current.offsetTop, behavior: "smooth" });
   };
 
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = (event) =>{
+    let pageOffset = event.path[1].pageYOffset
+    if (pageOffset < 50){
+      this.setState({
+        navBarTop: `${50 - pageOffset}px`
+      })
+    }
+    else {
+      this.setState({
+        navBarTop: 0
+      })
+    }
+  }
+
   render() {
     return (
       <Fragment>
-        <div style={{position: "relative", zIndex:2 }} className="site navigation page navigation">
+        <div style={{
+          position: "relative", zIndex:2 
+          }} className="site navigation page navigation">
           <nav
+            id="secondNavBar"
             className="top"
             style={{
-              marginTop: "20px",
+              // marginTop: "20px",
               width: "100%",
-              margin: "20px",
-              marginLeft: "0px",
-              paddingBottom: "20px",
+              // margin: "20px",
+              // marginLeft: "0px",
+              // paddingBottom: "20px",
               backgroundColor: colors.a,
               position: "fixed",
-              height: "8%",
+              top: this.state.navBarTop,
+              // width: "100%",
+              // height: "8%",
               fontSize: "20px",
               fontFamily: "fantasy"
             }}
