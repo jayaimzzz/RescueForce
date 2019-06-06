@@ -10,7 +10,7 @@ import "../FrontPageNav/animalGridBox.css";
 
 class FrontPageNav extends Component {
   state = {
-    navBarTop: '50px'
+    navBarTop: '55px'
   }
   constructor(props) {
     super(props);
@@ -33,11 +33,11 @@ class FrontPageNav extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  handleScroll = (event) =>{
-    let pageOffset = event.path[1].pageYOffset
-    if (pageOffset < 50){
+  handleScroll = () =>{
+    let pageOffset = window.pageYOffset
+    if (pageOffset < 55){
       this.setState({
-        navBarTop: `${50 - pageOffset}px`
+        navBarTop: `${55 - pageOffset}px`
       })
     }
     else {
@@ -57,16 +57,10 @@ class FrontPageNav extends Component {
             id="secondNavBar"
             className="top"
             style={{
-              // marginTop: "20px",
               width: "100%",
-              // margin: "20px",
-              // marginLeft: "0px",
-              // paddingBottom: "20px",
               backgroundColor: colors.a,
               position: "fixed",
               top: this.state.navBarTop,
-              // width: "100%",
-              // height: "8%",
               fontSize: "20px",
               fontFamily: "fantasy"
             }}
